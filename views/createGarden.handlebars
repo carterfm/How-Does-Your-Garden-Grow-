@@ -1,0 +1,98 @@
+<main>
+    <div id="welcome-box">
+        <h2>Create a New Garden</h2>
+        <p>Answer the questions below, and we'll help you plan a garden!</p>
+        <form id="newGarden" style="display:flex;flex-direction:column; padding: 20px;">
+            <label for="newTitle">What would you like to call this plan?</label>
+            <input type="text" name="newTitle" id="newTitle" placeholder="My Plan's Name is...">
+
+            <label for="newDesc">Any special notes?</label>
+            <textarea name="newDesc" id="newDesc" cols="30" rows="5" placeholder="This plan's for..."></textarea>
+
+            <label for="newShape">What shape is your garden bed?</label>
+            <select name="newShape" id="newShape">
+                <option value="">--Choose a Shape--</option>
+                <option value="circle">Circle</option>
+                <option value="square">Square</option>
+                <option value="rectangle">Rectangle</option>
+            </select>
+            <label for="square">How long is one side (in inches)?</label>
+            <input type="text" name="square" id="square" placeholder="Inches">
+            <label for="rectShort">How long is the short side (in inches)?</label>
+            <input type="text" name="rectShort" id="rectShort" placeholder="Inches">
+            <label for="rectLong">How long is the long side (in inches)?</label>
+            <input type="text" name="rectLong" id="rectLong" placeholder="Inches">
+            <label for="circle">How wide across is it (in inches)?</label>
+            <input type="text" name="circle" id="circle" placeholder="Inches">
+
+            <label for="sun">How much sun do you get?</label>
+            <select name="sun" id="sun">
+                <option value="">--Choose One--</option>
+                <option value="full">Full sun (more than 6 hours of sun a day)</option>
+                <option value="partial">Part sun (between 4-6 hours of sun a day)</option>
+                <option value="shade">Full shade (less than 4 hours of sun a day)</option>
+            </select>
+
+            <div id="plantChoices" style="border: 1px solid black; margin:10px 0; padding: 0 10px;">
+                <h3>Which plant would you like to include?</h3>
+                <ul id="plantBox" style="margin: 10px; padding: 10px; width: 100%; height: 150px; overflow-y: auto">
+                    <li>
+                        <input type="checkbox" id="basil" name="basil" value="basil">
+                        <label for="basil">Basil</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="broccoli" name="broccoli" value="broccoli">
+                        <label for="broccoli">Broccoli</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="carrots" name="carrots" value="carrots">
+                        <label for="carrots">Carrots</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="dill" name="dill" value="dill">
+                        <label for="dill">Dill</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="eggplant" name="eggplant" value="eggplant">
+                        <label for="eggplant">Eggplant</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="kale" name="kale" value="kale">
+                        <label for="kale">Kale</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="lettuce" name="lettuce" value="lettuce">
+                        <label for="lettuce">lettuce</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="okra" name="okra" value="okra">
+                        <label for="okra">Okra</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="parsley" Parsleyname="parsley" Parsleyvalue="parsley">Parsley
+                        <label for="parsley">Parsley</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="radish" name="radish" value="radish">
+                        <label for="radish">Radish</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="spinach" name="spinach" value="spinach">
+                        <label for="spinach">Spinach</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="tomato" name="tomato" value="tomato">
+                        <label for="tomato">Tomato</label>
+                    </li>                   
+                    <li>
+                        <input type="checkbox" id="turnip" name="turnip" value="turnip">
+                        <label for="turnip">Turnip</label>
+                    </li>                   
+                </ul>
+            </div>
+
+            <button id="getGarden">Build It!</button>
+
+        </form>
+    </div>
+</main>
