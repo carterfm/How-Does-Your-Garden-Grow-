@@ -1,5 +1,6 @@
 <main>
-    <h2>Welcome back {{user.username}}!</h2>
+    {{!-- should just be username, since that's a key in the object, req.session.user, that we're passing it --}}
+    <h2>Welcome back {{username}}!</h2>
     <div><h2>Create New Garden</h2></div>
     <div><h2>Old Garden Plans</h2></div>
     <div><h2>View/Edit Profile</h2></div>

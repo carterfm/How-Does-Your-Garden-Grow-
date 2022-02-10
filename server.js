@@ -1,5 +1,5 @@
 const express = require('express');
-// const routes = require('./controllers');
+const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -36,7 +36,7 @@ app.use(session({
       }),
   }))
 
-// app.use('/', routes);
+app.use('/', routes);
 
 //Syncing sequelize before setting the server to listen
 sequelize.sync({ force: false }).then(function() {
