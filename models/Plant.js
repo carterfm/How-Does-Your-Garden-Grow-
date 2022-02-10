@@ -21,7 +21,7 @@ Plant.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    //yield is in pounds/plant
+    //yield is in pounds/square foot
     yield:{
         type: DataTypes.DECIMAL,
         allowNull: false
@@ -36,6 +36,11 @@ Plant.init({
     },
     //timeToHarvest is in days
     timeToHarvest:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    // Plants per SF for Square Foot Gardening
+    plantsPerSF:{
         type: DataTypes.INTEGER,
         allowNull: false
     }
