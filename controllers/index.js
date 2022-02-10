@@ -1,11 +1,11 @@
 //Setting up router and link to folder to handle our api routes
 const router = require('express').Router();
-// const apiRoutes = require('./api');
+const apiRoutes = require('./api');
 //TODO: remove when done with test routes it's being used for
 const bcrypt = require("bcrypt");
 
 //Routing requests made to /api to index.js in our api subdirectory
-// router.use('/api', apiRoutes);
+router.use('/api', apiRoutes);
 
 //get route for homepage
 router.get('/', async (req, res) => {
