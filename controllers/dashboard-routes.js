@@ -52,7 +52,6 @@ router.get('/gardens/create', withAuth, async (req, res)=>{
     try{
         const dbPlants = Plant.findAll({})
         const plants = (await dbPlants).map(plant => plant.get({plain: true}));
-        console.log({...plants});
         res.render('createGarden', {plant: plants});
     } catch (err) {
           console.log(err);
