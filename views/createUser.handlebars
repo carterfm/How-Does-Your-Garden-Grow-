@@ -4,11 +4,11 @@
         <p>Please provide your email address, desired username, and password below</p>
         <form id="create">
             <label for="emailInput">Email:</label>
-            <input type="text" name="emailInput" id="emailInput" placeholder="Type email here...">
+            <input type="email" name="emailInput" required="required" id="emailInput" placeholder="Type email here...">
             <label for="usernameInput">Username:</label>
-            <input type="text" name="usernameInput" id="usernameInput" placeholder="Pick a username...">
+            <input type="text" name="usernameInput" required="required" id="usernameInput" placeholder="Pick a username...">
             <label for="passwordInput">Password:</label>
-            <input type="text" name="passwordInput" id="passwordInput" placeholder="Choose a password...">
+            <input type="text" name="passwordInput" required="required"  autocomplete="new-password" id="passwordInput">
             {{!-- <label for="passwordVal">Re-type Your Password:</label>
             <input type="text" name="passwordVal" id="passwordVal" placeholder="Re-type your password..."> --}}
             <button type="submit" id="submitCreate">SUBMIT</button>

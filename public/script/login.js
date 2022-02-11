@@ -1,4 +1,19 @@
-console.log('------------------im login in--------------------')
+
+const passwordInput = document.getElementById('password')
+const toggleButton = document.getElementById('togglePassword')
+
+const togglePassword = (e) => {
+    e.preventDefault();
+    if(passwordInput.type==='password'){
+        passwordInput.type = 'text';
+        toggleButton.textContent = 'Hide Password';
+    } else {
+        passwordInput.type = 'password';
+        toggleButton.textContent = 'Show password';
+    }
+}
+
+toggleButton.addEventListener('click', togglePassword);
 
 const login = async (e) => {
   e.preventDefault();
@@ -19,7 +34,9 @@ const login = async (e) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+        document.getElementById('userName').innerText = '';
+        document.getElementById('password').innerText = '';
+        alert('Your username or passwor was incorrect. Try again!');
     }
   }
 };
@@ -40,6 +57,6 @@ const goCreateUser = async (e) => {
    
 };
 
-document.getElementById('login').addEventListener('submit', login);
+document.getElementById('submitLogin').addEventListener('submit', login);
 
 document.getElementById('createUser').addEventListener('click', goCreateUser);

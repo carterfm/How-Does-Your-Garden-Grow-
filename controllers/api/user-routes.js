@@ -71,7 +71,6 @@ router.post('/logout', (req, res) => {
             res.status(404).end();
         }
     }  catch (err) {
-        console.log(res.session)
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
     }
