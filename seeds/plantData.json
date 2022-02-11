@@ -7,7 +7,7 @@
         "yield": "0.8",
         "sunLevel": "full",
         "timeToHarvest": "75",
-        "plantsPer": "18"
+        "plantsPerSF": "18"
     },
     {
         "name": "Onions (bulb)",
@@ -17,7 +17,7 @@
         "yield": "0.8",
         "sunLevel": "full",
         "timeToHarvest": "110",
-        "plantsPer": "9"
+        "plantsPerSF": "9"
     },
     {
         "name": "Beans (bush)",
@@ -27,7 +27,7 @@
         "yield": "0.6",
         "sunLevel": "full",
         "timeToHarvest": "65",
-        "plantsPer": "4"
+        "plantsPerSF": "4"
     },
     {
         "name": "Asparagus",
@@ -37,7 +37,7 @@
         "yield": "0.1",
         "sunLevel": "full",
         "timeToHarvest": "1095",
-        "plantsPer": "1"
+        "plantsPerSF": "1"
     },
     {
         "name": "Cabbage",
@@ -57,7 +57,7 @@
         "yield": "1.0",
         "sunLevel": "full",
         "timeToHarvest": "60",
-        "plantsPer": "9"
+        "plantsPerSF": "9"
     },
     {
         "name": "Corn (sweet)",
@@ -67,7 +67,7 @@
         "yield": ".75",
         "sunLevel": "full",
         "timeToHarvest": "90",
-        "plantsPer": "2"
+        "plantsPerSF": "2"
     },
     {
         "name": "Cucumbers",
@@ -77,7 +77,7 @@
         "yield": "5",
         "sunLevel": "full",
         "timeToHarvest": "5",
-        "plantsPer": "2"
+        "plantsPerSF": "2"
     },
     {
         "name": "Eggplant",
@@ -87,7 +87,7 @@
         "yield": "1.6",
         "sunLevel": "full",
         "timeToHarvest": "75",
-        "plantsPer": "1"
+        "plantsPerSF": "1"
     },
     {
         "name": "Lettuce",
@@ -97,7 +97,7 @@
         "yield": "1.2",
         "sunLevel": "full",
         "timeToHarvest": "60",
-        "plantsPer": "5"
+        "plantsPerSF": "5"
     },
     {
         "name": "Radishes",
@@ -107,6 +107,6 @@
         "yield": ".75",
         "sunLevel": "full",
         "timeToHarvest": "",
-        "plantsPer": "16"
+        "plantsPerSF": "16"
     }
 ]

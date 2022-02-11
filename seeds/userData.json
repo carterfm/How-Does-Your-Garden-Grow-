@@ -1,11 +1,11 @@
 [
     {
-        "name": "dev",
+        "username": "dev",
         "email": "dev@dev.com",
         "password": "password"
     },
     {
-        "name": "dev2",
+        "username": "dev2",
         "email": "dev2@dev.com",
         "password": "password"
     }

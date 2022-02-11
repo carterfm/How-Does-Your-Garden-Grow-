@@ -31,7 +31,7 @@ router.get('/gardens', withAuth, async (req, res) => {
         const gardens = allUserGardens.map( garden => garden.get({plain: true}));
 
         res.render('oldGardens', gardens);
-    }   catch (err) {
+    } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
     }
@@ -57,4 +57,25 @@ router.get('/gardens/edit', withAuth, async (req, res) => {
     }
 })
 
+
+
+//Route to display output page
+router.post('/gardens/new', withAuth, async (req, res) => {
+        try { 
+            const gardenData = await Garden.create({
+            title: req.body.name,
+            description: req.body.description,
+            shape: req.body.shape,
+            length: req.body.length,
+            width: req.body.width,
+            sunLevel: req.body.sun
+          });
+            const garden = gardenData.get({plain: true});
+            res.render('garden', {...garden});
+        }   catch (err) {
+            console.log('======\n' + err + '\n======');
+            res.status(500).json(err);
+        }
+        
+});
 module.exports = router;

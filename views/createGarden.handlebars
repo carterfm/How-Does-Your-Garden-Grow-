@@ -16,17 +16,18 @@
                 <option value="square">Square</option>
                 <option value="rectangle">Rectangle</option>
             </select>
-            <label for="square">How long is one side (in inches)?</label>
-            <input type="text" name="square" id="square" placeholder="Inches">
-            <label for="rectShort">How long is the short side (in inches)?</label>
-            <input type="text" name="rectShort" id="rectShort" placeholder="Inches">
-            <label for="rectLong">How long is the long side (in inches)?</label>
-            <input type="text" name="rectLong" id="rectLong" placeholder="Inches">
-            <label for="circle">How wide across is it (in inches)?</label>
-            <input type="text" name="circle" id="circle" placeholder="Inches">
+            
+            <div id="measQues">
+                <label id="square">How long is one side (in inches)?</label>
+                <label id="circle">How wide across is it (in inches)?</label>
+                <label id="rectLong">How long is the long side (in inches)?</label>
+                <input type="text" id="len" placeholder="Inches">
+                <label id="rectShort">How long is the short side (in inches)?</label>
+                <input type="text" id="wid" placeholder="Inches">
+            </div>
 
             <label for="sun">How much sun do you get?</label>
-            <select name="sun" id="sun">
+            <select name="sun" id="newSun">
                 <option value="">--Choose One--</option>
                 <option value="full">Full sun (more than 6 hours of sun a day)</option>
                 <option value="partial">Part sun (between 4-6 hours of sun a day)</option>
@@ -96,3 +97,4 @@
         </form>
     </div>
 </main>
+<script src="/script/gardenForms.js"></script>
