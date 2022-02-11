@@ -55,9 +55,7 @@ router.get('/gardens/edit', withAuth, async (req, res) => {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err); 
     }
-})
-
-
+});
 
 //Route to display output page
 router.post('/gardens/new', withAuth, async (req, res) => {
