@@ -12,7 +12,7 @@ router.get('/', withAuth, (req, res) => {
     }
 });
 
-//Get route to diplsay page for editing user information
+//Get route to display page for editing user information
 router.get('/profile', withAuth, (req, res) => {
     try {
         res.render('editUser', req.session.user);
@@ -41,12 +41,20 @@ router.get('/gardens', withAuth, async (req, res) => {
 router.get('/gardens/create', withAuth, async (req, res) => {
     try {
         res.render('createGarden');
-    }   catch (err) {
+    } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
     }
 });
 
 //Get route for editing an old garden
+router.get('/gardens/edit', withAuth, async (req, res) => {
+    try {
+        res.render('editOldGarden');
+    } catch (err) {
+        console.log('======\n' + err + '\n======');
+        res.status(500).json(err); 
+    }
+})
 
 module.exports = router;
