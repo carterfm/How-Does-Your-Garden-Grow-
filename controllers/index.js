@@ -62,7 +62,7 @@ router.get('/fakelogin', async (req, res) => {
             password: bcrypt.hashSync("password", 5)
         };
         console.log(req.session.user);
-        res.status(200).end();
+        res.status(200).json(req.session.user);
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);

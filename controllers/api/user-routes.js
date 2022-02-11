@@ -1,6 +1,20 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User } = require('../../models')
+const { User, Garden } = require('../../models');
+
+//Get route for getting all users
+//TODO: remove, potentially?
+router.get('/', async (req, res) => {
+    try {
+        const allUsers = await User.findAll({
+            include: [Garden]
+        })
+        res.status(200).json(allUsers);
+    } catch (err) {
+        console.log('======\n' + err + '\n======');
+        res.status(500).json(err);
+    }
+})
 
 //managing creation of new user
 router.post('/', async (req, res) => {
@@ -26,44 +40,48 @@ router.post('/', async (req, res) => {
 
 //logging in an existing user
 router.post('/login', async (req, res) => {
-    try {
-        //Search for a user in our database with matching username
-        const user = await User.findOne({
-            where: {
-                username: req.body.username
+    if (!req.session.user) {
+        try {
+            //Search for a user in our database with matching username
+            const user = await User.findOne({
+                where: {
+                    username: req.body.username
+                }
+            });
+    
+            //If no such user exists in our database, return an error code
+            //TODO: frontend handling for displaying appropriate message
+            if (!user){
+                res.status(400).json({ message: 'Incorrect email or password.' });
+                return;
             }
-        });
-
-        //If no such user exists in our database, return an error code
-        //TODO: frontend handling for displaying appropriate message
-        if (!user){
-            res.status(400).json({ message: 'Incorrect email or password.' });
-            return;
+    
+            if (!bcrypt.compareSync(req.body.password, user.password)){
+                res.status(400).json({ message: 'Incorrect email or password.' });
+                return;
+            }
+    
+            req.session.user = {
+                id: user.id,
+                username: user.username,
+                email: user.email
+            };
+    
+            res.status(200).json({user: user, message: 'Logged in successfully.'});
+            //TODO: frontend code should then take us to the userHome page by setting location.href
+            //to '/dashboard'
+        } catch (err) {
+            console.log('======\n' + err + '\n======');
+            res.status(500).json(err);
         }
-
-        if (!bcrypt.compareSync(req.body.password, user.password)){
-            res.status(400).json({ message: 'Incorrect email or password.' });
-            return;
-        }
-
-        req.session.user = {
-            id: user.id,
-            username: user.username,
-            email: user.email
-        };
-
-        res.status(200).json({user: user, message: 'Logged in successfully.'});
-        //TODO: frontend code should then take us to the userHome page by setting location.href
-        //to '/dashboard'
-    } catch (err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
+    } else {
+        res.status(404).end();
     }
+
 });
 
 //logging out of a currently active account
 router.post('/logout', (req, res) => {
-    console.log(req.session.user);
     try {
         if (req.session.user) {
             req.session.destroy(() => res.status(204).end());
