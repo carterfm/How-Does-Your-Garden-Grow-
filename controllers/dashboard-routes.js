@@ -28,7 +28,7 @@ router.get('/profile', withAuth, (req, res) => {
 router.get('/gardens', withAuth, async (req, res) => {
     try {
         const allUserGardens = await Garden.findAll({where: { UserId: req.session.user.id }});
-        const gardens = allUserGardens.map( garden => garden.get({plain: true}));
+        const gardens = allUserGardens.map(garden => garden.get({plain: true}));
 
         res.render('oldGardens', gardens);
     } catch (err) {
@@ -38,54 +38,61 @@ router.get('/gardens', withAuth, async (req, res) => {
 });
 
 //Get route to display the create garden page
-// router.get('/gardens/create', withAuth, async (req, res) => {
-//     try {
-//         res.render('createGarden');
-//     } catch (err) {
-//         console.log('======\n' + err + '\n======');
-//         res.status(500).json(err);
-//     }
-// });
+router.get('/gardens/create', withAuth, async (req, res) => {
+    try {
+        const allPlants = await Plant.findAll();
+        const plant = allPlants.map(plant => plant.get({plain: true}));
 
-//Get route to display plants on create form
-router.get('/gardens/create', withAuth, async (req, res)=>{
-    try{
-        const dbPlants = Plant.findAll({})
-        const plants = (await dbPlants).map(plant => plant.get({plain: true}));
-        res.render('createGarden', {plant: plants});
+        res.render('createGarden', {plant});
     } catch (err) {
           console.log(err);
           res.status(500).json({ msg: "uh oh!", err });
         };
 })
 
-//Get route for editing an old garden
-router.get('/gardens/edit', withAuth, async (req, res) => {
+//Get route to display a specific garden from the user's gardens to the page
+router.get('/gardens/:id', withAuth, async(req, res) => {
     try {
-        res.render('editOldGarden');
+        const gardenData = await Garden.findByPk(req.params.id, {
+            include: [Plant],
+            where: {
+                UserId: req.session.user.id
+            }
+        });
+    
+        if (!gardenData) {
+          return res.status(404).json({ message: 'No garden with that id is associated with this user'});
+        }
+
+        const garden = gardenData.get({plain: true});
+
+        res.render('garden', garden);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//Get route for editing an old garden
+router.get('/gardens/edit/:id', withAuth, async (req, res) => {
+    try {
+        const gardenToEdit = await Garden.findByPk(req.params.id, {
+            include: [Plant],
+            where: {
+                UserId: req.session.user.id
+            }
+        });
+
+        if (!gardenToEdit) {
+            return res.status(404).json({ message: 'No garden with that id is associated with this user'});
+        }
+
+        const gardenEdit = gardenToEdit.get({plain: true});
+        
+        res.render('editOldGarden', gardenEdit);
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err); 
     }
 });
 
-//Route to display output page
-router.post('/gardens/new', withAuth, async (req, res) => {
-        try { 
-            const gardenData = await Garden.create({
-            title: req.body.name,
-            description: req.body.description,
-            shape: req.body.shape,
-            length: req.body.length,
-            width: req.body.width,
-            sunLevel: req.body.sun
-          });
-            const garden = gardenData.get({plain: true});
-            res.render('garden', {...garden});
-        }   catch (err) {
-            console.log('======\n' + err + '\n======');
-            res.status(500).json(err);
-        }
-        
-});
 module.exports = router;
