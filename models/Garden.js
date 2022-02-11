@@ -13,7 +13,7 @@ Garden.init({
         type: DataTypes.STRING
     },
     shape: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             isIn: [['circle', 'square', 'rectangle']]

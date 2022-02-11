@@ -7,7 +7,7 @@ class User extends Model {}
 User.init({
     //id is generated automatically by sequelize
     username:{
-        type: DataTypes.VARCHAR(30),
+        type: DataTypes.STRING(30),
         allowNull: false,
     },
     email:{
