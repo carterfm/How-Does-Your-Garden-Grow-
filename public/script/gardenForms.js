@@ -32,6 +32,20 @@ const hide = (el) => {
     el.style.display = 'none';
 }
 
+// const getPlants = () => {
+//     const response = await fetch('/dashboard/gardens', {
+//         method: 'GET',
+//         headers: {
+//         'Content-Type': 'application/json',
+//         },
+//     })
+//         if (response.ok) {
+//         document.location.replace('/dashboard/gardens');
+//         } else {
+//         alert(response.statusText);
+//         }
+// }
+
 const init = () => {
     hide(measQuesBox)
     hide(squareLabel)
@@ -44,6 +58,8 @@ const init = () => {
     descriptionBox.innerHTML = '';
     shapeBox.value = '';
     sunLevelBox.value = '';
+
+
 }
 
 const getMeasurements = () =>{

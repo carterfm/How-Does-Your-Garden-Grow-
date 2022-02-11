@@ -38,14 +38,27 @@ router.get('/gardens', withAuth, async (req, res) => {
 });
 
 //Get route to display the create garden page
-router.get('/gardens/create', withAuth, async (req, res) => {
-    try {
-        res.render('createGarden');
+// router.get('/gardens/create', withAuth, async (req, res) => {
+//     try {
+//         res.render('createGarden');
+//     } catch (err) {
+//         console.log('======\n' + err + '\n======');
+//         res.status(500).json(err);
+//     }
+// });
+
+//Get route to display plants on create form
+router.get('/gardens/create', withAuth, async (req, res)=>{
+    try{
+        const dbPlants = Plant.findAll({})
+        const plants = (await dbPlants).map(plant => plant.get({plain: true}));
+        console.log({...plants});
+        res.render('createGarden', {plant: plants});
     } catch (err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
-    }
-});
+          console.log(err);
+          res.status(500).json({ msg: "uh oh!", err });
+        };
+})
 
 //Get route for editing an old garden
 router.get('/gardens/edit', withAuth, async (req, res) => {

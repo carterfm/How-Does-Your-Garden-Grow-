@@ -29,3 +29,18 @@ body, html {
     width: 100%;
     max-height: 20vh;
   }
+
+  .plantLI {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.plantLI label {
+    font-weight: bold;
+}
+
+  .plantLI div {
+    display: flex;
+    flex-direction: column;
+  }
