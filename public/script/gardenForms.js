@@ -76,7 +76,6 @@ const getMeasurements = () =>{
 
 const buildNewGarden= (e) => {
     e.preventDefault();
-    console.log('-----------------',titleBox.value, '----------------------');
     const newGarden = {
         name: titleBox.value,
         description: descriptionBox.value,
@@ -99,7 +98,7 @@ const saveGarden = async (obj) => {
   });
   if (response.ok) {
       console.log(obj.name);
-            document.location.replace(`/garden/new-garden/${obj.name}`);
+            document.location.replace(`/gardens/new/${obj.name}`);
             alert('yay!!')
           } else {
         

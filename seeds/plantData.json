@@ -1,0 +1,112 @@
+[
+    {
+        "name": "Carrots",
+        "description": "Garden-grown carrots are full of flavor and texture! They are a popular, long-lasting root vegetable that can be grown in many climates.",
+        "height": "10",
+        "spaceNeeded": "3",
+        "yield": "0.8",
+        "sunLevel": "full",
+        "timeToHarvest": "75",
+        "plantsPerSF": "18"
+    },
+    {
+        "name": "Onions (bulb)",
+        "description": "Onions (Allium cepa) are a hardy biennial of the lily family. Although the common bulbing onion is a native of the Middle East, wild onion types are numerous and widespread.  Onions include fleshy bulbing types and smaller green-shooted types",
+        "height": "9",
+        "spaceNeeded": "4",
+        "yield": "0.8",
+        "sunLevel": "full",
+        "timeToHarvest": "110",
+        "plantsPerSF": "9"
+    },
+    {
+        "name": "Beans (bush)",
+        "description": "Backyard gardeners and large scale farmers alike find bush beans easy to grow. As the name implies, these beans grow into bushes and don't require poles for support. This versatile crop includes a wide variety of snap beans, green shelling beans and dry shell beans that are favorites on the dinner table.",
+        "height": "21",
+        "spaceNeeded": "6",
+        "yield": "0.6",
+        "sunLevel": "full",
+        "timeToHarvest": "65",
+        "plantsPerSF": "4"
+    },
+    {
+        "name": "Asparagus",
+        "description": "Asparagus is a perennial vegetable: choose the right location, prepare the soil well, and you’ll enjoy delicious spears for twenty years or more! Asparagus is a member of the lily family which includes onions, leeks and garlic and is one of the first vegetables harvested in the spring.",
+        "height": "60",
+        "spaceNeeded": "12",
+        "yield": "0.1",
+        "sunLevel": "full",
+        "timeToHarvest": "1095",
+        "plantsPerSF": "1"
+    },
+    {
+        "name": "Cabbage",
+        "description": "The versatile cabbage (Brassica oleracea) offers a high nutritional yield per square foot of garden space.  It is one of the most widely cultivated vegetables in the world. The edible cabbage head is actually the plant’s unopened flower bud and will bloom and seed if left until the following year.",
+        "height": "18",
+        "spaceNeeded": "15",
+        "yield": "0.75",
+        "sunLevel": "full",
+        "timeToHarvest": "100",
+        "plantsPerSF": "1"
+    },
+    {
+        "name": "Beets",
+        "description": "Beets (Beta vulgaris) originated in the eastern Mediterranean countries and are now popular in both the UK and America. The plant produces a fleshy root its first year and, if left to overwinter, a seed-stalk the second year. Both the green tops and the roots can be eaten. Beets are very hardy.",
+        "height": "12",
+        "spaceNeeded": "1",
+        "yield": "1.0",
+        "sunLevel": "full",
+        "timeToHarvest": "60",
+        "plantsPerSF": "9"
+    },
+    {
+        "name": "Corn (sweet)",
+        "description": "Corn (Zea mays) is a cereal in the grass family. Although field type corn was domesticated thousands of years ago by natives of Central and South America, sweet corn was first cultivated in the 1800’s.",
+        "height": "84",
+        "spaceNeeded": "6",
+        "yield": ".75",
+        "sunLevel": "full",
+        "timeToHarvest": "90",
+        "plantsPerSF": "2"
+    },
+    {
+        "name": "Cucumbers",
+        "description": "The annual garden plant, cucumber (Cucumis sativus,) is a large-leaved trailing vine. A member of the family Curcurbitacae along with squash, melons and pumpkins, it has been cultivated for around 3000 years. Having originated from desert plants in the East Indies, they have a deep, water-seeking tap-root, and prefer hot, dry conditions to cold and damp. Once cool spring weather has passed, cukes grow rapidly and will thrive.",
+        "height": "36",
+        "spaceNeeded": "6",
+        "yield": "5",
+        "sunLevel": "full",
+        "timeToHarvest": "5",
+        "plantsPerSF": "2"
+    },
+    {
+        "name": "Eggplant",
+        "description": "Named for its egg-shaped hanging fruits, the bushy plant was originally cultivated as an ornamental in Asia. With its striking foliage and showy fruits, the eggplant still makes an ideal container plant.",
+        "height": "24",
+        "spaceNeeded": "12",
+        "yield": "1.6",
+        "sunLevel": "full",
+        "timeToHarvest": "75",
+        "plantsPerSF": "1"
+    },
+    {
+        "name": "Lettuce",
+        "description": "Delicious crisp lettuce (Lactuca sativa) with its huge variety of cultivars is the mainstay of fresh green salads and one of the most popular garden vegetables. Domestic lettuce is an Asian native related to wild lettuce (Latura scariola,) and belongs to the daisy family (Asteraceae.)",
+        "height": "9",
+        "spaceNeeded": "10",
+        "yield": "1.2",
+        "sunLevel": "full",
+        "timeToHarvest": "60",
+        "plantsPerSF": "5"
+    },
+    {
+        "name": "Radishes",
+        "description": "The garden radish is an easy-to-grow, cool weather crop originating in Asia.  Cultivated for several thousand years, it is said to have been a favorite in ancient Egypt and Greece. The fleshy, slightly spicy taproot is usually eaten raw, but can also be steamed or sautéed.",
+        "height": "",
+        "spaceNeeded": "2",
+        "yield": ".75",
+        "sunLevel": "full",
+        "timeToHarvest": "",
+        "plantsPerSF": "16"
+    }
+]

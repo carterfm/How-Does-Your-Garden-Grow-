@@ -1,0 +1,18 @@
+[
+    {
+        "title": "test garden",
+        "description": "A place to test garden functionality.",
+        "shape": "rectangle",
+        "length": "8",
+        "width": "4",
+        "sunLevel": "full"
+    },
+    {
+        "title": "test garden 2",
+        "description": "A place to test garden functionality again.",
+        "shape": "rectangle",
+        "length": "8",
+        "width": "4",
+        "sunLevel": "full"
+    }
+]
