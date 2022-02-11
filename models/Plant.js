@@ -10,7 +10,7 @@ Plant.init({
         allowNull: false
     },
     description:{
-        type: DataTypes.STRING
+        type: DataTypes.TEXT
     },
     //Measurements are in inches
     height:{
