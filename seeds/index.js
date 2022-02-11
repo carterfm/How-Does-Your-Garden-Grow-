@@ -18,7 +18,7 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    const gardens = await Garden.bulkCreate(plantData, {
+    const gardens = await Garden.bulkCreate(gardenData, {
         individualHooks: true,
         returning: true,
     })

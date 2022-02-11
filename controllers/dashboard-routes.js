@@ -49,4 +49,16 @@ router.get('/gardens/create', withAuth, async (req, res) => {
 
 //Get route for editing an old garden
 
+//Get route to display output page
+router.get('/gardens/new/:name', withAuth, async (req, res) => {
+    try {
+        const gardenData = await Garden.findOne({where: {title: req.params.name}})
+        const garden = gardenData.get({plain: true});
+
+        res.render('output', {...garden});
+    }   catch (err) {
+        console.log('======\n' + err + '\n======');
+        res.status(500).json(err);
+    }
+});
 module.exports = router;
