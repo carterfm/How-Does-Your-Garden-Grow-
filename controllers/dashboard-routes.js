@@ -41,14 +41,14 @@ router.get('/gardens', withAuth, async (req, res) => {
 router.get('/gardens/create', withAuth, async (req, res) => {
     try {
         const allPlants = await Plant.findAll();
-        const plants = allPlants.map(plant => plant.get({plain: true}));
+        const plant = allPlants.map(plant => plant.get({plain: true}));
 
-        res.render('createGarden', plants);
+        res.render('createGarden', {plant});
     } catch (err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
-    }
-});
+          console.log(err);
+          res.status(500).json({ msg: "uh oh!", err });
+        };
+})
 
 //Get route to display a specific garden from the user's gardens to the page
 router.get('/gardens/:id', withAuth, async(req, res) => {

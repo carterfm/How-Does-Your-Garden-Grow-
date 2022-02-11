@@ -29,3 +29,32 @@ body, html {
     width: 100%;
     max-height: 20vh;
   }
+
+  .plantLI {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px
+  }
+
+.plantLI img {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  /* align-self: start; */
+}
+
+.plantLI label {
+    font-weight: bold;
+}
+
+  .plantLI div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plantLI p {
+    font-size: 0.8rem;
+  }

@@ -17,6 +17,11 @@ const squareLabel = document.getElementById('square');
 const rectShortSideLabel = document.getElementById('rectShort');
 const rectLongSideLabel = document.getElementById('rectLong');
 const circleDiamLabel = document.getElementById('circle');
+const plantChoice = document.querySelectorAll('.plantChoice');
+for(let i=0; i<plantChoice.length; i++){
+    console.log(plantChoice[i].value)
+}
+
 
 //createGarden measurement values
 const len = document.getElementById('len');
@@ -32,6 +37,20 @@ const hide = (el) => {
     el.style.display = 'none';
 }
 
+// const getPlants = () => {
+//     const response = await fetch('/dashboard/gardens', {
+//         method: 'GET',
+//         headers: {
+//         'Content-Type': 'application/json',
+//         },
+//     })
+//         if (response.ok) {
+//         document.location.replace('/dashboard/gardens');
+//         } else {
+//         alert(response.statusText);
+//         }
+// }
+
 const init = () => {
     hide(measQuesBox)
     hide(squareLabel)
@@ -44,6 +63,8 @@ const init = () => {
     descriptionBox.innerHTML = '';
     shapeBox.value = '';
     sunLevelBox.value = '';
+
+
 }
 
 const getMeasurements = () =>{
@@ -76,6 +97,13 @@ const getMeasurements = () =>{
 
 const buildNewGarden= (e) => {
     e.preventDefault();
+    const plantArr = [];
+    plantChoice.forEach(plant => {
+        if(plant.checked===true){
+            plantArr.push(plant.value)
+        }
+    });
+    console.log(plantArr);
     const newGarden = {
         name: titleBox.value,
         description: descriptionBox.value,
