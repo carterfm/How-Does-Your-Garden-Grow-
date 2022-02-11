@@ -49,13 +49,12 @@ router.post('/login', async (req, res) => {
         req.session.user = {
             id: user.id,
             username: user.username,
-            email: user.email,
-            logged_in: true
+            email: user.email
         };
 
         res.status(200).json({user: user, message: 'Logged in successfully.'});
         //TODO: frontend code should then take us to the userHome page by setting location.href
-        //to '/'
+        //to '/dashboard'
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
@@ -64,9 +63,10 @@ router.post('/login', async (req, res) => {
 
 //logging out of a currently active account
 router.post('/logout', (req, res) => {
+    console.log(req.session.user);
     try {
-        if (res.session.user) {
-            res.session.destroy(() => res.status(204).end());
+        if (req.session.user) {
+            req.session.destroy(() => res.status(204).end());
         } else {
             res.status(404).end();
         }
