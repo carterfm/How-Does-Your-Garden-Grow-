@@ -89,7 +89,7 @@ const buildNewGarden= (e) => {
 }
 
 const saveGarden = async (obj) => {
-    const response = await fetch(`/api/garden`, {
+    const response = await fetch(`/dashboard/gardens/new`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -98,10 +98,16 @@ const saveGarden = async (obj) => {
   });
   if (response.ok) {
       console.log(obj.name);
-            document.location.replace(`/gardens/new/${obj.name}`);
+            document.location.replace(`/dashboard/gardens/new`);
             alert('yay!!')
           } else {
         
             alert('no new plan for you :(');
           }
 }
+
+shapeBox.addEventListener('change', getMeasurements)
+
+document.querySelector('#newGarden').addEventListener('submit', buildNewGarden);
+
+init();
