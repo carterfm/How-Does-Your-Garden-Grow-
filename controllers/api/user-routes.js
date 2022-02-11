@@ -49,7 +49,8 @@ router.post('/login', async (req, res) => {
         req.session.user = {
             id: user.id,
             username: user.username,
-            email: user.email
+            email: user.email,
+            logged_in: true
         };
 
         res.status(200).json({user: user, message: 'Logged in successfully.'});
@@ -70,6 +71,7 @@ router.post('/logout', (req, res) => {
             res.status(404).end();
         }
     }  catch (err) {
+        console.log(res.session)
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
     }

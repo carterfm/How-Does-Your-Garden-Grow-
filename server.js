@@ -26,6 +26,7 @@ app.set('view engine', 'handlebars');
 //Allowing for the creation of session objects (currently set to last for two hours)
 app.use(session({
     secret: 'keyboard cat',
+    cookie: {},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
