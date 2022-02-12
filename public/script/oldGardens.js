@@ -25,6 +25,19 @@ useBtn.forEach(btn=>{
 editBtn.forEach(btn=>{
     btn.addEventListener('click', e => {
         console.log(btn.value)
+        e.preventDefault();
+        const response = await fetch(`/dashboard/gardens/${btn.value}`, {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+        })
+            if (response.ok) {
+            document.location.replace(`/dashboard/gardens/${btn.value}`);
+            } else {
+            alert(response.statusText);
+            }
+    })
     })
 })
 
