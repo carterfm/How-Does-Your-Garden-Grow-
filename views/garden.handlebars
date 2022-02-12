@@ -1,6 +1,6 @@
 <main>
     <div class="welcome-box">
-        <h1>{{title}}</h1>
+        <h1 id="titleBox">{{title}}</h1>
         <div id="gardenImg" style="background-image: url('/images/potager.png'); width: 500px; height: 300px; border:1px solid black"></div>
         <h2>Here are the plants you'll need:</h2>
         <ul id="plantBox">
@@ -11,9 +11,10 @@
         <h2>To learn more, visit:</h2>
         <ul id="linkBox">
             {{#each Plants}}
-            <li><a href="https://mynorthwestgarden.com/home/{{name}}" target="_blank">https://mynorthwestgarden.com/home/carrots</a></li>
+            <li><a class="plantLink" href="https://mynorthwestgarden.com/home/{{name}}" target="_blank">https://mynorthwestgarden.com/home/carrots</a></li>
             {{/each}}       
         </ul>
         <button>Email this plan</button><button>Print this plan</button>
     </div>
 </main>
+<script src="/script/garden.js"></script>

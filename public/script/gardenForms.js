@@ -77,6 +77,43 @@ const getMeasurements = () =>{
     }
 }
 
+const sendGarden = () => {}
+
+//Goes to view garden output page popped with new garden
+const seeGarden = async (title) => {
+    const response = await fetch(`/dashboard/gardens/new/${title}`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    })
+        if (response.ok) {
+            console.log(response);
+            document.location.replace(`/dashboard/gardens/new/${title}`);
+        } else {
+        alert(response.statusText);
+        }
+}
+
+
+//Posts the garden obj and sqitches to the garden output page
+const saveGarden = async (obj) => {
+    const response = await fetch(`/api/garden`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(obj),
+  });
+  if (response.ok) {
+      console.log(obj);
+      seeGarden(obj.title);
+          } else {
+        
+            alert('Something went wrong!');
+          }
+}
+
 //builds the garden obj
 const buildNewGarden= (e) => {
     e.preventDefault();
@@ -98,25 +135,6 @@ const buildNewGarden= (e) => {
     }
     console.log(newGarden)
     saveGarden(newGarden);
-}
-
-//Posts the garden obj and sqitches to the garden output page
-const saveGarden = async (obj) => {
-    const response = await fetch(`/api/garden`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(obj),
-  });
-  if (response.ok) {
-      console.log(obj);
-            document.location.replace(`/dashboard`);
-            alert('yay!!')
-          } else {
-        
-            alert('no new plan for you :(');
-          }
 }
 
 //measurement collection boxes will appear once the user has chosen a shape
