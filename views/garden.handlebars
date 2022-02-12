@@ -1,22 +1,20 @@
 <main>
-    <h1>{{garden.name}}Garden Name Will Go Here</h1>
-    <div id="gardenImg" style="background-image: url('../public/images/potager.png'); width: 500px; height: 300px; border:1px solid black"></div>
-    <h2>Here are the plants you'll need:</h2>
+    <div class="welcome-box">
+        <h1 id="titleBox">{{title}}</h1>
+        <div id="gardenImg" style="background-image: url('/images/potager.png'); width: 500px; height: 300px; border:1px solid black"></div>
+        <h2>Here are the plants you'll need:</h2>
         <ul id="plantBox">
-            {{#each plant}}
-            <li>{{plant.name}}: <span id="howMany"></span> starts</li>
+            {{#each Plants}}
+            <li>{{name}}: <span id="howMany"></span> starts</li>
             {{/each}}
-            {{!-- Here is an example for visualization: --}}
-            <li>Broccoli: 12 starts</li>
-            <li>Carrots: 30 starts</li>
         </ul>
-    <h2>To learn more, visit:</h2>
+        <h2>To learn more, visit:</h2>
         <ul id="linkBox">
-            {{#each plant}}
-            <li><a href="https://mynorthwestgarden.com/home/{{plant.name}}" target="_blank">https://mynorthwestgarden.com/home/carrots</a></li>
-            {{/each}}
-            {{!-- Example link --}}
-            <li><a href="https://mynorthwestgarden.com/home/carrots" target="_blank">https://mynorthwestgarden.com/home/carrots</a></li>
+            {{#each Plants}}
+            <li><a class="plantLink" href="" target="_blank" data-index-number="{{id}}">{{id}}</a></li>
+            {{/each}}       
         </ul>
         <button>Email this plan</button><button>Print this plan</button>
+    </div>
 </main>
+<script src="/script/garden.js"></script>

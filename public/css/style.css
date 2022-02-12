@@ -9,15 +9,26 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/DELETE-ME/watermelonraddish.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/DELETE-ME/watermelonraddish.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
+
+
 
   main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
     min-height: 76vh;
+    /* width: 80%; */
   }
+
+#topnav {
+  height: 10vh;
+}
 
   .py-3{
     background-color: #f8f9fa;
@@ -29,6 +40,17 @@ body, html {
     width: 100%;
     max-height: 20vh;
   }
+
+.welcome-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  background-color: #f8f9fa;
+  margin: 40px;
+  padding: 20px;
+}
 
   .plantLI {
     display: flex;
@@ -57,4 +79,46 @@ body, html {
 
   .plantLI p {
     font-size: 0.8rem;
+  }
+
+.btnBox {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.gardenBtn {
+  margin: 5px;
+}
+
+.gardenTitle {
+  align-self: start;
+}
+
+.gardenLI {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style: none;
+  border: 1px solid black;
+  box-shadow: 5px 5px 2px lightgray; 
+}
+
+#welcome-h2, #welcome-p {
+  width: 80%;
+  text-align: center;
+}
+
+  #gardenList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    height: 60vh;
+    padding: 10px;
+    overflow-y:auto;
+    border: 5px double lightgray;
   }

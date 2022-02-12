@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { json } = require('express/lib/response');
 const { User, Plant, Garden } = require('../models');
 const withAuth = require('../utils/auth.js');
 
@@ -28,9 +29,9 @@ router.get('/profile', withAuth, (req, res) => {
 router.get('/gardens', withAuth, async (req, res) => {
     try {
         const allUserGardens = await Garden.findAll({where: { UserId: req.session.user.id }});
-        const gardens = allUserGardens.map(garden => garden.get({plain: true}));
+        const garden = allUserGardens.map(garden => garden.get({plain: true}));
 
-        res.render('oldGardens', gardens);
+        res.render('oldGardens', {garden});
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
@@ -65,8 +66,52 @@ router.get('/gardens/:id', withAuth, async(req, res) => {
         }
 
         const garden = gardenData.get({plain: true});
-
+        console.log(garden);
         res.render('garden', garden);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//Get new garden (from create new form without knowing the assigned ID yet)
+router.get('/gardens/new/:title', withAuth, async(req, res)=>{
+    try{
+        const gardenData = await Garden.findOne({
+            include: [Plant],
+            where: {
+                UserId: req.session.user.id, 
+                title: req.params.title
+            }
+        });
+        if (!gardenData) {
+          return res.status(404).json({ message: 'No garden with that name is associated with this user'});
+        }
+        const garden = gardenData.get({plain: true});
+        console.log(garden);
+        res.render('garden', garden);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
+//GET route to send back garden object to the page for use.
+router.get('/gardens/info/:title', withAuth, async(req, res)=>{
+    try{
+        const gardenData = await Garden.findOne({
+            include: [Plant],
+            where: {
+                UserId: req.session.user.id, 
+                title: req.params.title
+            }
+        });
+        if (!gardenData) {
+          return res.status(404).json({ message: 'No garden with that name is associated with this user'});
+        }
+        const garden = gardenData.get({plain: true});
+        console.log(garden);
+        res.status(200).json(garden);
     } catch (err) {
         res.status(500).json(err);
     }
