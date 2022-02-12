@@ -21,5 +21,13 @@
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.16.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carterfm/How-Does-Your-Garden-Grow-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carterfm/How-Does-Your-Garden-Grow-/issues"
+  },
+  "homepage": "https://github.com/carterfm/How-Does-Your-Garden-Grow-#readme"
 }
