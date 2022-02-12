@@ -28,9 +28,9 @@ router.get('/profile', withAuth, (req, res) => {
 router.get('/gardens', withAuth, async (req, res) => {
     try {
         const allUserGardens = await Garden.findAll({where: { UserId: req.session.user.id }});
-        const gardens = allUserGardens.map(garden => garden.get({plain: true}));
+        const garden = allUserGardens.map(garden => garden.get({plain: true}));
 
-        res.render('oldGardens', gardens);
+        res.render('oldGardens', {garden});
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
@@ -65,7 +65,7 @@ router.get('/gardens/:id', withAuth, async(req, res) => {
         }
 
         const garden = gardenData.get({plain: true});
-
+        console.log(garden);
         res.render('garden', garden);
     } catch (err) {
         res.status(500).json(err);
