@@ -5,7 +5,7 @@
         <h2>Here are the plants you'll need:</h2>
         <ul id="plantBox">
             {{#each Plants}}
-            <li>{{name}}: <span id="howMany"></span> starts</li>
+            <li>{{name}}: <span class="quantity-box" data-index-number="{{id}}"></span> plants</li>
             {{/each}}
         </ul>
         <h2>To learn more, visit:</h2>
