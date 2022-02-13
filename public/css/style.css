@@ -17,29 +17,29 @@ body, html {
 
 
 
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    min-height: 76vh;
-    /* width: 80%; */
-  }
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  min-height: 76vh;
+  /* width: 80%; */
+}
 
 #topnav {
   height: 10vh;
 }
 
-  .py-3{
-    background-color: #f8f9fa;
-  }
+.py-3{
+  background-color: #f8f9fa;
+}
 
-  .footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    max-height: 20vh;
-  }
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  max-height: 20vh;
+}
 
 .welcome-box {
   display: flex;
@@ -53,14 +53,14 @@ body, html {
   padding: 20px;
 }
 
-  .plantLI {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    padding: 5px;
-    margin: 5px
-  }
+.plantLI {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px
+}
 
 .plantLI img {
   width: 80px;
@@ -73,14 +73,14 @@ body, html {
     font-weight: bold;
 }
 
-  .plantLI div {
-    display: flex;
-    flex-direction: column;
-  }
+.plantLI div {
+  display: flex;
+  flex-direction: column;
+}
 
-  .plantLI p {
-    font-size: 0.8rem;
-  }
+.plantLI p {
+  font-size: 0.8rem;
+}
 
 .btnBox {
   display: flex;
