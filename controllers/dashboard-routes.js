@@ -15,14 +15,43 @@ router.get('/', withAuth, (req, res) => {
 
 //Get route to display page for editing user information
 router.get('/profile', withAuth, (req, res) => {
-    try {
-        res.render('editUser', req.session.user);
-    } catch(err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
+    if(req.session.user){
+        try {
+            res.render('editUser', req.session.user);
+        } catch(err) {
+            console.log('======\n' + err + '\n======');
+            res.status(500).json(err);
+        }
     }
 });
 
+router.put('/profile/:id', withAuth, (req, res)=>{
+    if(req.session.user){
+        try{
+            const updateUser = User.update(
+                {
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: req.body.password
+                },
+                {
+                    where: {
+                        id: req.params.id,
+                        UserId: req.session.user.id
+                }
+                });
+                if (!updateUser[0]) {
+                    return res.status(404).json({message: "No user with that id is associated with this user"});
+                }
+                res.status(200).json(updateUser);
+            } catch (err) {
+                console.log('======\n' + err + '\n======');
+                res.status(500).json(err);
+            }
+    } else {
+        res.status(404).end();
+    }
+})
 
 //Get routes for pages relevant to gardens
 //Get route to display all the gardens associated with the user who is currently logged in

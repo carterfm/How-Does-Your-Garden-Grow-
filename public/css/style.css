@@ -53,6 +53,18 @@ main {
   padding: 20px;
 }
 
+form.login {
+  display: flex;
+  flex-direction: column;
+}
+.form-element {
+  width: 100%;
+}
+
+.form-element label {
+  font-size: 1.2rem;
+}
+
 .plantLI {
   display: flex;
   justify-content: center;
@@ -145,19 +157,6 @@ main {
   font-weight: bold;
 }
 
-#welcome-h2, #welcome-p {
-  width: 80%;
-  text-align: center;
-}
-
-#editMeasQues {
-  display: flex;
-  /* align-items:center;
-  justify-content: start; */
-  width: 100%;
-  /* border: 1px solid black; */
-}
-
 .editMeasBox {
   width: 100%;
   /* border: 1px solid black; */
@@ -178,6 +177,18 @@ main {
   color: green;
 }
 
+#label-inpt-box {
+  display: flex;
+}
+
+#form-label-box, #form-inpt-box {
+  display: flex;
+  flex-direction: column;
+}
+
+#button-box {
+  width: 100%;
+}
 
 #gardenList {
   display: flex;
@@ -193,4 +204,17 @@ main {
 #gardenImg img {
   width: 500px; 
   height: 300px;
+}
+
+#welcome-h2, #welcome-p {
+  width: 80%;
+  text-align: center;
+}
+
+#editMeasQues {
+  display: flex;
+  /* align-items:center;
+  justify-content: start; */
+  width: 100%;
+  /* border: 1px solid black; */
 }

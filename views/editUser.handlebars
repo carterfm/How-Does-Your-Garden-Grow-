@@ -1,16 +1,33 @@
-<main>
-    <div id="welcome-box">
-        <p>Correct the fields you'd like to update!</p>
-        <form id="login">
+<div style="width: 100%; height: 100%; display: flex; justify-content: center;">
+
+<div id="invisible-box" style="color:white; font-weight: bold;">
+    <div id="user-id">{{user.id}}</div>
+    <div id="user-email">{{user.email}}</div>
+    <div id="user-password">{{user.password}}</div>
+</div>
+
+<main style="width: 80%; align-self: center;">
+    <div class="welcome-box" >
+        <h2>Correct the fields you'd like to update:</h2>
+        <form class="login">
             {{!-- TODO: pre-populate these fields with info from the user--}}
-            <label for="emailEdit">Email:</label>
-            <input type="text" name="emailEdit" id="emailEdit">
-            <label for="usernameEdit">Username:</label>
-            <input type="text" name="usernameEdit" id="usernameEdit">
-            <label for="passwordEdit">Password:</label>
-            <input type="text" name="passwordEdit" id="passwordEdit" placeholder="Choose a password...">
-            <button type="submit" id="submitEdit">UPDATE PROFILE</button>
-            <button type="submit" id="submitDelete">DELETE PROFILE</button>
+            <div id="label-inpt-box">
+                <div id="form-label-box" class="form-element">
+                    <label for="emailEdit">Email:</label>
+                    <label for="usernameEdit">Username:</label>
+                    <label for="passwordEdit">Password:</label>
+                </div>
+                <div id="form-inpt-box" class="form-element">
+                    <input type="text" name="emailEdit" id="emailEdit">
+                    <input type="text" name="usernameEdit" id="usernameEdit">
+                    <input type="text" name="passwordEdit" id="passwordEdit">
+                </div>
+            </div>
+            <div id="button-box" class="form-element">
+                <button type="submit" id="submitEdit">UPDATE PROFILE</button>
+                <button type="submit" id="submitDelete">DELETE PROFILE</button>
+            </div>
         </form>
     </div>
 </main>
+</div>

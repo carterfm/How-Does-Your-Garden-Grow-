@@ -1,0 +1,1 @@
+const editEmailInpt = document.getElementById('emailEdit')

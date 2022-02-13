@@ -55,6 +55,6 @@ const goCreateUser = async (e) => {
    
 };
 
-document.getElementById('login').addEventListener('submit', login);
+document.getElementById('login-form').addEventListener('submit', login);
 
 document.getElementById('createUser').addEventListener('click', goCreateUser);
