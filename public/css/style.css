@@ -145,6 +145,34 @@ main {
   text-align: center;
 }
 
+#editMeasQues {
+  display: flex;
+  /* align-items:center;
+  justify-content: start; */
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.editMeasBox {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+}
+
+.labels, .inputs {
+  /* border: 1px solid black; */
+  width: 50%;
+}
+
+.prev {
+  border: 2px solid green;
+  color: green;
+}
+
+.edit-input {
+  color: green;
+}
+
 #gardenList {
   display: flex;
   flex-direction: column;

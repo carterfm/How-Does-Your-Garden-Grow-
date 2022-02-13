@@ -1,50 +1,76 @@
 <main>
+    <div id="hidden" style="color:whitesmoke;font-weight:bold">
+        style="display:none;"
+        <div id="id">{{garden.id}}</div>
+        <div id="title">{{garden.title}}</div>
+        <div id="description">{{garden.description}}</div>
+        <div id="shape">{{garden.shape}}</div>
+        <div id="length">{{garden.length}}</div>
+        <div id="width">{{garden.width}}</div>
+        <div id="sunLevel">{{garden.sunLevel}}</div>
+    </div>
     <div class="welcome-box">
-        <h2>Edit "{{title}}"</h2>
-        <p>Let's update your plan! Change the info below and save it.</p>
+        <h2>Edit "{{garden.title}}"</h2>
+        <p>Let's update your plan! All the garden bed information from the saved garden has been put into the form. You just need to pick new plants! Change anything you need to below and save it.</p>
         <form id="editGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
             <label for="editTitle">What would you like to call this plan?</label>
-            <input type="text" name="editTitle" id="editTitle">
+            <input type="text" name="editTitle" id="editTitle" class="edit-input">
 
             <label for="editDesc">Any special notes?</label>
-            <textarea name="editDesc" id="editDesc" cols="30" rows="5"></textarea>
+            <textarea name="editDesc" id="editDesc" cols="30" rows="5" class="edit-input"></textarea>
 
             <label for="editShape">What shape is your garden bed?</label>
-            <select name="editShape" id="editShape">
+            <select name="editShape" id="editShape" class="edit-input">
                 <option value="">--Choose a Shape--</option>
-                <option value="circle">Circle</option>
+                {{!-- <option value="circle">Circle</option> --}}
                 <option value="square">Square</option>
                 <option value="rectangle">Rectangle</option>
             </select>
 
-            <div class="prev">
-                <p>The shape you used before was {{shape}}</p>
-                <p>The dimension(s) you entered before: {{length}} inches long <span id="prev-meas">by {{width}} inches wide</span></p>
-            </div>
-           <div id="measQues">
-                <label id="square">How long is one side (in inches)?</label>
-                <label id="circle">How wide across is it (in inches)?</label>
-                <label id="rectLong">How long is the long side (in inches)?</label>
-                <input type="text" id="len" placeholder="Inches">
-                <label id="rectShort">How long is the short side (in inches)?</label>
-                <input type="text" id="wid" placeholder="Inches">
+           <div id="editMeasQues">
+               <div class="editMeasBox">
+                    <div class="labels">
+                        <label id="square">How long is one side (in inches)?</label>
+                        {{!-- <label id="circle">How wide across is it (in inches)?</label> --}}
+                        <label id="rectLong">How long is the long side (in inches)?</label>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" id="len" placeholder="Inches" class="edit-input">
+                    </div>
+                </div>
+                <div class="editMeasBox">
+                    <div class="labels">
+                        <label id="rectShort">How long is the short side (in inches)?</label>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" id="wid" placeholder="Inches" class="edit-input">
+                    </div>
+                </div>
             </div>
 
             <label for="editSun">How much sun do you get?</label>
-            <select name="editSun" id="editSun">
+            <select name="editSun" id="editSun" class="edit-input">
                 <option value="">--Choose One--</option>
                 <option value="full">Full sun (more than 6 hours of sun a day)</option>
                 <option value="partial">Part sun (between 4-6 hours of sun a day)</option>
                 <option value="shade">Full shade (less than 4 hours of sun a day)</option>
             </select>
-            <div class="prev">The sun level you used before was "{{sunLevel}}"</div>
+
+            <div class="prev">
+                The plants you chose previously were:
+                <ul id="prevPlantBox">
+                    {{#each garden.Plants}}
+                        <li class="garden-plant">{{name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
 
             <div id="editPlantChoices" style="border: 1px solid black; margin:10px 0; padding: 0 10px;">
                 <h3>Which plant would you like to include?</h3>
                 <ul id="editPlantBox" style="margin: 10px; padding: 10px; width: 100%; height: 150px; overflow-y: auto">
                     {{#each plant}}
                         <li class="plantLI">
-                            <input type="checkbox" class="plantChoice" name="{{id}}" value="{{id}}">
+                            <input type="checkbox" class="editPlantChoice" name="{{id}}" value="{{id}}">
                             <img src="/images/{{name}}.png" alt="">
                             <div><label for="{{id}}">{{name}}</label><p>{{description}}</p></div>
                         </li>
@@ -57,4 +83,4 @@
         </form>
     </div>
 </main>
-<script src="/script/gardenForms.js"></script>
+<script src="/script/editGarden.js"></script>

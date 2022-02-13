@@ -137,7 +137,7 @@ router.get('/gardens/edit/:id', withAuth, async (req, res) => {
         const allPlants = await Plant.findAll();
         const plants = allPlants.map(plant => plant.get({plain: true}));
         
-        res.render('editOldGarden', gardenEdit, plants);
+        res.render('editOldGarden', {garden: gardenEdit, plant: plants});
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err); 
