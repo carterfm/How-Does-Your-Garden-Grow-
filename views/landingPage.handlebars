@@ -1,17 +1,19 @@
 <main>
     <div id="welcome-box">
-        <h2>WELCOME</h2>
-        <p>This is a planning app for the backyard vegetable gardener in the Pacific Northwest</p>
+        <h2 id="welcome">WELCOME</h2>
+        <p id="welcomePTag">This is a planning app for the backyard vegetable gardener in the Pacific Northwest</p>
         <form id="login">
-            <h3>Login</h3>
-            <label for="userName">Username:</label>
-            <input type="text" name="userName" id="userName" required="required" >
-            <label for="password">Password:</label><button id="togglePassword">ShowPassword</button>
+            <h3 id="loginH3">Login</h3>
+            <label for="userName" id="usernameColor">Username:</label>
+            <input type="text" name="userName" id="userName" required="required">
+            <label for="password" id="passwordColor">Password:</label>
             <input type="password" autocomplete="current-password" name="password" id="password">
-            <button type="submit" id="submitLogin" required="required" >Sign In</button>
+            <button id="togglePassword" class="loginButton">ShowPassword</button>
+            <br>
+            <button type="submit" id="submitLogin" required="required" class="loginButton">Sign In</button>
         </form>
-        <p>New here?</p>
-        <button id="createUser">Start planning your garden today!</button>
+        <br>
+        <p id="newHereP">New here?</p>
+        <button id="createUser"  class="loginButton">Start planning your garden today!</button>
     </div>
 </main>
-<script src="/script/login.js"></script>
