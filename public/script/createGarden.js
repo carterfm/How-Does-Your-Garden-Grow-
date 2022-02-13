@@ -107,6 +107,7 @@ const saveGarden = async (obj) => {
   });
   if (response.ok) {
       console.log(obj);
+    //   document.location.replace(`/dashboard/gardens/${obj.id}`);
       seeGarden(obj.title);
           } else {
         
@@ -136,6 +137,50 @@ const buildNewGarden= (e) => {
     console.log(newGarden)
     saveGarden(newGarden);
 }
+
+document.getElementById('example').addEventListener('click', e=>{
+    document.getElementById('12').click();
+    // e.preventDefault();
+    // if(document.getElementById('12').checked === true){
+       
+        
+        // document.getElementById('example').setAttribute('style', 'display: flex; flex-direction: column;background-color: none; border: 1px solid black');
+        // document.getElementById('how-many').setAttribute('style', 'display: none; width: 100%');
+        // document.getElementById('12-text').setAttribute('style', 'border: 1px solid black; width: 40px')
+    // }
+    // if(document.getElementById('12').checked === false){
+    //     document.getElementById('12').click();
+      
+        // document.getElementById('example').setAttribute('style', 'display: flex; flex-direction: column;background-color: lightgreen; border: 2px solid green');
+        // document.getElementById('how-many').setAttribute('style', 'display: inline; width: 100%');
+        // document.getElementById('12-text').setAttribute('style', 'border: 2px solid green; width: 40px')
+    // }
+})
+
+document.getElementById('12').addEventListener('change', e => {
+    e.preventDefault();
+    if(document.getElementById('12').checked === true){
+        console.log('i was true but now I\'m false')
+        document.getElementById('example').setAttribute('style', 'display: flex; flex-direction: column;background-color: none; border: 1px solid black');
+        document.getElementById('how-many').setAttribute('style', 'display: none; width: 100%');
+        document.getElementById('12-text').setAttribute('style', 'border: 1px solid black; width: 40px')
+        return
+    } else if(document.getElementById('12').checked === false){
+        console.log('i was false but now I\'m true')
+        document.getElementById('example').setAttribute('style', 'display: flex; flex-direction: column;background-color: lightgreen; border: 2px solid green');
+        document.getElementById('how-many').setAttribute('style', 'display: inline; width: 100%');
+        document.getElementById('12-text').setAttribute('style', 'border: 2px solid green; width: 40px')
+        return
+    }
+})
+    // document.getElementById('12').addEventListener('change', e => {
+    //     e.preventDefault();
+    //     document.getElementById('example').setAttribute('style', 'display: flex; flex-direction: column;background-color: lightgreen; border: 2px solid green');
+    //     document.getElementById('how-many').setAttribute('style', 'display: inline; width: 100%');
+    //     document.getElementById('12-text').setAttribute('style', 'border: 2px solid green; width: 40px')
+    // })
+
+
 
 //measurement collection boxes will appear once the user has chosen a shape
 shapeBox.addEventListener('change', getMeasurements)

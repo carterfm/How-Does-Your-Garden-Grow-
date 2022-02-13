@@ -75,7 +75,7 @@ main {
   color: olivedrab;
 }
 
-#login{
+#login, #create{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,6 +119,19 @@ opacity: 1;
   background-color: #f8f9fa;
   margin: 40px;
   padding: 20px;
+}
+
+form.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-element {
+  width: 100%;
+}
+
+.form-element label {
+  font-size: 1.2rem;
 }
 
 .plantLI {
@@ -208,22 +221,14 @@ opacity: 1;
   width: 100%;
 }
 
-.garden-btn:hover {
+.garden-btn:hover, #about-sfg:hover {
   color: whitesmoke;
   font-weight: bold;
 }
 
-#welcome-h2, #welcome-p {
-  width: 80%;
-  text-align: center;
-}
-
-#editMeasQues {
-  display: flex;
-  /* align-items:center;
-  justify-content: start; */
-  width: 100%;
-  /* border: 1px solid black; */
+#about-sfg:link, #about-sfg:visited {
+  color: black;
+  text-decoration: none;
 }
 
 .editMeasBox {
@@ -246,6 +251,21 @@ opacity: 1;
   color: green;
 }
 
+#label-inpt-box {
+  display: flex;
+}
+
+#form-label-box, #form-inpt-box {
+  display: flex;
+  flex-direction: column;
+}
+
+#button-box {
+  display: flex;
+  flex-direction: column;
+align-self: center;
+  width: 70%;
+}
 
 #gardenList {
   display: flex;
@@ -261,4 +281,42 @@ opacity: 1;
 #gardenImg img {
   width: 500px; 
   height: 300px;
+}
+
+#welcome-h2, #welcome-p {
+  width: 80%;
+  text-align: center;
+}
+
+#editMeasQues {
+  display: flex;
+  /* align-items:center;
+  justify-content: start; */
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+#submitCreate {
+  width: 70%;
+  align-self: center;
+}
+
+#form-label-box label, #form-inpt-box input {
+  margin: 5px;
+
+}
+
+#form-label-box label {
+  text-align: right;
+}
+
+#update-box {
+  width: 40%
+}
+
+#password-match {
+  display: none;
+  font-style: italic;
+  color: red;
+  text-align: right;
 }

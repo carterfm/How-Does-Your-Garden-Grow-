@@ -1,6 +1,5 @@
 body {
-    /* visibility: hidden; */
-    display: none
+    visibility: hidden;
 }
 
 .for-print {
