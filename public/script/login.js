@@ -41,20 +41,20 @@ const login = async (e) => {
 
 const goCreateUser = async (e) => {
     e.preventDefault();
-    const response = await fetch('/signup', {
+    const response = await fetch('api/user/signup', {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json',
         },
     })
       if (response.ok) {
-        document.location.replace('/signup');
+        document.location.replace('api/user/signup');
       } else {
         alert(response.statusText);
       }
    
 };
 
-document.getElementById('login-form').addEventListener('submit', login);
+document.getElementById('login').addEventListener('submit', login);
 
 document.getElementById('createUser').addEventListener('click', goCreateUser);

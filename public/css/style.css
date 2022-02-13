@@ -75,7 +75,7 @@ main {
   color: olivedrab;
 }
 
-#login{
+#login, #create{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -255,6 +255,8 @@ form.login {
 }
 
 #button-box {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -285,4 +287,9 @@ form.login {
   justify-content: start; */
   width: 100%;
   /* border: 1px solid black; */
+}
+
+#submitCreate {
+  width: 70%;
+  align-self: center;
 }
