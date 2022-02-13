@@ -128,7 +128,7 @@ router.delete('/:id', async (req, res) => {
                 }
             });
 
-            if (!deleteGarden[0]) {
+            if (!deleteGarden) {
                 return res.status(404).json({message: "No garden with that id is associated with this user"});
             }
 
