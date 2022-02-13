@@ -199,6 +199,11 @@ opacity: 1;
   box-shadow: 2px 2px 2px lightgray; 
 }
 
+.form-btn {
+  width: 30%;
+  align-self: center;
+}
+
 .garden-btn#email {
   width: 100%;
 }
@@ -240,6 +245,7 @@ opacity: 1;
 .edit-input {
   color: green;
 }
+
 
 #gardenList {
   display: flex;
