@@ -109,4 +109,30 @@ router.post('/logout', (req, res) => {
     }
 });
 
+//delete existing user's account
+router.delete('/:id', async (req, res) => {
+    //Prevents a user from making a delete request if not logged in
+    if (req.session.user) {
+        try {
+            //Prevents a user from making a delete request to gardens that don't belong to them
+            const deleteUser = await User.destroy({
+                where: {
+                    id: req.params.id,
+                }
+            });
+
+            if (!deleteUser) {
+                return res.status(404).json({message: "No user with that id is associated with this user"});
+            }
+            req.session.destroy(() => res.status(204).end());
+            res.status(200).json(deleteUser);
+        } catch (err) {
+            console.log('======\n' + err + '\n======');
+            res.status(500).json(err);
+        }
+    } else {
+        res.status(404).end();
+    }
+});
+
 module.exports = router;
