@@ -9,14 +9,14 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/repeatveg.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/images/biggerbackground.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
 
 #password{
-  padding-bottom: 3px;
+  margin-bottom: 3px;
 }
 
 main {
@@ -49,9 +49,10 @@ main {
   color:  olivedrab;
 }
 
-#welcome{
+.welcome{
   font-size: 4rem;
   color:olivedrab;
+  font-family: 'Amita', cursive;
 }
 
 #welcomePTag{
