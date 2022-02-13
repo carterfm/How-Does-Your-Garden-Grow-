@@ -15,7 +15,7 @@ const measQuesBox = document.getElementById('measQues');
 const squareLabel = document.getElementById('square');
 const rectShortSideLabel = document.getElementById('rectShort');
 const rectLongSideLabel = document.getElementById('rectLong');
-const circleDiamLabel = document.getElementById('circle');
+// const circleDiamLabel = document.getElementById('circle');
 
 // for(let i=0; i<plantChoice.length; i++){
 //     console.log(plantChoice[i].value)
@@ -40,7 +40,7 @@ const init = () => {
     hide(squareLabel)
     hide(rectShortSideLabel)
     hide(rectLongSideLabel)
-    hide(circleDiamLabel)
+    // hide(circleDiamLabel)
     hide(wid)
 
     titleBox.innerHTML = '';
@@ -51,20 +51,20 @@ const init = () => {
 
 //shows/hides appropriate boxes to collect bed measurements
 const getMeasurements = () =>{
-    if(shapeBox.value==='circle'){
-        show(measQuesBox)
-        hide(squareLabel)
-        hide(rectShortSideLabel)
-        hide(rectLongSideLabel)
-        show(circleDiamLabel)
-        hide(wid)
-    }
+    // if(shapeBox.value==='circle'){
+    //     show(measQuesBox)
+    //     hide(squareLabel)
+    //     hide(rectShortSideLabel)
+    //     hide(rectLongSideLabel)
+    //     // show(circleDiamLabel)
+    //     hide(wid)
+    // }
     if(shapeBox.value==='square'){
         show(measQuesBox)
         show(squareLabel)
         hide(rectShortSideLabel)
         hide(rectLongSideLabel)
-        hide(circleDiamLabel)
+        // hide(circleDiamLabel)
         hide(wid)
     }
     if(shapeBox.value==='rectangle'){
@@ -72,7 +72,7 @@ const getMeasurements = () =>{
         hide(squareLabel)
         show(rectShortSideLabel)
         show(rectLongSideLabel)
-        hide(circleDiamLabel)
+        // hide(circleDiamLabel)
         show(wid)
     }
 }
