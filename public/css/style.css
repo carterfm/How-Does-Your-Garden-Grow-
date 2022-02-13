@@ -2,32 +2,85 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/DELETE-ME/watermelonraddish.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/repeatveg.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
 
-
+#password{
+  padding-bottom: 3px;
+}
 
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  min-height: 76vh;
-  /* width: 80%; */
+  min-height: 74vh;
+  align-items: center;
 }
 
 #topnav {
-  height: 10vh;
+  height: 8vh;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+}
+
+#welcome-box{
+  background-color: #f8f9fa;
+  max-width: 66vw;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  border-radius: 100px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+}
+
+.navbar-light .navbar-brand {
+  color:  olivedrab;
+}
+
+#welcome{
+  font-size: 4rem;
+  color:olivedrab;
+}
+
+#welcomePTag{
+  color: #6c757d;
+}
+
+#newHereP{
+  margin-bottom: 0rem;
+  color: #6c757d;
+}
+
+#usernameColor{
+  color: #6c757d; 
+}
+
+#passwordColor{
+  color: #6c757d;
+}
+
+#loginH3{
+  color: olivedrab;
+}
+
+#login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 
 .py-3{
@@ -39,6 +92,21 @@ main {
   bottom: 0px;
   width: 100%;
   max-height: 20vh;
+  box-shadow: 0 -8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.loginButton {
+  border-radius: 8px;
+  padding: 3px;
+  background-color: olivedrab;
+  border: 2px solid olivedrab;
+  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 20%);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.loginButton:hover {
+opacity: 1;
 }
 
 .welcome-box {
