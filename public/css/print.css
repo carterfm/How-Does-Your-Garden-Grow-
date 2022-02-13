@@ -1,0 +1,19 @@
+body {
+    /* visibility: hidden; */
+    display: none
+}
+
+.for-print {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.print {
+    visibility: visible;
+}
+
+button {
+    visibility: hidden;
+}

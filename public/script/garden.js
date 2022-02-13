@@ -5,48 +5,80 @@
 // fakeFunction();
 
 
+
 //finding the area of the garden
 const findGardenArea = obj => {
     const length = parseInt(obj.length)
     const width = parseInt(obj.width)
+    const plantArr = obj.Plants;
     console.log(length);
     const convFt = inches => {
         const sqFt = inches/144
         return sqFt;
     }
-    if(obj.shape==='square'){
-        console.log('it\'s a square')
-        // this is where we'll find area with npm package after we can get it linked
+    const availableArea = () => {
+        if(obj.shape==='square'){
+            console.log('it\'s a square')
+            // this is where we'll find area with npm package after we can get it linked
 
-        // const areaSquare = findSquareArea(length);
-        // console.log(areaSquare);
+            // const areaSquare = findSquareArea(length);
+            // console.log(areaSquare);
 
-        // const area=findArea.square(10);
-        // console.log(area);
+            // const area=findArea.square(10);
+            // console.log(area);
 
-        const areaIn = length*length;
-        const areaFt = convFt(areaIn);
-        console.log(areaFt);
-        return areaFt
+            const areaIn = length*length;
+            const areaFt = convFt(areaIn);
+            console.log(areaFt);
+            return areaFt
+        }
+        if(obj.shape==='rectangle'){
+            console.log('it\'s a rectangle')
+            //this is where we'll find area with npm package after we can get it linked
+            const areaIn = length*width;
+            const areaFt = convFt(areaIn);
+            console.log(areaFt);
+            return areaFt
+        }
+        if(obj.shape==='circle'){
+            console.log('it\'s a circle')
+            //this is where we'll find area with npm package after we can get it linked
+            const radius = length/2
+            const areaIn = 3.14159*radius**2;
+            const areaFt = convFt(areaIn);
+            console.log(areaFt);
+            return areaFt
+        }
     }
-    if(obj.shape==='rectangle'){
-        console.log('it\'s a rectangle')
-        //this is where we'll find area with npm package after we can get it linked
-        const areaIn = length*width;
-        const areaFt = convFt(areaIn);
-        console.log(areaFt);
-        return areaFt
+    const findNumberOfPlants = (secArea) => {
+        plantArr.forEach(plant=>{
+            const plantsPerSqFt = plant.plantsPerSF;
+            console.log('plants per sq ft', plantsPerSqFt)
+            const numOfPlants = secArea*plantsPerSqFt;
+            console.log(`number of ${plant.name}`, numOfPlants);
+
+            const numberBox = document.querySelectorAll('.quantity-box');
+            numberBox.forEach(box=>{
+                if(parseInt(box.dataset.indexNumber)===plant.id){
+                    box.textContent = numOfPlants;
+                }
+            })
+        })
+       
     }
-    if(obj.shape==='circle'){
-        console.log('it\'s a circle')
-        //this is where we'll find area with npm package after we can get it linked
-        const radius = length/2
-        const areaIn = 3.14159*radius**2;
-        const areaFt = convFt(areaIn);
-        console.log(areaFt);
-        return areaFt
+
+    const findAreaPerPlant = area=> {
+        console.log('area', area)
+        console.log('plantArr', plantArr)
+        const numOfTypes = plantArr.length;
+        console.log('numOfTypes', numOfTypes);
+
+        //finds the area in sqft that each plant type gets to fill (if evenly divided)
+        const areaPerSection = Math.floor(area/numOfTypes);
+        console.log('areaPerSection',areaPerSection);
+        findNumberOfPlants(areaPerSection);
     }
-    // findAreaPerPlant(areaFt);
+    findAreaPerPlant(availableArea());
 }
 
 //populate hrefs onto output

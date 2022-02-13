@@ -17,49 +17,50 @@ body, html {
 
 
 
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    min-height: 76vh;
-    /* width: 80%; */
-  }
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  min-height: 76vh;
+  /* width: 80%; */
+}
 
 #topnav {
   height: 10vh;
 }
 
-  .py-3{
-    background-color: #f8f9fa;
-  }
+.py-3{
+  background-color: #f8f9fa;
+}
 
-  .footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    max-height: 20vh;
-  }
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  max-height: 20vh;
+}
 
 .welcome-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: center;
   width: 70%;
   background-color: #f8f9fa;
   margin: 40px;
   padding: 20px;
 }
 
-  .plantLI {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    padding: 5px;
-    margin: 5px
-  }
+.plantLI {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px
+}
 
 .plantLI img {
   width: 80px;
@@ -72,14 +73,14 @@ body, html {
     font-weight: bold;
 }
 
-  .plantLI div {
-    display: flex;
-    flex-direction: column;
-  }
+.plantLI div {
+  display: flex;
+  flex-direction: column;
+}
 
-  .plantLI p {
-    font-size: 0.8rem;
-  }
+.plantLI p {
+  font-size: 0.8rem;
+}
 
 .btnBox {
   display: flex;
@@ -95,6 +96,10 @@ body, html {
   align-self: start;
 }
 
+.for-print {
+  visibility: hidden;
+}
+
 .gardenLI {
   display: flex;
   align-items: center;
@@ -107,18 +112,79 @@ body, html {
   box-shadow: 5px 5px 2px lightgray; 
 }
 
+.garden-btn-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+}
+
+.garden-btn-box a {
+  align-self: stretch;
+}
+
+.garden-btn{
+  background-color: lightgreen;
+  align-self: stretch;
+  margin: 10px 0;
+  border: none;
+  box-shadow: 2px 2px 2px lightgray; 
+}
+
+.garden-btn#email {
+  width: 100%;
+}
+
+.garden-btn:hover {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
 #welcome-h2, #welcome-p {
   width: 80%;
   text-align: center;
 }
 
-  #gardenList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 95%;
-    height: 60vh;
-    padding: 10px;
-    overflow-y:auto;
-    border: 5px double lightgray;
-  }
+#editMeasQues {
+  display: flex;
+  /* align-items:center;
+  justify-content: start; */
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.editMeasBox {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+}
+
+.labels, .inputs {
+  /* border: 1px solid black; */
+  width: 50%;
+}
+
+.prev {
+  border: 2px solid green;
+  color: green;
+}
+
+.edit-input {
+  color: green;
+}
+
+#gardenList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: 60vh;
+  padding: 10px;
+  overflow-y:auto;
+  border: 5px double lightgray;
+}
+
+#gardenImg img {
+  width: 500px; 
+  height: 300px;
+}
