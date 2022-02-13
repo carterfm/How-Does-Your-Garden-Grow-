@@ -1,12 +1,12 @@
 <main style="display:flex; flex-direction:column; align-items: center;">
     {{!-- should just be username, since that's a key in the object, req.session.user, that we're passing it --}}
-    <div id="big-box" style="background-color: #F8F9FA; padding: 20px;">
-        <h1>Welcome back {{username}}!</h1>
-        <div id="button-box" style="display:flex; flex-direction:column; align-items: stretch; text-align: center;">
-            <h2 id="create">Create New Garden</h2>
-            <h2 id="old-gard">Old Garden Plans</h2>
-            <h2 id="view-prof">View/Edit Profile</h2>
-            <button id="logout">Logout</button>
+    <div id="big-box" style="background-color: #F8F9FA; padding: 20px; width: 35%;  text-align: center;">
+        <h1>Welcome {{username}}!</h1>
+        <div id="button-box" style="display:flex; flex-direction:column; align-items: stretch;">
+            <h2 id="create" class="garden-btn">Create New Garden</h2>
+            <h2 id="old-gard" class="garden-btn">Old Garden Plans</h2>
+            <h2 id="view-prof" class="garden-btn">View/Edit Profile</h2>
+            <a href="https://squarefootgardening.org/method/" id="about-sfg" target="_blank"><h2 id="view-prof" class="garden-btn">About Square Foot Gardening</h2></a>
         </div>
     </div>
 </main>

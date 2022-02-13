@@ -46,9 +46,38 @@
                 <option value="shade">Full shade (less than 4 hours of sun a day)</option>
             </select>
 
-            <div id="plantChoices" style="border: 1px solid black; margin:10px 0; padding: 0 10px;">
+{{!-- ///////////////////exemplar///////////////////// --}}
+            {{!-- <div id="num-sections" style="display:flex; align-items:center; justify-content: center; margin-top: 10px;">
+                <p style="padding: 5px; color: green">You have<span id="num-disp-box" style="border: 1px solid black; margin: 5px; padding: 5px">12</span>square-foot sections in your garden left to fill!</p>
+            </div> --}}
+{{!-- ///////////////////exemplar///////////////////// --}}
+
+            <div id="plantChoices" style="border: 1px solid black; padding: 0 10px;">
                 <h3 style="text-align:center;">Which plants would you like to include?</h3>
-                <ul id="plantBox" style="margin: 10px; padding: 10px; width: 100%; height: 150px; overflow-y: auto">
+                <ul id="plantBox" style="margin: 10px; padding: 10px; width: 100%; height: 200px; overflow-y: auto">
+
+{{!-- ///////////////////exemplar///////////////////// --}}
+{{!-- 
+                     <li class="plantLI" id="example"style="display: flex; flex-direction: column;">
+                            <div class="plant-ch-inpt-box" style="display: flex; flex-direction: row; width: 100%;">
+                                <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 25%">
+                                    <input type="text" name="12-text" id="12-text" class="plant-num-input" style="width: 40px">
+                                    <input style="display:none;"type="checkbox" class="plantChoice" name="12" value="12" id="12">
+                                    <img src="/images/tomato.png" alt="">
+                                </div>
+                                <div style="margin: 2px; display: flex; justify-content: center;">
+                                    <label for="12">Tomato</label>
+                                    <p>This is a tomato. It is versetile and delicious</p>
+                                </div>
+                            </div>
+                            <div id="how-many" style="display: none">
+                                <p>Please enter in the box how many sections of your garden you would like to fill with this plant</p>
+                            </div>
+                    </li> --}}
+                    
+{{!-- ///////////////////exemplar///////////////////// --}}
+
+
                     {{#each plant}}
                         <li class="plantLI">
                             <input type="checkbox" class="plantChoice" name="{{id}}" value="{{id}}">

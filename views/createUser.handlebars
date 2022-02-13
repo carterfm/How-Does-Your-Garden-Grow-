@@ -3,15 +3,24 @@
         <h2>Welcome!</h2>
         <p>Please provide your email address, desired username, and password below</p>
         <form id="create">
-            <label for="emailInput">Email:</label>
-            <input type="email" name="emailInput" required="required" id="emailInput" placeholder="Type email here...">
-            <label for="usernameInput">Username:</label>
-            <input type="text" name="usernameInput" required="required" id="usernameInput" placeholder="Pick a username...">
-            <label for="passwordInput">Password:</label>
-            <input type="text" name="passwordInput" required="required"  autocomplete="new-password" id="passwordInput">
+            <div id="label-inpt-box">
+                <div id="form-label-box" class="form-element">
+                    <label for="emailInput">Email:</label>
+                    <label for="usernameInput">Username:</label>
+                    <label for="passwordInput">Password:</label>
+                </div>
+                <div id="form-inpt-box" class="form-element">
+                    <input type="email" name="emailInput" required="required" id="emailInput" placeholder="Type email here...">
+                    <input type="text" name="usernameInput" required="required" id="usernameInput" placeholder="Pick a username...">
+                    <input type="text" name="passwordInput" required="required"  autocomplete="new-password" id="passwordInput">
+                </div>
+            </div>
+            <div id="button-box" class="form-element">
+                <button type="submit" id="submitCreate" class="garden-btn" >SUBMIT</button>
+            </div>
             {{!-- <label for="passwordVal">Re-type Your Password:</label>
             <input type="text" name="passwordVal" id="passwordVal" placeholder="Re-type your password..."> --}}
-            <button type="submit" id="submitCreate">SUBMIT</button>
+            
         </form>
     </div>
 </main>

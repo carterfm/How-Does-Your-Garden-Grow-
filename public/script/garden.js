@@ -28,8 +28,9 @@ const findGardenArea = obj => {
             // console.log(area);
 
             const areaIn = length*length;
+            console.log(`The area of this garden in inches is ${areaIn}`)
             const areaFt = convFt(areaIn);
-            console.log(areaFt);
+            console.log(`The area of this garden in feet is ${areaFt}`);
             return areaFt
         }
         if(obj.shape==='rectangle'){
@@ -40,22 +41,22 @@ const findGardenArea = obj => {
             console.log(areaFt);
             return areaFt
         }
-        if(obj.shape==='circle'){
-            console.log('it\'s a circle')
-            //this is where we'll find area with npm package after we can get it linked
-            const radius = length/2
-            const areaIn = 3.14159*radius**2;
-            const areaFt = convFt(areaIn);
-            console.log(areaFt);
-            return areaFt
-        }
+        // if(obj.shape==='circle'){
+        //     console.log('it\'s a circle')
+        //     //this is where we'll find area with npm package after we can get it linked
+        //     const radius = length/2
+        //     const areaIn = 3.14159*radius**2;
+        //     const areaFt = convFt(areaIn);
+        //     console.log(areaFt);
+        //     return areaFt
+        // }
     }
     const findNumberOfPlants = (secArea) => {
         plantArr.forEach(plant=>{
             const plantsPerSqFt = plant.plantsPerSF;
-            console.log('plants per sq ft', plantsPerSqFt)
+            console.log(`${plant.name} can have ${plantsPerSqFt} plants per sq ft`)
             const numOfPlants = secArea*plantsPerSqFt;
-            console.log(`number of ${plant.name}`, numOfPlants);
+            console.log(`number of ${plant.name} in this garden`, numOfPlants);
 
             const numberBox = document.querySelectorAll('.quantity-box');
             numberBox.forEach(box=>{
@@ -74,8 +75,8 @@ const findGardenArea = obj => {
         console.log('numOfTypes', numOfTypes);
 
         //finds the area in sqft that each plant type gets to fill (if evenly divided)
-        const areaPerSection = Math.floor(area/numOfTypes);
-        console.log('areaPerSection',areaPerSection);
+        const areaPerSection = area/numOfTypes;
+        console.log(`There are ${numOfTypes} sections and ${areaPerSection} feet in each section`);
         findNumberOfPlants(areaPerSection);
     }
     findAreaPerPlant(availableArea());

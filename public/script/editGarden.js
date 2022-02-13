@@ -85,22 +85,6 @@ const init = () => {
     }
 }
 
-//Goes to view garden output page popped with new garden
-const seeGarden = async (id) => {
-    const response = await fetch(`/dashboard/gardens/${id}`, {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-    })
-        if (response.ok) {
-            console.log(response);
-            document.location.replace(`/dashboard/gardens/${id}`);
-        } else {
-        alert(response.statusText);
-        }
-}
-
 //Posts the garden obj and sqitches to the garden output page
 const updateGarden = async (obj) => {
     const response = await fetch(`/api/garden/${id}`, {
@@ -112,7 +96,7 @@ const updateGarden = async (obj) => {
   });
   if (response.ok) {
       console.log(obj);
-      seeGarden(id);
+      document.location.replace(`/dashboard/gardens/${id}`);
           } else {
         
             alert('Something went wrong!');
