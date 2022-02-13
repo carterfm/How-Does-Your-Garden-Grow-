@@ -56,7 +56,9 @@ router.post('/', async (req, res) => {
             });
             //Setting the many-to-many connections with plants in the plants table
             newGarden.setPlants(req.body.plantIds);
+            // const garden = newGarden.get({plain: true});
             res.status(200).json(newGarden);
+            // res.status(200).render('garden', garden)
         } catch (err) {
             console.log('======\n' + err + '\n======');
             res.status(500).json(err);

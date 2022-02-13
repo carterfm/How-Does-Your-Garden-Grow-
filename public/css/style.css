@@ -124,6 +124,7 @@ opacity: 1;
 form.login {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .form-element {
   width: 100%;
@@ -220,9 +221,14 @@ form.login {
   width: 100%;
 }
 
-.garden-btn:hover {
+.garden-btn:hover, #about-sfg:hover {
   color: whitesmoke;
   font-weight: bold;
+}
+
+#about-sfg:link, #about-sfg:visited {
+  color: black;
+  text-decoration: none;
 }
 
 .editMeasBox {
@@ -257,7 +263,8 @@ form.login {
 #button-box {
   display: flex;
   flex-direction: column;
-  width: 100%;
+align-self: center;
+  width: 70%;
 }
 
 #gardenList {
@@ -292,4 +299,24 @@ form.login {
 #submitCreate {
   width: 70%;
   align-self: center;
+}
+
+#form-label-box label, #form-inpt-box input {
+  margin: 5px;
+
+}
+
+#form-label-box label {
+  text-align: right;
+}
+
+#update-box {
+  width: 40%
+}
+
+#password-match {
+  display: none;
+  font-style: italic;
+  color: red;
+  text-align: right;
 }
