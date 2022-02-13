@@ -43,5 +43,15 @@ editBtn.forEach(btn=>{
 deleteBtn.forEach(btn=>{
     btn.addEventListener('click', e => {
         console.log(btn.value)
+        console.log(`/api/garden/${btn.value}`)
+        fetch(`/api/garden/${btn.value}`,{
+            method:"DELETE"
+        }).then(res=>{
+            if(res.ok){
+               location.reload()
+            } else {
+                alert("trumpet sound")
+            }
+        })
     })
 })
