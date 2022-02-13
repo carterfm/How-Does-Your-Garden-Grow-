@@ -132,8 +132,12 @@ router.get('/gardens/edit/:id', withAuth, async (req, res) => {
         }
 
         const gardenEdit = gardenToEdit.get({plain: true});
+
+        //Getting all plants so we can display them in a dropdown
+        const allPlants = await Plant.findAll();
+        const plants = allPlants.map(plant => plant.get({plain: true}));
         
-        res.render('editOldGarden', gardenEdit);
+        res.render('editOldGarden', gardenEdit, plants);
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err); 
