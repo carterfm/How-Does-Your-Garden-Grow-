@@ -58,7 +58,7 @@
 
                         <li class="plantLI" data-index-number="{{id}}"  >
 
-                            <input type="text" name="plant-num-text" class="plant-num-input" data-index-number="{{id}}">
+                            <input type="number" name="plant-num-text" class="plant-num-input" data-index-number="{{id}}">
 
                             <div class="info-box" data-index-number="{{id}}">
                                 <img src="/images/{{name}}.png" alt="" data-index-number="{{id}}">
@@ -66,7 +66,7 @@
                                     <label for="{{id}}" data-index-number="{{id}}">
                                         <h5 data-index-number="{{id}}">{{name}}</h5>
                                     </label>
-                                    <p data-index-number="{{id}}">{{description}}</p>
+                                    <p data-index-number="{{id}}">{{description}} <strong>{{plantsPerSF}} of these plants will fit in one square foot area.</strong></p>
                                     <p data-index-number="{{id}}" class="how-many" style="visibility:hidden;" data-index-number="{{id}}">Please enter in the box how many sections of your garden you would like to fill with this plant</p>
                                 </div>
                             </div>

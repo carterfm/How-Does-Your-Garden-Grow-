@@ -117,11 +117,12 @@ const calcSections = e => {
 }
 
 const updateSections = e => {
-    console.log('numdispbox content is a ', typeof numDispBox.textContent)
+    console.log('numdispbox content is a ', numDispBox.textContent)
     const usedSections = e.target.value;
-    const currentSections = numDispBox.textContent;
+    const currentSections = parseInt(numDispBox.textContent);
     const sectionsLeft = currentSections - usedSections
     numDispBox.textContent = sectionsLeft;
+    console.log('numdispbox content is a ', numDispBox.textContent)
     if(parseInt(sectionsLeft)<=0){
         document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: none')
         document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid red; color:red; font-weight: bold')
@@ -283,9 +284,7 @@ const clickBox = (e) => {
 }
   
 
-infoBox.forEach(box=>{
-    box.addEventListener('click', clickBox)
-});
+
 
 
 //measurement collection boxes will appear once the user has chosen a shape
@@ -294,32 +293,25 @@ shapeBox.addEventListener('change', getMeasurements)
 len.addEventListener('keyup', e => {
     document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block');
     calcSections(e);
-});
 
-const checkIfNum = e => {
-    console.log('what\'s the number?', e.target.value);
-    console.log('is it a number?',/^\d+$/.test(e.target.value))
-    if(e.target.value===NaN){
-       console.log('not a number');
-        // e.target.removeEventListener('keyup', updateSections)
-        // return
-    } else {updateSections(e)}
-}
+    infoBox.forEach(box=>{
+        box.addEventListener('click', clickBox)
+    });
+
+});
 
 secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', e=> {
         console.log('inpt value', e.target.value)
-        checkIfNum (e)
-        
+        updateSections(e)
     })
     inpt.addEventListener('keydown', e => {
-        // console.log('inpt value', e.target.value)
-        // console.log('is it a number?',/^\d+$/.test(parseInt(inpt.value)))
-        // checkIfNum(e)
         if(e.key==="Backspace"){
-            // inpt.addEventListener('keyup', updateSections);
-            const sectionsToAdd = parseInt(e.target.value);
-            addSectionsBack(sectionsToAdd)
+            if(e.target.value===''){return}
+            else{
+                const sectionsToAdd = parseInt(e.target.value);
+                addSectionsBack(sectionsToAdd)
+            }
         }
     })
 });
