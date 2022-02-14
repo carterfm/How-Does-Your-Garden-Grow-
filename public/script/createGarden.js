@@ -118,6 +118,9 @@ const calcSections = e => {
 }
 
 const updateSections = e => {
+    // if(e.key==="Backspace"){
+
+    // }
     const usedSections = e.target.value;
     const currentSections = numDispBox.textContent;
     const sectionsLeft = currentSections - usedSections
@@ -166,9 +169,12 @@ const buildNewGarden= (e) => {
     const buildPlantObjs = (plant) => {
         secNumInpt.forEach(sec=>{
             if(sec.dataset.indexNumber===plant.value){
-                const newPlantValues = [plant.value, sec.value];
-                console.log(`Here is a plant array: ${newPlantValues}`)
-                plantArr.push(newPlantValues);
+                for(let i=0; i<sec.value; i++){
+                    plantArr.push(plant.value)
+                }
+                // const newPlantValues = [plant.value, sec.value];
+                // console.log(`Here is a plant array: ${newPlantValues}`)
+                // plantArr.push(newPlantValues);
             }
         })
     }
@@ -191,7 +197,7 @@ const buildNewGarden= (e) => {
         plantsToAdd: plantArr
     }
     console.log(newGarden)
-    saveGarden(newGarden);
+    // saveGarden(newGarden);
 }
 
 
@@ -281,6 +287,14 @@ len.addEventListener('keyup', calcSections);
 
 secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', updateSections);
+    inpt.addEventListener('keydown', e => {
+        if(e.key==="Backspace"){
+            const usedSections = parseInt(e.target.value);
+            const currentSections = parseInt(numDispBox.textContent);
+            const sectionsLeft = currentSections + usedSections
+            numDispBox.textContent = sectionsLeft;
+        }
+    })
 });
 
 //initiates obj build after form submission
