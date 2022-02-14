@@ -104,7 +104,6 @@ const calcSections = e => {
         }
         if(shapeBox.value==='rectangle'){
             console.log('it\'s a rectangle')
-            //this is where we'll find area with npm package after we can get it linked
             const areaIn = length*width;
             console.log(`The area of this garden in sq inches is ${areaIn}`)
             const areaSqFt = convSqFt(areaIn);
@@ -118,7 +117,7 @@ const calcSections = e => {
 }
 
 const updateSections = e => {
-    console.log(parseInt(numDispBox.textContent))
+    console.log('numdispbox content is a ', typeof numDispBox.textContent)
     const usedSections = e.target.value;
     const currentSections = numDispBox.textContent;
     const sectionsLeft = currentSections - usedSections
@@ -165,10 +164,8 @@ const saveGarden = async (obj) => {
         body: JSON.stringify(obj),
   });
   if (response.ok) {
-    //   document.location.replace(`/dashboard/gardens/${obj.id}`);
       seeGarden(obj.title);
           } else {
-        
             alert('Something went wrong!');
           }
 }
@@ -180,12 +177,9 @@ const buildNewGarden= (e) => {
     const buildPlantObjs = (plant) => {
         secNumInpt.forEach(sec=>{
             if(sec.dataset.indexNumber===plant.value){
-                for(let i=0; i<sec.value; i++){
-                    plantArr.push(plant.value)
-                }
-                // const newPlantValues = [plant.value, sec.value];
-                // console.log(`Here is a plant array: ${newPlantValues}`)
-                // plantArr.push(newPlantValues);
+                const newPlantValues = [plant.value, sec.value];
+                console.log(`Here is a plant array: ${newPlantValues}`)
+                plantArr.push(newPlantValues);
             }
         })
     }
@@ -208,7 +202,7 @@ const buildNewGarden= (e) => {
         plantsToAdd: plantArr
     }
     console.log(newGarden)
-    // saveGarden(newGarden);
+    saveGarden(newGarden);
 }
 
 
@@ -303,18 +297,27 @@ len.addEventListener('keyup', e => {
 });
 
 const checkIfNum = e => {
-    if(parseInt(e.target.value)===NaN){
-        e.target.removeEventListener('keyup', updateSections)
-        return
+    console.log('what\'s the number?', e.target.value);
+    console.log('is it a number?',/^\d+$/.test(e.target.value))
+    if(e.target.value===NaN){
+       console.log('not a number');
+        // e.target.removeEventListener('keyup', updateSections)
+        // return
     } else {updateSections(e)}
 }
 
 secNumInpt.forEach(inpt=> {
-    inpt.addEventListener('keyup', updateSections);
+    inpt.addEventListener('keyup', e=> {
+        console.log('inpt value', e.target.value)
+        checkIfNum (e)
+        
+    })
     inpt.addEventListener('keydown', e => {
+        // console.log('inpt value', e.target.value)
+        // console.log('is it a number?',/^\d+$/.test(parseInt(inpt.value)))
         // checkIfNum(e)
         if(e.key==="Backspace"){
-            inpt.addEventListener('keyup', updateSections);
+            // inpt.addEventListener('keyup', updateSections);
             const sectionsToAdd = parseInt(e.target.value);
             addSectionsBack(sectionsToAdd)
         }
