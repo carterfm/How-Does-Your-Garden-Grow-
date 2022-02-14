@@ -118,13 +118,18 @@ const calcSections = e => {
 }
 
 const updateSections = e => {
-    // if(e.key==="Backspace"){
-
-    // }
+    console.log(parseInt(numDispBox.textContent))
     const usedSections = e.target.value;
     const currentSections = numDispBox.textContent;
     const sectionsLeft = currentSections - usedSections
     numDispBox.textContent = sectionsLeft;
+    if(parseInt(sectionsLeft)<=0){
+        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: none')
+        document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid red; color:red; font-weight: bold')
+    } else {
+        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block')
+        document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid red; color:red; font-weight: bold')
+    }
 }
 
 const addSectionsBack = val => {
@@ -292,12 +297,24 @@ infoBox.forEach(box=>{
 //measurement collection boxes will appear once the user has chosen a shape
 shapeBox.addEventListener('change', getMeasurements)
 
-len.addEventListener('keyup', calcSections);
+len.addEventListener('keyup', e => {
+    document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block');
+    calcSections(e);
+});
+
+const checkIfNum = e => {
+    if(parseInt(e.target.value)===NaN){
+        e.target.removeEventListener('keyup', updateSections)
+        return
+    } else {updateSections(e)}
+}
 
 secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', updateSections);
     inpt.addEventListener('keydown', e => {
+        // checkIfNum(e)
         if(e.key==="Backspace"){
+            inpt.addEventListener('keyup', updateSections);
             const sectionsToAdd = parseInt(e.target.value);
             addSectionsBack(sectionsToAdd)
         }
