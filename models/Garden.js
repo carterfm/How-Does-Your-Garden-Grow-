@@ -16,7 +16,7 @@ Garden.init({
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            isIn: [['circle', 'square', 'rectangle']]
+            isIn: [['square', 'rectangle']]
         }
     },
     //Measurements are in inches
