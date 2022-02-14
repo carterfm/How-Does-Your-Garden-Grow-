@@ -28,7 +28,7 @@ const togglePassword = (e) => {
 toggleButton.addEventListener('click', togglePassword);
 
 confirmPassword.addEventListener('blur', e=>{
-  if (confirmPassword.value!==editPasswordInpt){
+  if (confirmPassword.value!==editPasswordInpt.value){
     document.getElementById('password-match').setAttribute('style', 'display: block')
   } else {
     document.getElementById('password-match').setAttribute('style', 'display: none')
@@ -55,15 +55,16 @@ const editUser = async (e) => {
     const newUsername = editUserInpt.value.trim();
     const newPassword = editPasswordInpt.value.trim();
     console.log('into the fxn')
-    // if (password!==passwordVal){
-    //   alert('Your passwords don\'t match!\nTry again!')
-    //   return
-    // }
-    // else {
       if (newUsername && newEmail && newPassword) {
-        const response = await fetch('/api/user', {
-          method: 'POST',
-          body: JSON.stringify({ newUsername, newEmail, newPassword }),
+        const updatedUser = {
+          username: newUsername, 
+          email: newEmail, 
+          password: newPassword
+        }
+
+        const response = await fetch(`/dashboard/profile/${userID}`, {
+          method: 'PUT',
+          body: JSON.stringify({updatedUser}),
           headers: { 'Content-Type': 'application/json' },
         });
     
@@ -73,7 +74,6 @@ const editUser = async (e) => {
           alert(response.statusText);
         }
       }
-    // }
 };
 
 const begin = () => {
@@ -84,5 +84,11 @@ const begin = () => {
 
 begin();
 
-document.getElementById('submitEdit').addEventListener('submit', editUser);
+document.getElementById('submitEdit').addEventListener('click', e =>{
+  e.preventDefault();
+  if (confirmPassword.value!==editPasswordInpt.value){
+    alert('Hmm... something\'s wrong...\n Please make sure all fields are filled and your passwords match.');
+    return
+  } else {editUser(e)}
+});
 document.getElementById('submitDelete').addEventListener('click', deleteProfile);
