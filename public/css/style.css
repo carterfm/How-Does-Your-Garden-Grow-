@@ -163,9 +163,17 @@ form.login {
     font-weight: bold;
 }
 
-.plantLI div {
+.plantInfo {
   display: flex;
   flex-direction: column;
+  justify-content:center;
+  margin: 5px 0;
+}
+
+.click-target {
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .plantLI p {
