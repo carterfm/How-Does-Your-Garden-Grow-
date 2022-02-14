@@ -118,9 +118,23 @@ const calcSections = e => {
 }
 
 const updateSections = e => {
+    console.log(parseInt(numDispBox.textContent))
     const usedSections = e.target.value;
     const currentSections = numDispBox.textContent;
     const sectionsLeft = currentSections - usedSections
+    numDispBox.textContent = sectionsLeft;
+    if(parseInt(sectionsLeft)<=0){
+        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: none')
+        document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid red; color:red; font-weight: bold')
+    } else {
+        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block')
+        document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid red; color:red; font-weight: bold')
+    }
+}
+
+const addSectionsBack = val => {
+    const currentSections = parseInt(numDispBox.textContent);
+    const sectionsLeft = currentSections + val
     numDispBox.textContent = sectionsLeft;
 }
 
@@ -166,9 +180,12 @@ const buildNewGarden= (e) => {
     const buildPlantObjs = (plant) => {
         secNumInpt.forEach(sec=>{
             if(sec.dataset.indexNumber===plant.value){
-                const newPlantValues = [plant.value, sec.value];
-                console.log(`Here is a plant array: ${newPlantValues}`)
-                plantArr.push(newPlantValues);
+                for(let i=0; i<sec.value; i++){
+                    plantArr.push(plant.value)
+                }
+                // const newPlantValues = [plant.value, sec.value];
+                // console.log(`Here is a plant array: ${newPlantValues}`)
+                // plantArr.push(newPlantValues);
             }
         })
     }
@@ -191,7 +208,7 @@ const buildNewGarden= (e) => {
         plantsToAdd: plantArr
     }
     console.log(newGarden)
-    saveGarden(newGarden);
+    // saveGarden(newGarden);
 }
 
 
@@ -213,6 +230,9 @@ const resetColor = (e) => {
     secNumInpt.forEach(inpt=> {
         if(inpt.dataset.indexNumber===e.target.dataset.indexNumber){
             inpt.setAttribute('style', 'visibility: hidden; width: 2.25rem; height: 1.5rem')
+            if(inpt.value>0){
+                addSectionsBack(parseInt(inpt.value))
+                inpt.value = '';}
             console.log('inpt matches')
         }
     })
@@ -277,10 +297,28 @@ infoBox.forEach(box=>{
 //measurement collection boxes will appear once the user has chosen a shape
 shapeBox.addEventListener('change', getMeasurements)
 
-len.addEventListener('keyup', calcSections);
+len.addEventListener('keyup', e => {
+    document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block');
+    calcSections(e);
+});
+
+const checkIfNum = e => {
+    if(parseInt(e.target.value)===NaN){
+        e.target.removeEventListener('keyup', updateSections)
+        return
+    } else {updateSections(e)}
+}
 
 secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', updateSections);
+    inpt.addEventListener('keydown', e => {
+        // checkIfNum(e)
+        if(e.key==="Backspace"){
+            inpt.addEventListener('keyup', updateSections);
+            const sectionsToAdd = parseInt(e.target.value);
+            addSectionsBack(sectionsToAdd)
+        }
+    })
 });
 
 //initiates obj build after form submission
