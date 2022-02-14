@@ -117,11 +117,17 @@ const calcSections = e => {
 }
 
 const updateSections = e => {
-    console.log('numdispbox content is a ', typeof numDispBox.textContent)
+    console.log('numdispbox content is a ', numDispBox.textContent)
     const usedSections = e.target.value;
-    const currentSections = numDispBox.textContent;
+    const currentSections = parseInt(numDispBox.textContent);
+    if(currentSections<usedSections){
+        alert('That is too many sections! Check your counterbox and try again.');
+        e.target.value = '';
+        return
+    }
     const sectionsLeft = currentSections - usedSections
     numDispBox.textContent = sectionsLeft;
+    console.log('numdispbox content is a ', numDispBox.textContent)
     if(parseInt(sectionsLeft)<=0){
         document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: none')
         document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid firebrick; color:firebrick; font-weight: bold')
@@ -137,23 +143,6 @@ const addSectionsBack = val => {
     numDispBox.textContent = sectionsLeft;
 }
 
-//Goes to view garden output page popped with new garden
-const seeGarden = async (title) => {
-    const response = await fetch(`/dashboard/gardens/new/${title}`, {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-    })
-        if (response.ok) {
-            console.log(response);
-            document.location.replace(`/dashboard/gardens/new/${title}`);
-        } else {
-        alert(response.statusText);
-        }
-}
-
-
 //Posts the garden obj and sqitches to the garden output page
 const saveGarden = async (obj) => {
     const response = await fetch(`/api/garden`, {
@@ -163,11 +152,24 @@ const saveGarden = async (obj) => {
         },
         body: JSON.stringify(obj),
   });
-  if (response.ok) {
-      seeGarden(obj.title);
-          } else {
-            alert('Something went wrong!');
-          }
+    if (response.ok) {
+        console.log(`response OK!`)
+    const newData = await response.json();
+    console.log(newData)
+    const res = await fetch(`/dashboard/gardens/${newData.id}`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    })
+        if (res.ok) {
+        document.location.replace(`/dashboard/gardens/${newData.id}`);
+        } else {
+        alert(response.statusText);
+        }
+    } else {
+    alert('Something went wrong!');
+    }
 }
 
 //builds the garden obj
@@ -283,9 +285,7 @@ const clickBox = (e) => {
 }
   
 
-infoBox.forEach(box=>{
-    box.addEventListener('click', clickBox)
-});
+
 
 
 //measurement collection boxes will appear once the user has chosen a shape
@@ -294,37 +294,30 @@ shapeBox.addEventListener('change', getMeasurements)
 len.addEventListener('keyup', e => {
     document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block');
     calcSections(e);
-});
 
-const checkIfNum = e => {
-    console.log('what\'s the number?', e.target.value);
-    console.log('is it a number?',/^\d+$/.test(e.target.value))
-    if(e.target.value===NaN){
-       console.log('not a number');
-        // e.target.removeEventListener('keyup', updateSections)
-        // return
-    } else {updateSections(e)}
-}
+    infoBox.forEach(box=>{
+        box.addEventListener('click', clickBox)
+    });
+
+});
 
 secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', e=> {
         console.log('inpt value', e.target.value)
-        checkIfNum (e)
-        
-    })
+        setTimeout(()=>{updateSections(e)}, 500);
+    });
     inpt.addEventListener('keydown', e => {
-        // console.log('inpt value', e.target.value)
-        // console.log('is it a number?',/^\d+$/.test(parseInt(inpt.value)))
-        // checkIfNum(e)
         if(e.key==="Backspace"){
-            // inpt.addEventListener('keyup', updateSections);
-            const sectionsToAdd = parseInt(e.target.value);
-            addSectionsBack(sectionsToAdd)
+            if(e.target.value===''){return}
+            else{
+                const sectionsToAdd = parseInt(e.target.value);
+                addSectionsBack(sectionsToAdd)
+            }
         }
     })
 });
 
 //initiates obj build after form submission
-document.querySelector('#newGarden').addEventListener('submit', buildNewGarden);
+document.querySelector('#getGarden').addEventListener('click', buildNewGarden);
 
 init();
