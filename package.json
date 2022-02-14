@@ -21,6 +21,7 @@
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
+    "p5": "^1.4.1",
     "sequelize": "^6.16.1"
   },
   "repository": {
@@ -30,6 +31,5 @@
   "bugs": {
     "url": "https://github.com/carterfm/How-Does-Your-Garden-Grow-/issues"
   },
-  "homepage": "https://github.com/carterfm/How-Does-Your-Garden-Grow-#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/carterfm/How-Does-Your-Garden-Grow-#readme"
 }

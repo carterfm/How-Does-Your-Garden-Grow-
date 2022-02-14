@@ -1,14 +1,37 @@
-const Garden  = require("../models/Garden");
-const garden = { Garden }
-const gardenL = garden.length;
-const gardenW = garden.width;
-const canvasL = gardenL*100+50;
-const canvasW = gardenW*100;
-const gardenBlocks = new Array[ garden.length * garden.width ];
-const plantIndexCounter;
+const gardenId = document.getElementById("id-box").textContent();
+let gardenL;
+let gardenW;
+let canvasL;
+let canvasW;
+let plantGardenData;
+
 
 function preload() {
+    fetch(`/api/garden/${gardenId}`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    }).then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        const garden = data;
+        //Getting dimension attributes that will be used for rendering
+        gardenL = garden.length;
+        gardenW = garden.width;
+        canvasL = gardenL*100+50;
+        canvasW = gardenW*100;
 
+        //Generating array that will be used to render the actual garden visual
+        for (plant of garden.Plants) {
+            for (let i = 0; i < plant.GardenPlant.numberOfPlants; i++) {
+                plantGardenData.push(plant.name);
+            }
+        }
+    }).catch(err=>{
+        alert(err);
+    })   
 }
 
 function setup() {
@@ -42,9 +65,8 @@ function draw() {
             }
         }
     };
-    const plantChoices = obj => {
-        const plantGardenData = obj.Plants;
-        plantGardenData.forEach(plant=>{
+    const plantChoices = () => {
+        plantGardenData.forEach(plant => {
             const plantName = plant.name;
             const plantImage = loadImage(`../public/images/gardenOutput/${plantName}`);
             const plantRow = 0;
@@ -59,22 +81,15 @@ function draw() {
             columnCounter();
             const plantYOffset = plantRow*100;
             const plantXOffset = plantColumn*100;
-            image(plantImage, 100, 100)
-        })
-
-    }
+            image(plantImage, 100, 100);
+        });
+    };
 }
 
-function getIndex(row, column, columns) {
-    return columns*row + column
-}
+// function getIndex(row, column, columns) {
+//     return columns*row + column
+// }
 
-function getRow(index, columns) {return Math.floor(index/columns)}
+// function getRow(index, columns) {return Math.floor(index/columns)}
 
-function getColumn(index, columns) {return index % columns}
-
-function generateLayout(gardenBlocks) {
-    // take in sq ft per vegetable
-    // take in vegetable image
-
-}
+// function getColumn(index, columns) {return index % columns}
