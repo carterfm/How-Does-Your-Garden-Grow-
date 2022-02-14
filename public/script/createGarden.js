@@ -104,7 +104,6 @@ const calcSections = e => {
         }
         if(shapeBox.value==='rectangle'){
             console.log('it\'s a rectangle')
-            //this is where we'll find area with npm package after we can get it linked
             const areaIn = length*width;
             console.log(`The area of this garden in sq inches is ${areaIn}`)
             const areaSqFt = convSqFt(areaIn);
@@ -165,10 +164,8 @@ const saveGarden = async (obj) => {
         body: JSON.stringify(obj),
   });
   if (response.ok) {
-    //   document.location.replace(`/dashboard/gardens/${obj.id}`);
       seeGarden(obj.title);
           } else {
-        
             alert('Something went wrong!');
           }
 }
@@ -180,12 +177,12 @@ const buildNewGarden= (e) => {
     const buildPlantObjs = (plant) => {
         secNumInpt.forEach(sec=>{
             if(sec.dataset.indexNumber===plant.value){
-                for(let i=0; i<sec.value; i++){
-                    plantArr.push(plant.value)
-                }
-                // const newPlantValues = [plant.value, sec.value];
-                // console.log(`Here is a plant array: ${newPlantValues}`)
-                // plantArr.push(newPlantValues);
+                // for(let i=0; i<sec.value; i++){
+                //     plantArr.push(plant.value)
+                // }
+                const newPlantValues = [plant.value, sec.value];
+                console.log(`Here is a plant array: ${newPlantValues}`)
+                plantArr.push(newPlantValues);
             }
         })
     }
@@ -208,7 +205,7 @@ const buildNewGarden= (e) => {
         plantsToAdd: plantArr
     }
     console.log(newGarden)
-    // saveGarden(newGarden);
+    saveGarden(newGarden);
 }
 
 

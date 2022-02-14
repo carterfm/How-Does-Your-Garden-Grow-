@@ -1,10 +1,3 @@
-// const findArea = require('areashapes');
-// const {findSquareArea, findCircleArea, findRectangleArea} = require('../../utils/areas.js')
-// const fakeFunction = require('./dashboard');
-
-// fakeFunction();
-
-
 
 //finding the area of the garden
 const findGardenArea = obj => {
@@ -19,14 +12,7 @@ const findGardenArea = obj => {
     const availableArea = () => {
         if(obj.shape==='square'){
             console.log('it\'s a square')
-            // this is where we'll find area with npm package after we can get it linked
-
-            // const areaSquare = findSquareArea(length);
-            // console.log(areaSquare);
-
-            // const area=findArea.square(10);
-            // console.log(area);
-
+     
             const areaIn = length*length;
             console.log(`The area of this garden in inches is ${areaIn}`)
             const areaFt = convFt(areaIn);
