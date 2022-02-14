@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Garden extends Model {}
+class Garden extends Model {};
 
 Garden.init({
     //id is generated automatically by sequelize
