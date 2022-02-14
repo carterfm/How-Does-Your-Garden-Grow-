@@ -82,11 +82,11 @@ const begin = () => {
 
 begin();
 
-document.getElementById('submitEdit').addEventListener('submit', e =>{
+document.getElementById('submitEdit').addEventListener('click', e =>{
+  e.preventDefault();
   if (confirmPassword.value!==editPasswordInpt){
-    alert('Your passwords don\'t match! Check them and try again!');
+    alert('Hmm... something\'s wrong...\n Please make sure all fields are filled and your passwords match.');
     return
-  }
-  editUser(e)
+  } else {editUser(e)}
 });
 document.getElementById('submitDelete').addEventListener('click', deleteProfile);
