@@ -1,30 +1,25 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/repeatveg.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/biggerbackground.png");
+  background-repeat: repeat-y;
+  background-position: center;
   }
-
-#password{
-  padding-bottom: 3px;
-}
 
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  min-height: 74vh;
+  min-height: 76.5vh;
   align-items: center;
 }
 
@@ -33,7 +28,7 @@ main {
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
 }
 
-#welcome-box{
+.welcomeBox{
   background-color: #f8f9fa;
   max-width: 66vw;
   display: flex;
@@ -45,17 +40,43 @@ main {
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
 }
 
-.navbar-light .navbar-brand {
-  color:  olivedrab;
+.userHomeBox{
+  background-color: #f8f9fa;
+  min-width: 45vw;
+  padding: 4rem;
+  border-radius: 100px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
 }
 
-#welcome{
+.userBox{
+  min-width: 45vw;
+  padding: 4rem;
+  border-radius: 100px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  margin: 40px;
+  padding: 20px;
+}
+
+.welcome{
   font-size: 4rem;
   color:olivedrab;
+  font-family: 'Amita', cursive;
 }
 
-#welcomePTag{
-  color: #6c757d;
+.navbar-light .navbar-brand {
+  color:  olivedrab;
+  font-family: 'Amita', cursive;
 }
 
 #newHereP{
@@ -63,16 +84,18 @@ main {
   color: #6c757d;
 }
 
-#usernameColor{
-  color: #6c757d; 
-}
-
-#passwordColor{
-  color: #6c757d;
-}
-
-#loginH3{
+.oliveFont{
   color: olivedrab;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.help{
+  color: #1c1c28;
+}
+
+.grayFont{
+  color: #6c757d;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #login, #create{
@@ -89,10 +112,8 @@ main {
 
 .footer {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
-  max-height: 20vh;
-  box-shadow: 0 -8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .loginButton {
@@ -106,19 +127,7 @@ main {
 }
 
 .loginButton:hover {
-opacity: 1;
-}
-
-.welcome-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  width: 70%;
-  background-color: #f8f9fa;
-  margin: 40px;
-  padding: 20px;
+  opacity: 1;
 }
 
 form.login {
@@ -136,11 +145,11 @@ form.login {
 
 .plantLI {
   display: flex;
-  justify-content: center;
   align-items: center;
   border: 1px solid black;
-  padding: 5px;
-  margin: 5px
+  padding: 3px;
+  margin-bottom: 3px;
+  margin-right: 20px
 }
 
 .plantLI img {
@@ -204,17 +213,25 @@ form.login {
   align-self: stretch;
 }
 
-.garden-btn{
-  background-color: lightgreen;
-  align-self: stretch;
-  margin: 10px 0;
-  border: none;
-  box-shadow: 2px 2px 2px lightgray; 
+.garden-btn {
+  border-radius: 8px;
+  padding: 3px;
+  background-color: olivedrab;
+  border: 2px solid olivedrab;
+  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 20%);
+  opacity: 0.8;
+  transition: 0.3s;
+  margin-bottom: 8px;
+}
+
+.garden-btn:hover {
+  opacity: 1;
 }
 
 .form-btn {
   width: 30%;
   align-self: center;
+  margin-top: 8px;
 }
 
 .garden-btn#email {
@@ -260,10 +277,11 @@ form.login {
   flex-direction: column;
 }
 
+/* might not need #button-box */
 #button-box {
   display: flex;
   flex-direction: column;
-align-self: center;
+  align-self: center;
   width: 70%;
 }
 
@@ -272,7 +290,7 @@ align-self: center;
   flex-direction: column;
   align-items: center;
   width: 95%;
-  height: 60vh;
+  min-height: 50vh;
   padding: 10px;
   overflow-y:auto;
   border: 5px double lightgray;
@@ -281,11 +299,6 @@ align-self: center;
 #gardenImg img {
   width: 500px; 
   height: 300px;
-}
-
-#welcome-h2, #welcome-p {
-  width: 80%;
-  text-align: center;
 }
 
 #editMeasQues {
@@ -314,9 +327,10 @@ align-self: center;
   width: 40%
 }
 
+
 #password-match {
   display: none;
   font-style: italic;
-  color: red;
+  color: firebrick;
   text-align: right;
 }
