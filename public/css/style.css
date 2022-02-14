@@ -136,11 +136,12 @@ form.login {
 
 .plantLI {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   border: 1px solid black;
   padding: 5px;
-  margin: 5px
+  margin: 5px;
+  width: 80%;
 }
 
 .plantLI img {
@@ -154,9 +155,17 @@ form.login {
     font-weight: bold;
 }
 
-.plantLI div {
+.plantInfo {
   display: flex;
   flex-direction: column;
+  justify-content:center;
+  margin: 5px 0;
+}
+
+.click-target {
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .plantLI p {

@@ -41,15 +41,6 @@ const findGardenArea = obj => {
             console.log(areaFt);
             return areaFt
         }
-        // if(obj.shape==='circle'){
-        //     console.log('it\'s a circle')
-        //     //this is where we'll find area with npm package after we can get it linked
-        //     const radius = length/2
-        //     const areaIn = 3.14159*radius**2;
-        //     const areaFt = convFt(areaIn);
-        //     console.log(areaFt);
-        //     return areaFt
-        // }
     }
     const findNumberOfPlants = (secArea) => {
         plantArr.forEach(plant=>{
