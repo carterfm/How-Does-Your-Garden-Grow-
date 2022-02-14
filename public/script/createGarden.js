@@ -188,7 +188,7 @@ const buildNewGarden= (e) => {
         length: len.value,
         width: wid.value,
         sunLevel: sunLevelBox.value,
-        plantIds: plantArr
+        plantsToAdd: plantArr
     }
     console.log(newGarden)
     saveGarden(newGarden);
@@ -277,7 +277,7 @@ infoBox.forEach(box=>{
 //measurement collection boxes will appear once the user has chosen a shape
 shapeBox.addEventListener('change', getMeasurements)
 
-len.addEventListener('blur', calcSections);
+len.addEventListener('keyup', calcSections);
 
 secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', updateSections);
