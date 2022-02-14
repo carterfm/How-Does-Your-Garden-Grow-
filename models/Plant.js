@@ -17,10 +17,6 @@ Plant.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    spaceNeeded:{
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
     //yield is in pounds/square foot
     yield:{
         type: DataTypes.DECIMAL,
