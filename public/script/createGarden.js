@@ -129,11 +129,11 @@ const updateSections = e => {
     numDispBox.textContent = sectionsLeft;
     console.log('numdispbox content is a ', numDispBox.textContent)
     if(parseInt(sectionsLeft)<=0){
-        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: none')
-        document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid red; color:red; font-weight: bold')
+        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: none')
+        document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid firebrick; color:firebrick; font-weight: bold')
     } else {
-        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block')
-        document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid red; color:red; font-weight: bold')
+        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: block')
+        document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid firebrick; color:firebrick; font-weight: bold')
     }
 }
 
@@ -244,7 +244,7 @@ const changeLIColor = (e) => {
     e.preventDefault();
     liBox.forEach(box=>{
         if(box.dataset.indexNumber===e.target.dataset.indexNumber){
-            box.setAttribute('style', 'display: flex; justify-content: start; background-color: lightgreen; border: 2px solid green');
+            box.setAttribute('style', 'display: flex; justify-content: start; background-color: #bccc48; border: 2px solid green');
         }
     })
     howMany.forEach(p=> {
@@ -255,7 +255,7 @@ const changeLIColor = (e) => {
     })
     secNumInpt.forEach(inpt=> {
         if(inpt.dataset.indexNumber===e.target.dataset.indexNumber){
-            inpt.setAttribute('style', 'border: 2px solid green; width: 2.25rem; height: 1.5rem')
+            inpt.setAttribute('style', 'border: 2px solid olivedrab; width: 2.25rem; height: 1.5rem')
             console.log('change color inpt matches')
         }
     })
