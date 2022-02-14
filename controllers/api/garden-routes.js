@@ -33,13 +33,15 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     /* req.body should look like this...
       {
-        "title": "garden title",
-        "decription": "garden description", 
-        "shape": "circle",
-        "length": 1,
-        "width": 1,
-        "sunLevel": "full",
-        "plantIds": [1, 2, 3, 4]
+        title: "garden title",
+        decription: "garden description", (optional)
+        shape: "circle",
+        length: 1,
+        width: 1,
+        sunLevel: "full",
+        //plantIds: [1, 2, 3, 4]
+        plantsToAdd: [[1, 2], [2, 2], [3, 3],  [4, 1]]
+        //The first entry is the id of the plant; the second is the number of that plant to add to the garden
       }
     */
     //prevents a user from posting a garden if not logged in
@@ -55,8 +57,12 @@ router.post('/', async (req, res) => {
                 UserId: req.session.user.id
             });
             //Setting the many-to-many connections with plants in the plants table
-            newGarden.setPlants(req.body.plantIds);
+            // newGarden.setPlants(req.body.plantIds);
             // const garden = newGarden.get({plain: true});
+            for (let plant of req.body.plantsToAdd) {
+                newGarden.addPlant(plant[0], { through: { numberOfPlants: plant[1] }});
+            }
+            // TODO: ask Joe why this isn't accessible on the frontend when making a fetch request to this post route
             res.status(200).json(newGarden);
             // res.status(200).render('garden', garden)
         } catch (err) {
@@ -78,7 +84,9 @@ router.put('/:id', async (req, res) => {
         length: 1,
         width: 1,
         sunLevel: "full",
-        plantIds: [1, 2, 3, 4]
+        //plantIds: [1, 2, 3, 4]
+        plantsToAdd: [[1, 2], [2, 2], [3, 3],  [4, 1]]
+        //The first entry is the id of the plant; the second is the number of that plant to add to the garden
       }
     */
     //Prevents a user from making a put request if not logged in
@@ -104,9 +112,25 @@ router.put('/:id', async (req, res) => {
             if (!updateGarden[0]) {
                 return res.status(404).json({message: "No garden with that id is associated with this user"});
             }
-            const gardenToUpdate = await Garden.findByPk(req.params.id);
+            const gardenToUpdate = await Garden.findByPk(req.params.id, {include: [Plant] });
             //Setting the many-to-many connections with plants in the plants table
-            gardenToUpdate.setPlants(req.body.plantIds);
+            // gardenToUpdate.setPlants(req.body.plantIds);
+            //This is a janky thing I'm doing, but I can't think of a better way to do it
+            //TODO: ask Joe if I can make this suck less
+            //Removing all plants from this garden
+            if (gardenToUpdate.Plants.length > 0) {
+                let removeArray = [];
+                for (let plant of gardenToUpdate.Plants) {
+                    removeArray.push(plant.id);
+                }
+                gardenToUpdate.removePlants(removeArray);
+            }
+            //then adding the new ones in (along with their number in this garden)
+            console.log(req.body.plantsToAdd);
+            for (let plant of req.body.plantsToAdd) {
+                gardenToUpdate.addPlant(plant[0], { through: { numberOfPlants: plant[1] }});
+            }
+            
             res.status(200).json(gardenToUpdate);
         } catch (err) {
             console.log('======\n' + err + '\n======');
