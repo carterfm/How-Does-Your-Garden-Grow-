@@ -150,6 +150,11 @@ form.login {
   padding: 3px;
   margin-bottom: 3px;
   margin-right: 20px;
+  background-color: #f8f9fa;
+}
+
+#plantChoices {
+  background-color: beige;
 }
 
 .plantLI img {
@@ -268,12 +273,12 @@ form.login {
 }
 
 .prev {
-  border: 2px solid green;
-  color: green;
+  border: 2px solid olivedrab;
+  color: olive;
 }
 
 .edit-input {
-  color: green;
+  color: olivedrab;
 }
 
 #label-inpt-box {
