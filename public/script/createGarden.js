@@ -127,6 +127,12 @@ const updateSections = e => {
     numDispBox.textContent = sectionsLeft;
 }
 
+const addSectionsBack = val => {
+    const currentSections = parseInt(numDispBox.textContent);
+    const sectionsLeft = currentSections + val
+    numDispBox.textContent = sectionsLeft;
+}
+
 //Goes to view garden output page popped with new garden
 const seeGarden = async (title) => {
     const response = await fetch(`/dashboard/gardens/new/${title}`, {
@@ -219,6 +225,9 @@ const resetColor = (e) => {
     secNumInpt.forEach(inpt=> {
         if(inpt.dataset.indexNumber===e.target.dataset.indexNumber){
             inpt.setAttribute('style', 'visibility: hidden; width: 2.25rem; height: 1.5rem')
+            if(inpt.value>0){
+                addSectionsBack(parseInt(inpt.value))
+                inpt.value = '';}
             console.log('inpt matches')
         }
     })
@@ -289,10 +298,8 @@ secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', updateSections);
     inpt.addEventListener('keydown', e => {
         if(e.key==="Backspace"){
-            const usedSections = parseInt(e.target.value);
-            const currentSections = parseInt(numDispBox.textContent);
-            const sectionsLeft = currentSections + usedSections
-            numDispBox.textContent = sectionsLeft;
+            const sectionsToAdd = parseInt(e.target.value);
+            addSectionsBack(sectionsToAdd)
         }
     })
 });
