@@ -120,6 +120,11 @@ const updateSections = e => {
     console.log('numdispbox content is a ', numDispBox.textContent)
     const usedSections = e.target.value;
     const currentSections = parseInt(numDispBox.textContent);
+    if(currentSections<usedSections){
+        alert('That is too many sections! Check your counterbox and try again.');
+        e.target.value = '';
+        return
+    }
     const sectionsLeft = currentSections - usedSections
     numDispBox.textContent = sectionsLeft;
     console.log('numdispbox content is a ', numDispBox.textContent)
@@ -303,8 +308,8 @@ len.addEventListener('keyup', e => {
 secNumInpt.forEach(inpt=> {
     inpt.addEventListener('keyup', e=> {
         console.log('inpt value', e.target.value)
-        updateSections(e)
-    })
+        setTimeout(()=>{updateSections(e)}, 500);
+    });
     inpt.addEventListener('keydown', e => {
         if(e.key==="Backspace"){
             if(e.target.value===''){return}

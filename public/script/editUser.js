@@ -55,15 +55,13 @@ const editUser = async (e) => {
     const newUsername = editUserInpt.value.trim();
     const newPassword = editPasswordInpt.value.trim();
     console.log('into the fxn')
-    // if (password!==passwordVal){
-    //   alert('Your passwords don\'t match!\nTry again!')
-    //   return
-    // }
-    // else {
       if (newUsername && newEmail && newPassword) {
-        const response = await fetch('/api/user', {
-          method: 'POST',
-          body: JSON.stringify({ newUsername, newEmail, newPassword }),
+        const response = await fetch(`/dashboard/profile/${userID}`, {
+          method: 'PUT',
+          body: JSON.stringify({ 
+            username: newUsername, 
+            email: newEmail, 
+            password: newPassword }),
           headers: { 'Content-Type': 'application/json' },
         });
     
@@ -84,5 +82,11 @@ const begin = () => {
 
 begin();
 
-document.getElementById('submitEdit').addEventListener('submit', editUser);
+document.getElementById('submitEdit').addEventListener('submit', e =>{
+  if (confirmPassword.value!==editPasswordInpt){
+    alert('Your passwords don\'t match! Check them and try again!');
+    return
+  }
+  editUser(e)
+});
 document.getElementById('submitDelete').addEventListener('click', deleteProfile);

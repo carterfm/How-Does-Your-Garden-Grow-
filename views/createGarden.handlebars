@@ -4,13 +4,13 @@
         <p class="grayFont">Answer the questions below, and we'll help you plan a garden!</p>
         <form id="newGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
             <label for="newTitle" class="grayFont">What would you like to call this plan?</label>
-            <input type="text" name="newTitle" id="newTitle" placeholder="My Plan's Name is...">
+            <input type="text" name="newTitle" id="newTitle" placeholder="My Plan's Name is..." required="required">
 
             <label for="newDesc" class="grayFont">Any special notes?</label>
             <textarea name="newDesc" id="newDesc" cols="30" rows="5" placeholder="This plan's for..."></textarea>
 
             <label for="newShape" class="grayFont">What shape is your garden bed?</label>
-            <select name="newShape" id="newShape">
+            <select name="newShape" id="newShape" required="required">
                 <option value="">--Choose a Shape--</option>
                 <option value="square">Square</option>
                 <option value="rectangle">Rectangle</option>
@@ -31,13 +31,13 @@
                         <label id="rectLong">How long is the long side (in inches)?</label>
                     </div>
                     <div class="inputs">
-                        <input type="text" id="len" placeholder="Inches">
+                        <input type="text" id="len" placeholder="Inches" required="required">
                     </div>
                 </div>
             </div>
 
             <label for="sun" class="grayFont">How much sun do you get?</label>
-            <select name="sun" id="newSun">
+            <select name="sun" id="newSun" required="required">
                 <option value="" class="grayFont">--Choose One--</option>
                 <option value="full" class="grayFont">Full sun (more than 6 hours of sun a day)</option>
                 <option value="partial" class="grayFont">Part sun (between 4-6 hours of sun a day)</option>
