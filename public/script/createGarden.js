@@ -177,9 +177,6 @@ const buildNewGarden= (e) => {
     const buildPlantObjs = (plant) => {
         secNumInpt.forEach(sec=>{
             if(sec.dataset.indexNumber===plant.value){
-                // for(let i=0; i<sec.value; i++){
-                //     plantArr.push(plant.value)
-                // }
                 const newPlantValues = [plant.value, sec.value];
                 console.log(`Here is a plant array: ${newPlantValues}`)
                 plantArr.push(newPlantValues);
