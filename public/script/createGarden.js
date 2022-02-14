@@ -117,7 +117,7 @@ const calcSections = e => {
 }
 
 const updateSections = e => {
-    console.log(parseInt(numDispBox.textContent))
+    console.log('numdispbox content is a ', typeof numDispBox.textContent)
     const usedSections = e.target.value;
     const currentSections = numDispBox.textContent;
     const sectionsLeft = currentSections - usedSections
@@ -300,8 +300,9 @@ const checkIfNum = e => {
     console.log('what\'s the number?', e.target.value);
     console.log('is it a number?',/^\d+$/.test(e.target.value))
     if(e.target.value===NaN){
-        e.target.removeEventListener('keyup', updateSections)
-        return
+       console.log('not a number');
+        // e.target.removeEventListener('keyup', updateSections)
+        // return
     } else {updateSections(e)}
 }
 
@@ -316,7 +317,7 @@ secNumInpt.forEach(inpt=> {
         // console.log('is it a number?',/^\d+$/.test(parseInt(inpt.value)))
         // checkIfNum(e)
         if(e.key==="Backspace"){
-            inpt.addEventListener('keyup', updateSections);
+            // inpt.addEventListener('keyup', updateSections);
             const sectionsToAdd = parseInt(e.target.value);
             addSectionsBack(sectionsToAdd)
         }
