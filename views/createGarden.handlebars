@@ -19,7 +19,7 @@
             <div id="measQues">
                <div class="editMeasBox">
                     <div class="labels">
-                         <label id="rectShort">How long is the short side (in inches)?</label>
+                         <label class="grayFont" id="rectShort">How long is the short side (in inches)?</label>
                     </div>
                     <div class="inputs">
                         <input type="text" id="wid" placeholder="Inches">
@@ -27,8 +27,8 @@
                 </div>
                 <div class="editMeasBox">
                     <div class="labels">
-                          <label id="square">How long is one side (in inches)?</label>
-                        <label id="rectLong">How long is the long side (in inches)?</label>
+                          <label class="grayFont" id="square">How long is one side (in inches)?</label>
+                        <label class="grayFont" id="rectLong">How long is the long side (in inches)?</label>
                     </div>
                     <div class="inputs">
                         <input type="text" id="len" placeholder="Inches">
@@ -45,18 +45,18 @@
             </select>
 
             <div id="num-sections" style="display:flex; align-items:center; justify-content: center; margin-top: 10px;">
-                <p id="vis-amount-message" style="display: none; padding: 5px; color: green" id="section-box">You have<span id="num-disp-box" style="margin: 5px; padding: 5px;"></span>square-foot sections in your garden left to fill!</p>
+                <p id="vis-amount-message" style="display: none; padding: 5px; color: olivedrab" id="section-box">You have<span id="num-disp-box" style="margin: 5px; padding: 5px;"></span>square-foot sections in your garden left to fill!</p>
                 <p id="hidden-amount-message" style="display: none;">You are out of sections to fill!</p>
             </div>
 
             <div id="plantChoices" style="border: 1px solid black; padding: 0 10px;">
                 <h3 class="grayFont" style="text-align:center; padding-top: 3px;">Which plants would you like to include?</h3>
-                <ul id="plantBox" style="margin: 10px; padding: 10px; width: 100%; overflow-y: auto">
+                <ul id="plantBox" style="margin: 10px; height:27.4vh; padding: 10px; width: 100%; overflow-y: auto">
 
                     {{#each plant}}
                         <input style="display:none;"type="checkbox" class="plantChoice" name="{{id}}" value="{{id}}">
 
-                        <li class="plantLI" data-index-number="{{id}}"  >
+                        <li class="plantLI" data-index-number="{{id}}">
 
                             <input type="text" name="plant-num-text" class="plant-num-input" data-index-number="{{id}}">
 
