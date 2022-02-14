@@ -303,15 +303,23 @@ len.addEventListener('keyup', e => {
 });
 
 const checkIfNum = e => {
-    if(parseInt(e.target.value)===NaN){
+    console.log('what\'s the number?', e.target.value);
+    console.log('is it a number?',/^\d+$/.test(e.target.value))
+    if(e.target.value===NaN){
         e.target.removeEventListener('keyup', updateSections)
         return
     } else {updateSections(e)}
 }
 
 secNumInpt.forEach(inpt=> {
-    inpt.addEventListener('keyup', updateSections);
+    inpt.addEventListener('keyup', e=> {
+        console.log('inpt value', e.target.value)
+        checkIfNum (e)
+        
+    })
     inpt.addEventListener('keydown', e => {
+        // console.log('inpt value', e.target.value)
+        // console.log('is it a number?',/^\d+$/.test(parseInt(inpt.value)))
         // checkIfNum(e)
         if(e.key==="Backspace"){
             inpt.addEventListener('keyup', updateSections);
