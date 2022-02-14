@@ -1,0 +1,41 @@
+<div style="display: flex; justify-content: center;">
+
+<div id="invisible-box" style="color:#f8f9fa; font-weight: bold; display:none;">
+    <div id="user-id">{{id}}</div>
+    <div id="username">{{username}}</div>
+    <div id="user-email">{{email}}</div>
+</div>
+
+<main style="align-self: center;">
+    <div class="userBox" id="update-box">
+        <div style="width: 80%; text-align: center">
+            <h3 style="color:olivedrab;  font-family: 'Amita', cursive;">Update Your Info Below</h3>
+            <p style="color:#6c757d;">If you do not wish to change your password, please enter and confirm your current password to allow the update.</p>
+        </div>
+        <form class="login">
+            {{!-- TODO: pre-populate these fields with info from the user--}}
+            <div id="label-inpt-box">
+                <div id="form-label-box" class="form-element">
+                    <label for="emailEdit" style="color:#6c757d;">Email:</label>
+                    <label for="usernameEdit" style="color:#6c757d;">Username:</label>
+                    <label for="passwordEdit" style="color:#6c757d;">Password:</label>
+                    <label for="passwordEditCheck" style="color:#6c757d;">Check Password:</label>
+                </div>
+                <div id="form-inpt-box" class="form-element">
+                    <input type="text" name="emailEdit" id="emailEdit">
+                    <input type="text" name="usernameEdit" id="usernameEdit">
+                    <input type="password" autocomplete="current-password" name="passwordEdit" id="passwordEdit">
+                    <input type="password" autocomplete="current-password" name="passwordEditCheck" id="passwordEditCheck">
+                </div>
+            </div>
+            <p id="password-match">Your passwords don't match!!</p>
+              <p id="togglePassword" style="text-align:right; color:#6c757d; text-decoration: underline; cursor: pointer;">ShowPassword</p>
+            <div id="button-box" class="form-element">
+                <button type="submit" id="submitEdit" class="garden-btn">UPDATE PROFILE</button>
+                <button type="submit" id="submitDelete" class="garden-btn">DELETE PROFILE</button>
+            </div>
+        </form>
+    </div>
+</main>
+</div>
+<script src="/script/editUser.js"></script>

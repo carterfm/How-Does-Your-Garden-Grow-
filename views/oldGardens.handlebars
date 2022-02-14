@@ -1,0 +1,22 @@
+<main>
+    <div class="userBox">
+        <h2 style="color:olivedrab;  font-family: 'Amita', cursive;">Saved Garden Plans</h2>
+        <p class="grayFont">Here you can view a saved plan and choose to use, edit, or delete it!</p>
+        <ul id="gardenList">
+            {{#each garden }}
+                <li class="gardenLI" >
+                    <div class="gardenInfo">
+                        <h4 class="gardenTitle">{{title}}</h4>
+                        <p class="gardenNotes">{{description}}</p>
+                    </div>
+                    <div class="btnBox">
+                        <button class="gardenBtn use garden-btn" value="{{id}}">Use</button>
+                        <button class="gardenBtn edit garden-btn" value="{{id}}">Edit</button>
+                        <button class="gardenBtn delete garden-btn" value="{{id}}">Delete</button>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</main>
+<script src="/script/oldGardens.js"></script>

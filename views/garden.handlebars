@@ -1,0 +1,30 @@
+<main>
+    <header class="for-print print">
+        <h1 id="print-title">
+           Greenthumbs, INC
+        </h1>
+    </header>
+    <div class="welcome-box print">
+        <h1 class="print" id="titleBox">{{title}}</h1>
+        <div class="print" id="gardenImg" style="border:1px solid black">
+            <img class="print" src="/images/potager.png" alt="">
+        </div>
+        <h2 class="print">Here are the plants you'll need:</h2>
+        <ul class="print" id="plantBox">
+            {{#each Plants}}
+            <li class="print">{{name}}: <span class="quantity-box print" data-index-number="{{id}}"></span> plants</li>
+            {{/each}}
+        </ul>
+        <h2 class="print">To learn more, visit:</h2>
+        <ul class="print" id="linkBox">
+            {{#each Plants}}
+            <li class="print"><a class="plantLink print" href="" target="_blank" data-index-number="{{id}}">{{id}}</a></li>
+            {{/each}}       
+        </ul>
+        <div class="garden-btn-box">
+            <a href="mailto:?subject=Look at this cool garden plan I made with HDYGG!&"><button class="garden-btn" id="email">Email this plan</button></a>
+            <button class="garden-btn" onclick="window.print();return false;">Print this plan</button>
+        </div>
+    </div>
+</main>
+<script src="/script/garden.js"></script>

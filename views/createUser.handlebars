@@ -1,0 +1,27 @@
+<main>
+    <div class="welcomeBox">
+        <h2 class="welcome">Welcome!</h2>
+        <p class="grayFont">Please provide your email address, desired username, and password below</p>
+        <form id="create">
+            <div id="label-inpt-box">
+                <div id="form-label-box" class="form-element">
+                    <label for="emailInput" class="grayFont">Email:</label>
+                    <label for="usernameInput" class="grayFont">Username:</label>
+                    <label for="passwordInput" class="grayFont">Password:</label>
+                </div>
+                <div id="form-inpt-box" class="form-element">
+                    <input type="email" name="emailInput" required="required" id="emailInput" placeholder="Type email here...">
+                    <input type="text" name="usernameInput" required="required" id="usernameInput" placeholder="Pick a username...">
+                    <input type="text" name="passwordInput" required="required"  autocomplete="new-password" id="passwordInput">
+                </div>
+            </div>
+            <div id="button-box" class="form-element">
+                <button type="submit" id="submitCreate" class="loginButton" >SUBMIT</button>
+            </div>
+            {{!-- <label for="passwordVal">Re-type Your Password:</label>
+            <input type="text" name="passwordVal" id="passwordVal" placeholder="Re-type your password..."> --}}
+            
+        </form>
+    </div>
+</main>
+<script src="/script/signup.js"></script>

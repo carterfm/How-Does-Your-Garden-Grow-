@@ -1,0 +1,83 @@
+<main>
+    <div class="userBox">
+        <h2 style="color:olivedrab;  font-family: 'Amita', cursive;">Create a New Garden</h2>
+        <p class="grayFont">Answer the questions below, and we'll help you plan a garden!</p>
+        <form id="newGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
+            <label for="newTitle" class="grayFont">What would you like to call this plan?</label>
+            <input type="text" name="newTitle" id="newTitle" placeholder="My Plan's Name is...">
+
+            <label for="newDesc" class="grayFont">Any special notes?</label>
+            <textarea name="newDesc" id="newDesc" cols="30" rows="5" placeholder="This plan's for..."></textarea>
+
+            <label for="newShape" class="grayFont">What shape is your garden bed?</label>
+            <select name="newShape" id="newShape">
+                <option value="">--Choose a Shape--</option>
+                <option value="square">Square</option>
+                <option value="rectangle">Rectangle</option>
+            </select>
+
+            <div id="measQues">
+               <div class="editMeasBox">
+                    <div class="labels">
+                         <label id="rectShort">How long is the short side (in inches)?</label>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" id="wid" placeholder="Inches">
+                    </div>
+                </div>
+                <div class="editMeasBox">
+                    <div class="labels">
+                          <label id="square">How long is one side (in inches)?</label>
+                        <label id="rectLong">How long is the long side (in inches)?</label>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" id="len" placeholder="Inches">
+                    </div>
+                </div>
+            </div>
+
+            <label for="sun" class="grayFont">How much sun do you get?</label>
+            <select name="sun" id="newSun">
+                <option value="" class="grayFont">--Choose One--</option>
+                <option value="full" class="grayFont">Full sun (more than 6 hours of sun a day)</option>
+                <option value="partial" class="grayFont">Part sun (between 4-6 hours of sun a day)</option>
+                <option value="shade" class="grayFont">Full shade (less than 4 hours of sun a day)</option>
+            </select>
+
+            <div id="num-sections" style="display:flex; align-items:center; justify-content: center; margin-top: 10px;">
+                <p id="vis-amount-message" style="display: none; padding: 5px; color: green" id="section-box">You have<span id="num-disp-box" style="margin: 5px; padding: 5px;"></span>square-foot sections in your garden left to fill!</p>
+                <p id="hidden-amount-message" style="display: none;">You are out of sections to fill!</p>
+            </div>
+
+            <div id="plantChoices" style="border: 1px solid black; padding: 0 10px;">
+                <h3 class="grayFont" style="text-align:center; padding-top: 3px;">Which plants would you like to include?</h3>
+                <ul id="plantBox" style="margin: 10px; padding: 10px; width: 100%; overflow-y: auto">
+
+                    {{#each plant}}
+                        <input style="display:none;"type="checkbox" class="plantChoice" name="{{id}}" value="{{id}}">
+
+                        <li class="plantLI" data-index-number="{{id}}"  >
+
+                            <input type="text" name="plant-num-text" class="plant-num-input" data-index-number="{{id}}">
+
+                            <div class="info-box" data-index-number="{{id}}">
+                                <img src="/images/{{name}}.png" alt="" data-index-number="{{id}}">
+                                <div class="plantInfo" data-index-number="{{id}}" style="display:flex; flex-direction:column; justify-content:center">
+                                    <label for="{{id}}" data-index-number="{{id}}">
+                                        <h5 data-index-number="{{id}}">{{name}}</h5>
+                                    </label>
+                                    <p data-index-number="{{id}}">{{description}}</p>
+                                    <p data-index-number="{{id}}" class="how-many" style="visibility:hidden;" data-index-number="{{id}}">Please enter in the box how many sections of your garden you would like to fill with this plant</p>
+                                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <button id="getGarden" class="garden-btn form-btn" >Build It!</button>
+
+        </form>
+    </div>
+</main>
+<script src="/script/createGarden.js"></script>

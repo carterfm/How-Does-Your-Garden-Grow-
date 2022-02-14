@@ -1,0 +1,344 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/biggerbackground.png");
+  background-repeat: repeat-y;
+  background-position: center;
+  }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  min-height: 76.5vh;
+  align-items: center;
+}
+
+#topnav {
+  height: 8vh;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+}
+
+.welcomeBox{
+  background-color: #f8f9fa;
+  max-width: 66vw;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  border-radius: 100px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+}
+
+.userHomeBox{
+  background-color: #f8f9fa;
+  min-width: 45vw;
+  padding: 4rem;
+  border-radius: 100px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+}
+
+.userBox{
+  min-width: 45vw;
+  padding: 4rem;
+  border-radius: 100px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  margin: 40px;
+  padding: 20px;
+}
+
+.welcome{
+  font-size: 4rem;
+  color:olivedrab;
+  font-family: 'Amita', cursive;
+}
+
+.navbar-light .navbar-brand {
+  color:  olivedrab;
+  font-family: 'Amita', cursive;
+}
+
+#newHereP{
+  margin-bottom: 0rem;
+  color: #6c757d;
+}
+
+.oliveFont{
+  color: olivedrab;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.help{
+  color: #1c1c28;
+}
+
+.grayFont{
+  color: #6c757d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#login, #create{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.py-3{
+  background-color: #f8f9fa;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.loginButton {
+  border-radius: 8px;
+  padding: 3px;
+  background-color: olivedrab;
+  border: 2px solid olivedrab;
+  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 20%);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.loginButton:hover {
+  opacity: 1;
+}
+
+form.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-element {
+  width: 100%;
+}
+
+.form-element label {
+  font-size: 1.2rem;
+}
+
+.plantLI {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 3px;
+  margin-bottom: 3px;
+  margin-right: 20px
+}
+
+.plantLI img {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  /* align-self: start; */
+}
+
+.plantLI label {
+    font-weight: bold;
+}
+
+.plantInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  margin: 5px 0;
+}
+
+.click-target {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.plantLI p {
+  font-size: 0.8rem;
+}
+
+.btnBox {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.gardenBtn {
+  margin: 5px;
+}
+
+.gardenTitle {
+  align-self: start;
+}
+
+.for-print {
+  visibility: hidden;
+}
+
+.gardenLI {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
+  list-style: none;
+  border: 1px solid black;
+  box-shadow: 5px 5px 2px lightgray; 
+}
+
+.garden-btn-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+}
+
+.garden-btn-box a {
+  align-self: stretch;
+}
+
+.garden-btn {
+  border-radius: 8px;
+  padding: 3px;
+  background-color: olivedrab;
+  border: 2px solid olivedrab;
+  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 20%);
+  opacity: 0.8;
+  transition: 0.3s;
+  margin-bottom: 8px;
+}
+
+.garden-btn:hover {
+  opacity: 1;
+}
+
+.form-btn {
+  width: 30%;
+  align-self: center;
+  margin-top: 8px;
+}
+
+.garden-btn#email {
+  width: 100%;
+}
+
+.garden-btn:hover, #about-sfg:hover {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+#about-sfg:link, #about-sfg:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.editMeasBox {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+}
+
+.labels, .inputs {
+  /* border: 1px solid black; */
+  width: 50%;
+}
+
+.prev {
+  border: 2px solid green;
+  color: green;
+}
+
+.edit-input {
+  color: green;
+}
+
+#label-inpt-box {
+  display: flex;
+}
+
+#form-label-box, #form-inpt-box {
+  display: flex;
+  flex-direction: column;
+}
+
+/* might not need #button-box */
+#button-box {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 70%;
+}
+
+#gardenList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  min-height: 50vh;
+  padding: 10px;
+  overflow-y:auto;
+  border: 5px double lightgray;
+}
+
+#gardenImg img {
+  width: 500px; 
+  height: 300px;
+}
+
+#editMeasQues {
+  display: flex;
+  /* align-items:center;
+  justify-content: start; */
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+#submitCreate {
+  width: 70%;
+  align-self: center;
+}
+
+#form-label-box label, #form-inpt-box input {
+  margin: 5px;
+
+}
+
+#form-label-box label {
+  text-align: right;
+}
+
+#update-box {
+  width: 40%
+}
+
+
+#password-match {
+  display: none;
+  font-style: italic;
+  color: firebrick;
+  text-align: right;
+}
