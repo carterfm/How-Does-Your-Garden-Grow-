@@ -36,11 +36,10 @@ router.put('/profile/:id', withAuth, (req, res)=>{
                 },
                 {
                     where: {
-                        id: req.params.id,
-                        UserId: req.session.user.id
+                        id: req.session.user.id,
                 }
                 });
-                if (!updateUser[0]) {
+                if (!updateUser) {
                     return res.status(404).json({message: "No user with that id is associated with this user"});
                 }
                 res.status(200).json(updateUser);
@@ -49,7 +48,7 @@ router.put('/profile/:id', withAuth, (req, res)=>{
                 res.status(500).json(err);
             }
     } else {
-        res.status(404).end();
+        res.status(404).end().json({message: "not found!"})
     }
 })
 

@@ -143,23 +143,6 @@ const addSectionsBack = val => {
     numDispBox.textContent = sectionsLeft;
 }
 
-//Goes to view garden output page popped with new garden
-const seeGarden = async (title) => {
-    const response = await fetch(`/dashboard/gardens/new/${title}`, {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-    })
-        if (response.ok) {
-            console.log(response);
-            document.location.replace(`/dashboard/gardens/new/${title}`);
-        } else {
-        alert(response.statusText);
-        }
-}
-
-
 //Posts the garden obj and sqitches to the garden output page
 const saveGarden = async (obj) => {
     const response = await fetch(`/api/garden`, {
@@ -169,11 +152,24 @@ const saveGarden = async (obj) => {
         },
         body: JSON.stringify(obj),
   });
-  if (response.ok) {
-      seeGarden(obj.title);
-          } else {
-            alert('Something went wrong!');
-          }
+    if (response.ok) {
+        console.log(`response OK!`)
+    const newData = await response.json();
+    console.log(newData)
+    const res = await fetch(`/dashboard/gardens/${newData.id}`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    })
+        if (res.ok) {
+        document.location.replace(`/dashboard/gardens/${newData.id}`);
+        } else {
+        alert(response.statusText);
+        }
+    } else {
+    alert('Something went wrong!');
+    }
 }
 
 //builds the garden obj
@@ -322,6 +318,6 @@ secNumInpt.forEach(inpt=> {
 });
 
 //initiates obj build after form submission
-document.querySelector('#newGarden').addEventListener('submit', buildNewGarden);
+document.querySelector('#getGarden').addEventListener('click', buildNewGarden);
 
 init();
