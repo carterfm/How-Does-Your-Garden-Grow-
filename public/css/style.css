@@ -149,7 +149,7 @@ form.login {
   border: 1px solid black;
   padding: 3px;
   margin-bottom: 3px;
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 .plantLI img {
@@ -324,7 +324,6 @@ form.login {
 
 #form-label-box label, #form-inpt-box input {
   margin: 5px;
-
 }
 
 #form-label-box label {
