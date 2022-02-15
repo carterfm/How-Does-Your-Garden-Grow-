@@ -51,32 +51,4 @@ router.get('/signup', (req, res) => {
     }
 });
 
-//Routes NOT to be included in final code, used for testing logging in without having to seed our database or anything
-//Navigate to these pages in the browser to fake 
-router.get('/fakelogin', async (req, res) => {
-    try {
-        req.session.user = { 
-            id: 1,
-            email: "test@test.test",
-            username: "Testusername",
-            password: bcrypt.hashSync("password", 5)
-        };
-        console.log(req.session.user);
-        res.status(200).json(req.session.user);
-    } catch (err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
-    }
-});
-
-router.get('/fakelogout', async (req, res) => {
-    try {
-        req.session.destroy();
-        res.status(200).end();
-    } catch (err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
-    }
-})
-
 module.exports = router;
