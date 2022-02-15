@@ -25,33 +25,6 @@ router.get('/profile', withAuth, (req, res) => {
     }
 });
 
-router.put('/profile/:id', withAuth, (req, res)=>{
-    if(req.session.user){
-        try{
-            const updateUser = User.update(
-                {
-                    username: req.body.username,
-                    email: req.body.email,
-                    password: req.body.password
-                },
-                {
-                    where: {
-                        id: req.session.user.id,
-                }
-                });
-                if (!updateUser) {
-                    return res.status(404).json({message: "No user with that id is associated with this user"});
-                }
-                res.status(200).json(updateUser);
-            } catch (err) {
-                console.log('======\n' + err + '\n======');
-                res.status(500).json(err);
-            }
-    } else {
-        res.status(404).end().json({message: "not found!"})
-    }
-})
-
 //Get routes for pages relevant to gardens
 //Get route to display all the gardens associated with the user who is currently logged in
 router.get('/gardens', withAuth, async (req, res) => {
