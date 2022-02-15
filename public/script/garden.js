@@ -5,26 +5,26 @@ const findGardenArea = obj => {
     const width = parseInt(obj.width)
     const plantArr = obj.Plants;
     console.log(length);
-    const convFt = inches => {
-        const sqFt = inches/144
-        return sqFt;
-    }
+    // const convFt = inches => {
+    //     const sqFt = inches/144
+    //     return sqFt;
+    // }
     const availableArea = () => {
         if(obj.shape==='square'){
             console.log('it\'s a square')
      
-            const areaIn = length*length;
-            console.log(`The area of this garden in inches is ${areaIn}`)
-            const areaFt = convFt(areaIn);
-            console.log(`The area of this garden in feet is ${areaFt}`);
+            const areaFt = length*length;
+            // console.log(`The area of this garden in inches is ${areaIn}`)
+            // const areaFt = convFt(areaIn);
+            // console.log(`The area of this garden in feet is ${areaFt}`);
             return areaFt
         }
         if(obj.shape==='rectangle'){
             console.log('it\'s a rectangle')
             //this is where we'll find area with npm package after we can get it linked
-            const areaIn = length*width;
-            const areaFt = convFt(areaIn);
-            console.log(areaFt);
+            const areaFt = length*width;
+            // const areaFt = convFt(areaIn);
+            // console.log(areaFt);
             return areaFt
         }
     }

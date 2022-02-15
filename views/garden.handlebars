@@ -8,7 +8,8 @@
     <div class="userBox print">
         <h1 class="print" id="titleBox">{{title}}</h1>
         <div class="print" id="gardenImg" style="border:1px solid black">
-            <img class="print" src="/images/potager.png" alt="">
+            <div id="canvas-holder"></div>
+            {{!-- <img class="print" src="/images/potager.png" alt=""> --}}
         </div>
         <h2 class="print">Here are the plants you'll need:</h2>
         <ul class="print" id="plantBox">
@@ -29,3 +30,5 @@
     </div>
 </main>
 <script src="/script/garden.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+<script src="/script/sketch.js"></script>
