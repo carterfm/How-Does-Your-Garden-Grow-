@@ -1,25 +1,33 @@
+// const e = document.getElementById('garden-');
+// const e = document.getElementById('garden-');
+
 const indPlantData = document.querySelectorAll('.inv-plant')
 const plantIds = document.querySelectorAll('.plant-id')
 const plantNames = document.querySelectorAll('.plant-name')
 const numPlants = document.querySelectorAll('.num-plants')
+const plantsPSF = document.querySelectorAll('.plant-psf')
 const plantArr = [];
 
 const buildPlants = () =>{
     plantIds.forEach(id=>{
         plantNames.forEach(name=>{
             numPlants.forEach(num=>{
-                if((id.dataset.indexNumber===name.dataset.indexNumber)&&(name.dataset.indexNumber===num.dataset.indexNumber)){
-                    const plantObj = {
-                        id: id.textContent,
-                        name: name.textContent,
-                        number: num.textContent
+                plantsPSF.forEach(quant=>{
+                    if((id.dataset.indexNumber===name.dataset.indexNumber)&&(name.dataset.indexNumber===num.dataset.indexNumber)&&(num.dataset.indexNumber===quant.dataset.indexNumber)){
+                        const plantObj = {
+                            id: id.textContent,
+                            name: name.textContent,
+                            sections: num.textContent,
+                            perSF: quant.textContent
+                        }
+                        console.log(plantObj)
+                        plantArr.push(plantObj)
                     }
-                    console.log(plantObj)
-                    plantArr.push(plantObj)
-                }
+                })
             })
         })
     })
+    console.log(plantArr)
 }
 
 //finding the area of the garden
@@ -28,28 +36,15 @@ const findGardenArea = () => {
     const width = document.getElementById('garden-width')
  
     console.log(length);
-
-
-    // const convFt = inches => {
-    //     const sqFt = inches/144
-    //     return sqFt;
-    // }
     const availableArea = () => {
         if(obj.shape==='square'){
             console.log('it\'s a square')
-     
             const areaFt = length*length;
-            // console.log(`The area of this garden in inches is ${areaIn}`)
-            // const areaFt = convFt(areaIn);
-            // console.log(`The area of this garden in feet is ${areaFt}`);
             return areaFt
         }
         if(obj.shape==='rectangle'){
             console.log('it\'s a rectangle')
-            //this is where we'll find area with npm package after we can get it linked
             const areaFt = length*width;
-            // const areaFt = convFt(areaIn);
-            // console.log(areaFt);
             return areaFt
         }
     }

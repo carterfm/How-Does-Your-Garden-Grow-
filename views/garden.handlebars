@@ -1,16 +1,16 @@
 <main>
     <div  id="invisible" style="font-weight: bold; color: white; display: none;">
         <div id="id-box">{{id}}</div>
-        <div id="garden-title">#garden-title{{title}}</div>
-        <div id="garden-description">#garden-description{{description}}</div>
-        <div id="garden-shape">#garden-shape{{shape}}</div>
-        <div id="garden-length">#garden-length{{length}}</div>
-        <div id="garden-width">#garden-width{{width}}</div>
-        <div id="garden-sun">#garden-sun{{sunLevel}}</div>
-        <div id="garden-plants">#garden-plants{{Plants}}</div>
+        <div id="garden-title">{{title}}</div>
+        <div id="garden-description">{{description}}</div>
+        <div id="garden-shape">{{shape}}</div>
+        <div id="garden-length">{{length}}</div>
+        <div id="garden-width">{{width}}</div>
+        <div id="garden-sun">{{sunLevel}}</div>
         {{#each Plants}}
         <div class="inv-plant plant-id"data-index-number="{{id}}">{{id}}</div>
         <div class="inv-plant plant-name" data-index-number="{{id}}">{{name}}</div>
+        <div class="inv-plant plant-psf" data-index-number="{{id}}">{{plantsPerSF}}</div>
         <div class="inv-plant num-plants" data-index-number="{{id}}">{{GardenPlant.numberOfPlants}}</div>
 
         {{/each}}
