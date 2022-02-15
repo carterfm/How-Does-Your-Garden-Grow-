@@ -27,14 +27,17 @@ function draw() {
     })
     .then(function (data) {
         const garden = data;
+        console.log(data);
         //Getting dimension attributes that will be used for rendering
         gardenL = garden.length;
         gardenW = garden.width;
         canvasL = gardenL*100;
         canvasW = gardenW*100;
 
+        
         //Generating array that will be used to render the actual garden visual
         for (plant of garden.Plants) {
+            console.log(plant.GardenPlant.numberOfPlants)
             for (let i = 0; i < plant.GardenPlant.numberOfPlants; i++) {
                 plantGardenData.push(plant.name);
             }

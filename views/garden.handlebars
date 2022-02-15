@@ -1,6 +1,6 @@
 <main>
-    <div  id="invisible" style="font-weight: bold; color: white">
-        <div id="id-box">#id-box{{id}}</div>
+    <div  id="invisible" style="font-weight: bold; color: white; display: none;">
+        <div id="id-box">{{id}}</div>
         <div id="garden-title">#garden-title{{title}}</div>
         <div id="garden-description">#garden-description{{description}}</div>
         <div id="garden-shape">#garden-shape{{shape}}</div>
@@ -9,7 +9,9 @@
         <div id="garden-sun">#garden-sun{{sunLevel}}</div>
         <div id="garden-plants">#garden-plants{{Plants}}</div>
         {{#each Plants}}
-        <div id="plant-{{id}}">#plant-{{id}}, {{name}}</div>
+        <div class="inv-plant plant-id"data-index-number="{{id}}">{{id}}</div>
+        <div class="inv-plant plant-name" data-index-number="{{id}}">{{name}}</div>
+        <div class="inv-plant num-plants" data-index-number="{{id}}">{{GardenPlant.numberOfPlants}}</div>
 
         {{/each}}
     </div>
@@ -20,7 +22,7 @@
     </header>
     <div class="userBox print">
         <h1 class="print" id="titleBox">{{title}}</h1>
-        <div class="print" id="gardenImg" style="border:1px solid black">
+        <div class="print" id="gardenImg">
             <div id="canvas-holder"></div>
             {{!-- <img class="print" src="/images/potager.png" alt=""> --}}
         </div>

@@ -1,10 +1,35 @@
+const indPlantData = document.querySelectorAll('.inv-plant')
+const plantIds = document.querySelectorAll('.plant-id')
+const plantNames = document.querySelectorAll('.plant-name')
+const numPlants = document.querySelectorAll('.num-plants')
+const plantArr = [];
+
+const buildPlants = () =>{
+    plantIds.forEach(id=>{
+        plantNames.forEach(name=>{
+            numPlants.forEach(num=>{
+                if((id.dataset.indexNumber===name.dataset.indexNumber)&&(name.dataset.indexNumber===num.dataset.indexNumber)){
+                    const plantObj = {
+                        id: id.textContent,
+                        name: name.textContent,
+                        number: num.textContent
+                    }
+                    console.log(plantObj)
+                    plantArr.push(plantObj)
+                }
+            })
+        })
+    })
+}
 
 //finding the area of the garden
-const findGardenArea = obj => {
-    const length = parseInt(obj.length)
-    const width = parseInt(obj.width)
-    const plantArr = obj.Plants;
+const findGardenArea = () => {
+    const length = document.getElementById('garden-length')
+    const width = document.getElementById('garden-width')
+ 
     console.log(length);
+
+
     // const convFt = inches => {
     //     const sqFt = inches/144
     //     return sqFt;
@@ -60,7 +85,7 @@ const findGardenArea = obj => {
 }
 
 //populate hrefs onto output
-const getLinks = obj => {
+const getLinks = () => {
     const plantA = document.querySelectorAll('.plantLink');
     plantA.forEach(aTag => {
         obj.Plants.forEach(plant=>{
@@ -80,34 +105,8 @@ const getLinks = obj => {
 }
 
 // start by getting the data obj for the garden rendered in the hb file
+buildPlants();
+// findGardenArea();
+// getLinks();
 
-const start = async () => {
-    const title = document.getElementById('titleBox').textContent;
-    console.log(title);
-    await fetch(`/dashboard/gardens/info/${title}`, {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-  
-    })  .then(function (response) {
-        return response.json();
-        })
-        .then(function (data) {
-            console.log('garden', data);
-            const garden = data;
-            findGardenArea(garden);
-            getLinks(garden);
-      
-
-    })  .catch(err=>{
-        alert(err)
-    })      
-
-}
-
-// const circle = findCircleArea(20);
-// console.log(circle);
-
-start();
 
