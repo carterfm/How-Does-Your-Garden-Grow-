@@ -16,21 +16,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/signup', (req, res)=>{
-    if (!req.session.user){
-        try{
-            res.status(200).render('createUser');
-        //TODO: frontend code should then take us to the userHome page by setting location.href
-        //to '/dashboard'
-        } catch (err) {
-            console.log('======\n' + err + '\n======');
-            res.status(500).json(err);
-        }
-    } else {
-        res.status(404).end();
-    }
-})
-
 //managing creation of new user
 router.post('/', async (req, res) => {
     try {
@@ -53,7 +38,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-//editing a new user
+//editing an existing user
 router.put('/:id', withAuth, async (req, res)=>{
     if(req.session.user && req.session.user.id === req.params.id) {
         try {

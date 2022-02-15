@@ -49,7 +49,7 @@ router.get('/signup', (req, res) => {
             res.status(500).json(err);
         }
     }
-})
+});
 
 //Routes NOT to be included in final code, used for testing logging in without having to seed our database or anything
 //Navigate to these pages in the browser to fake 
