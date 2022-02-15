@@ -1,5 +1,4 @@
-// const e = document.getElementById('garden-');
-// const e = document.getElementById('garden-');
+const gardenShape = document.getElementById('garden-shape').textContent;
 
 const indPlantData = document.querySelectorAll('.inv-plant')
 const plantIds = document.querySelectorAll('.plant-id')
@@ -31,60 +30,60 @@ const buildPlants = () =>{
 }
 
 //finding the area of the garden
-const findGardenArea = () => {
-    const length = document.getElementById('garden-length')
-    const width = document.getElementById('garden-width')
+// const findGardenArea = () => {
+//     const length = document.getElementById('garden-length')
+//     const width = document.getElementById('garden-width')
  
-    console.log(length);
-    const availableArea = () => {
-        if(obj.shape==='square'){
-            console.log('it\'s a square')
-            const areaFt = length*length;
-            return areaFt
-        }
-        if(obj.shape==='rectangle'){
-            console.log('it\'s a rectangle')
-            const areaFt = length*width;
-            return areaFt
-        }
-    }
-    const findNumberOfPlants = (secArea) => {
+//     console.log(length);
+//     const availableArea = () => {
+//         if(gardenShape==='square'){
+//             console.log('it\'s a square')
+//             const areaFt = length*length;
+//             return areaFt
+//         }
+//         if(gardenShape==='rectangle'){
+//             console.log('it\'s a rectangle')
+//             const areaFt = length*width;
+//             return areaFt
+//         }
+//     }
+    const findNumberOfPlants = () => {
         plantArr.forEach(plant=>{
-            const plantsPerSqFt = plant.plantsPerSF;
-            console.log(`${plant.name} can have ${plantsPerSqFt} plants per sq ft`)
-            const numOfPlants = secArea*plantsPerSqFt;
+            const indPlantPSF = plant.perSF;
+            console.log(`${plant.name} can have ${indPlantPSF} plants per sq ft`)
+            const numOfPlants = plant.sections*indPlantPSF;
             console.log(`number of ${plant.name} in this garden`, numOfPlants);
 
             const numberBox = document.querySelectorAll('.quantity-box');
             numberBox.forEach(box=>{
-                if(parseInt(box.dataset.indexNumber)===plant.id){
-                    box.textContent = Math.floor(numOfPlants);
+                if(box.dataset.indexNumber===plant.id){
+                    box.textContent = numOfPlants;
                 }
             })
         })
        
     }
 
-    const findAreaPerPlant = area=> {
-        console.log('area', area)
-        console.log('plantArr', plantArr)
-        const numOfTypes = plantArr.length;
-        console.log('numOfTypes', numOfTypes);
+//     const findAreaPerPlant = area=> {
+//         console.log('area', area)
+//         console.log('plantArr', plantArr)
+//         const numOfTypes = plantArr.length;
+//         console.log('numOfTypes', numOfTypes);
 
-        //finds the area in sqft that each plant type gets to fill (if evenly divided)
-        const areaPerSection = area/numOfTypes;
-        console.log(`There are ${numOfTypes} sections and ${areaPerSection} feet in each section`);
-        findNumberOfPlants(areaPerSection);
-    }
-    findAreaPerPlant(availableArea());
-}
+//         //finds the area in sqft that each plant type gets to fill (if evenly divided)
+//         const areaPerSection = area/numOfTypes;
+//         console.log(`There are ${numOfTypes} sections and ${areaPerSection} feet in each section`);
+//         findNumberOfPlants(areaPerSection);
+//     }
+//     findAreaPerPlant(availableArea());
+// }
 
 //populate hrefs onto output
 const getLinks = () => {
     const plantA = document.querySelectorAll('.plantLink');
     plantA.forEach(aTag => {
-        obj.Plants.forEach(plant=>{
-            if(parseInt(aTag.dataset.indexNumber)===plant.id){
+        plantArr.forEach(plant=>{
+            if(aTag.dataset.indexNumber===plant.id){
                 const titleArr = plant.name.split(' ');
                 console.log(titleArr);
                 const plantName = titleArr[0];
@@ -101,7 +100,7 @@ const getLinks = () => {
 
 // start by getting the data obj for the garden rendered in the hb file
 buildPlants();
-// findGardenArea();
-// getLinks();
+findNumberOfPlants();
+getLinks();
 
 
