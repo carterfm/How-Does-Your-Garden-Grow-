@@ -62,15 +62,16 @@ const editUser = async (e) => {
           password: newPassword
         }
 
+        console.log(`About to make an edit to user w/ ID ${userID}`);
         const response = await fetch(`/api/user/${userID}`, {
           method: 'PUT',
-          body: JSON.stringify({updatedUser}),
+          body: JSON.stringify(updatedUser),
           headers: { 'Content-Type': 'application/json' },
         });
         const newUser = await response.json();
         console.log('newUser', newUser)
         if (response.ok) {
-          // document.location.replace('/');
+          document.location.replace('/');
         } else {
           alert(response.statusText);
         }
