@@ -14,7 +14,7 @@
                         <button class="gardenBtn edit garden-btn" value="{{id}}">Edit</button>
                         <button class="gardenBtn delete garden-btn" onclick="deleteAlert()" value="{{id}}">Delete</button>
                         <script>
-                            function deleteAlert() {alert("This action cannot be undone");}
+                            function deleteAlert() {confirm("This action cannot be undone");}
                         </script>
                     </div>
                 </li>
