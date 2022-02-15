@@ -29,24 +29,6 @@ const buildPlants = () =>{
     console.log(plantArr)
 }
 
-//finding the area of the garden
-// const findGardenArea = () => {
-//     const length = document.getElementById('garden-length')
-//     const width = document.getElementById('garden-width')
- 
-//     console.log(length);
-//     const availableArea = () => {
-//         if(gardenShape==='square'){
-//             console.log('it\'s a square')
-//             const areaFt = length*length;
-//             return areaFt
-//         }
-//         if(gardenShape==='rectangle'){
-//             console.log('it\'s a rectangle')
-//             const areaFt = length*width;
-//             return areaFt
-//         }
-//     }
     const findNumberOfPlants = () => {
         plantArr.forEach(plant=>{
             const indPlantPSF = plant.perSF;
@@ -64,19 +46,6 @@ const buildPlants = () =>{
        
     }
 
-//     const findAreaPerPlant = area=> {
-//         console.log('area', area)
-//         console.log('plantArr', plantArr)
-//         const numOfTypes = plantArr.length;
-//         console.log('numOfTypes', numOfTypes);
-
-//         //finds the area in sqft that each plant type gets to fill (if evenly divided)
-//         const areaPerSection = area/numOfTypes;
-//         console.log(`There are ${numOfTypes} sections and ${areaPerSection} feet in each section`);
-//         findNumberOfPlants(areaPerSection);
-//     }
-//     findAreaPerPlant(availableArea());
-// }
 
 //populate hrefs onto output
 const getLinks = () => {

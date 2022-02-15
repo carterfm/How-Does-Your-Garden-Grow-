@@ -227,6 +227,7 @@ form.login {
 }
 
 .garden-btn {
+  align-self: stretch;
   border-radius: 8px;
   padding: 3px;
   background-color: olivedrab;
