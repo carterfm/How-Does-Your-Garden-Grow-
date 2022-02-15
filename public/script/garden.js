@@ -21,7 +21,6 @@ const findGardenArea = obj => {
         }
         if(obj.shape==='rectangle'){
             console.log('it\'s a rectangle')
-            //this is where we'll find area with npm package after we can get it linked
             const areaIn = length*width;
             const areaFt = convFt(areaIn);
             console.log(areaFt);
@@ -38,7 +37,7 @@ const findGardenArea = obj => {
             const numberBox = document.querySelectorAll('.quantity-box');
             numberBox.forEach(box=>{
                 if(parseInt(box.dataset.indexNumber)===plant.id){
-                    box.textContent = numOfPlants;
+                    box.textContent = Math.floor(numOfPlants);
                 }
             })
         })
@@ -79,7 +78,8 @@ const getLinks = obj => {
     })
 }
 
-//start by getting the data obj for the garden rendered in the hb file
+// start by getting the data obj for the garden rendered in the hb file
+
 const start = async () => {
     const title = document.getElementById('titleBox').textContent;
     console.log(title);

@@ -1,5 +1,18 @@
 <main>
-    <div id="id-box" style="font-weight: bold; color: white">{{id}}</div>
+    <div  id="invisible" style="font-weight: bold; color: white">
+        <div id="id-box">#id-box{{id}}</div>
+        <div id="garden-title">#garden-title{{title}}</div>
+        <div id="garden-description">#garden-description{{description}}</div>
+        <div id="garden-shape">#garden-shape{{shape}}</div>
+        <div id="garden-length">#garden-length{{length}}</div>
+        <div id="garden-width">#garden-width{{width}}</div>
+        <div id="garden-sun">#garden-sun{{sunLevel}}</div>
+        <div id="garden-plants">#garden-plants{{Plants}}</div>
+        {{#each Plants}}
+        <div id="plant-{{id}}">#plant-{{id}}, {{name}}</div>
+
+        {{/each}}
+    </div>
     <header class="for-print print">
         <h1 id="print-title">
            Greenthumbs, INC

@@ -3,13 +3,13 @@
         <h2 style="color:olivedrab;  font-family: 'Amita', cursive;">Create a New Garden</h2>
         <p class="grayFont">Answer the questions below, and we'll help you plan a garden!</p>
         <form id="newGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
-            <label for="newTitle" class="grayFont">What would you like to call this plan?</label>
+            <label for="newTitle" class="grayFont">What would you like to call this plan?<span class="required">**required**</span></label>
             <input type="text" name="newTitle" id="newTitle" placeholder="My Plan's Name is..." required="required">
 
             <label for="newDesc" class="grayFont">Any special notes?</label>
             <textarea name="newDesc" id="newDesc" cols="30" rows="5" placeholder="This plan's for..."></textarea>
 
-            <label for="newShape" class="grayFont">What shape is your garden bed?</label>
+            <label for="newShape" class="grayFont">What shape is your garden bed?<span class="required">**required**</span></label>
             <select name="newShape" id="newShape" required="required">
                 <option value="">--Choose a Shape--</option>
                 <option value="square">Square</option>
@@ -22,13 +22,13 @@
                          <label class="grayFont" id="rectShort">How long is the short side (in inches)?</label>
                     </div>
                     <div class="inputs">
-                        <input type="text" id="wid" placeholder="Inches">
+                        <input type="text" id="wid" placeholder="Inches"><span class="required">**required**</span>
                     </div>
                 </div>
                 <div class="editMeasBox">
                     <div class="labels">
                           <label class="grayFont" id="square">How long is one side (in inches)?</label>
-                        <label class="grayFont" id="rectLong">How long is the long side (in inches)?</label>
+                        <label class="grayFont" id="rectLong">How long is the long side (in inches)?</label><span class="required">**required**</span>
                     </div>
                     <div class="inputs">
                         <input type="text" id="len" placeholder="Inches" required="required">

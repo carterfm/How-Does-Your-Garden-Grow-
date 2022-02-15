@@ -318,6 +318,12 @@ secNumInpt.forEach(inpt=> {
 });
 
 //initiates obj build after form submission
-document.querySelector('#getGarden').addEventListener('click', buildNewGarden);
+newFormSubmit.addEventListener('click', e=>{
+    if((title==='')||(shapeBox.value==='')||(len.value==='')||(sunLevel==='')){
+        
+        alert('Please make sure you\'ve filled out all the required fields correctly.')
+    }
+    buildNewGarden(e);
+});
 
 init();
