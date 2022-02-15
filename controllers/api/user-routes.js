@@ -128,7 +128,7 @@ router.post('/logout', (req, res) => {
 //delete existing user's account
 router.delete('/:id', async (req, res) => {
     //Prevents a user from making a delete request if not logged in to the account to be deleted
-    if (req.session.user && req.session.user.id === req.params.id) {
+    if (req.session.user && req.session.user.id == req.params.id) {
         try {
             const deleteUser = await User.destroy({
                 where: {
