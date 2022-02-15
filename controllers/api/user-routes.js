@@ -41,13 +41,22 @@ router.post('/', async (req, res) => {
 
 //editing an existing user
 router.put('/:id', withAuth, async (req, res)=>{
-    if(req.session.user && req.session.user.id === req.params.id) {
+    // TODO: ask if it wouldn't be better to convert req.params.id to a number
+    if(req.session.user && req.session.user.id == req.params.id) {
         try {
-            const updateUser = await User.update(req.body, { where: { id: req.session.user.id }});
+            const updateUser = await User.update(req.body, { individualHooks: true, where: { id: req.session.user.id }});
             
             if (!updateUser) {
-                return res.status(404).json({message: "No user with that id is associated with this user"});
+                return res.status(404).json({message: "No user with that id"});
             }
+
+            const updatedUser = await User.findByPk(req.session.user.id);
+
+            req.session.user = {
+                id: updatedUser.id,
+                username: updatedUser.username,
+                email: updatedUser.email
+            };
 
             res.status(200).json(updateUser);
         } catch (err) {
@@ -55,7 +64,7 @@ router.put('/:id', withAuth, async (req, res)=>{
             res.status(500).json(err);
         }
     } else {
-        res.status(404).end().json({message: "not found!"})
+        res.status(404).json({message: "not found!"})
     }
 });
 
