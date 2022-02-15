@@ -62,7 +62,7 @@ const editUser = async (e) => {
           password: newPassword
         }
 
-        const response = await fetch(`/dashboard/profile/${userID}`, {
+        const response = await fetch(`/api/user/${userID}`, {
           method: 'PUT',
           body: JSON.stringify({updatedUser}),
           headers: { 'Content-Type': 'application/json' },

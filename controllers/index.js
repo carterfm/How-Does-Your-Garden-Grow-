@@ -42,7 +42,7 @@ router.get('/signup', (req, res) => {
         }
     } else {
         try {
-            console.log('logged in!')
+            console.log('Already logged in!')
             res.redirect('/dashboard');
         } catch (err) {
             console.log('======\n' + err + '\n======');
