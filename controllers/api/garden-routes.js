@@ -107,7 +107,8 @@ router.put('/:id', async (req, res) => {
                         id: req.params.id,
                         UserId: req.session.user.id
                 }
-                });
+                }
+            );
 
             if (!updateGarden[0]) {
                 return res.status(404).json({message: "No garden with that id is associated with this user"});

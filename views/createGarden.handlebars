@@ -19,19 +19,28 @@
             <div id="measQues">
                <div class="editMeasBox">
                     <div class="labels">
-                         <label class="grayFont" id="rectShort">How long is the short side (in inches)?</label>
+                         <label class="grayFont" id="rectShort">How long is the short side (in feet)?</label>
                     </div>
                     <div class="inputs">
+<<<<<<< HEAD
                         <input type="text" id="wid" placeholder="Inches"><span class="required">**required**</span>
+=======
+                        <input type="text" id="wid" placeholder="Feet">
+>>>>>>> dev
                     </div>
                 </div>
                 <div class="editMeasBox">
                     <div class="labels">
+<<<<<<< HEAD
                           <label class="grayFont" id="square">How long is one side (in inches)?</label>
                         <label class="grayFont" id="rectLong">How long is the long side (in inches)?</label><span class="required">**required**</span>
+=======
+                          <label class="grayFont" id="square">How long is one side (in feet)?</label>
+                        <label class="grayFont" id="rectLong">How long is the long side (in feet)?</label>
+>>>>>>> dev
                     </div>
                     <div class="inputs">
-                        <input type="text" id="len" placeholder="Inches" required="required">
+                        <input type="text" id="len" placeholder="Feet" required="required">
                     </div>
                 </div>
             </div>
@@ -50,7 +59,7 @@
             </div>
 
             <div id="plantChoices" style="border: 1px solid black; padding: 0 10px;">
-                <h3 class="grayFont" style="text-align:center; padding-top: 3px;">Which plants would you like to include?</h3>
+                <h3 style="text-align:center; padding-top: 3px; color:olivedrab; font-family: 'Amita', cursive;">Which plants would you like to include?</h3>
                 <ul id="plantBox" style="margin: 10px; height:27.4vh; padding: 10px; width: 100%; overflow-y: auto">
 
                     {{#each plant}}

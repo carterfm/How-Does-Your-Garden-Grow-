@@ -32,7 +32,11 @@
               <p id="togglePassword" style="text-align:right; color:#6c757d; text-decoration: underline; cursor: pointer;">ShowPassword</p>
             <div id="button-box" class="form-element">
                 <button type="submit" id="submitEdit" class="garden-btn">UPDATE PROFILE</button>
-                <button type="submit" id="submitDelete" class="garden-btn">DELETE PROFILE</button>
+                <button type="submit" id="submitDelete" class="garden-btn" onclick="deleteAlert()">DELETE PROFILE</button>
+                <script>
+                    function deleteAlert() {
+                    alert("This action cannot be undone");}
+                </script>
             </div>
         </form>
     </div>

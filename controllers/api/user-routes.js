@@ -16,21 +16,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/signup', (req, res)=>{
-    if (!req.session.user){
-        try{
-        res.status(200).render('createUser');
-        //TODO: frontend code should then take us to the userHome page by setting location.href
-        //to '/dashboard'
-        } catch (err) {
-            console.log('======\n' + err + '\n======');
-            res.status(500).json(err);
-        }
-    } else {
-        res.status(404).end();
-    }
-})
-
 //managing creation of new user
 router.post('/', async (req, res) => {
     try {
@@ -50,6 +35,26 @@ router.post('/', async (req, res) => {
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
+    }
+});
+
+//editing an existing user
+router.put('/:id', withAuth, async (req, res)=>{
+    if(req.session.user && req.session.user.id === req.params.id) {
+        try {
+            const updateUser = await User.update(req.body, { where: { id: req.session.user.id }});
+            
+            if (!updateUser) {
+                return res.status(404).json({message: "No user with that id is associated with this user"});
+            }
+
+            res.status(200).json(updateUser);
+        } catch (err) {
+            console.log('======\n' + err + '\n======');
+            res.status(500).json(err);
+        }
+    } else {
+        res.status(404).end().json({message: "not found!"})
     }
 });
 
@@ -97,24 +102,24 @@ router.post('/login', async (req, res) => {
 
 //logging out of a currently active account
 router.post('/logout', (req, res) => {
-    try {
-        if (req.session.user) {
+    if (req.session.user) {
+        try {
             req.session.destroy(() => res.status(204).end());
-        } else {
-            res.status(404).end();
+
+        }  catch (err) {
+            console.log('======\n' + err + '\n======');
+            res.status(500).json(err);
         }
-    }  catch (err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
+    } else {
+        res.status(404).end();
     }
 });
 
 //delete existing user's account
 router.delete('/:id', async (req, res) => {
-    //Prevents a user from making a delete request if not logged in
-    if (req.session.user) {
+    //Prevents a user from making a delete request if not logged in to the account to be deleted
+    if (req.session.user && req.session.user.id === req.params.id) {
         try {
-            //Prevents a user from making a delete request to gardens that don't belong to them
             const deleteUser = await User.destroy({
                 where: {
                     id: req.params.id,
@@ -122,7 +127,7 @@ router.delete('/:id', async (req, res) => {
             });
 
             if (!deleteUser) {
-                return res.status(404).json({message: "No user with that id is associated with this user"});
+                return res.status(404).json({message: "No user with that id"});
             }
             req.session.destroy(() => res.status(204).end());
             res.status(200).json(deleteUser);

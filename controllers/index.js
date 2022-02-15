@@ -42,14 +42,14 @@ router.get('/signup', (req, res) => {
         }
     } else {
         try {
-            console.log('logged in!')
+            console.log('Already logged in!')
             res.redirect('/dashboard');
         } catch (err) {
             console.log('======\n' + err + '\n======');
             res.status(500).json(err);
         }
     }
-})
+});
 
 //Routes NOT to be included in final code, used for testing logging in without having to seed our database or anything
 //Navigate to these pages in the browser to fake 
