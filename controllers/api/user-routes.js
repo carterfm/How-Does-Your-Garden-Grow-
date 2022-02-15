@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User, Garden } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //Get route for getting all users
 //TODO: remove, potentially?

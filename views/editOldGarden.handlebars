@@ -12,13 +12,13 @@
         <h2>Edit "{{garden.title}}"</h2>
         <p>Let's update your plan! All the garden bed information from the saved garden has been put into the form. You just need to pick new plants! Change anything you need to below and save it.</p>
         <form id="editGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
-            <label for="editTitle">What would you like to call this plan?</label>
+            <label for="editTitle">What would you like to call this plan?</label><span class="required">**required**</span>
             <input type="text" name="editTitle" id="editTitle" class="edit-input">
 
             <label for="editDesc">Any special notes?</label>
             <textarea name="editDesc" id="editDesc" cols="30" rows="5" class="edit-input"></textarea>
 
-            <label for="editShape">What shape is your garden bed?</label>
+            <label for="editShape">What shape is your garden bed?</label><span class="required">**required**</span>
             <select name="editShape" id="editShape" class="edit-input">
                 <option value="">--Choose a Shape--</option>
                 {{!-- <option value="circle">Circle</option> --}}
@@ -34,7 +34,7 @@
                         <label id="rectLong">How long is the long side (in inches)?</label>
                     </div>
                     <div class="inputs">
-                        <input type="text" id="len" placeholder="Inches" class="edit-input">
+                        <input type="text" id="len" placeholder="Inches" class="edit-input"><span class="required">**required**</span>
                     </div>
                 </div>
                 <div class="editMeasBox">
@@ -42,12 +42,12 @@
                         <label id="rectShort">How long is the short side (in inches)?</label>
                     </div>
                     <div class="inputs">
-                        <input type="text" id="wid" placeholder="Inches" class="edit-input">
+                        <input type="text" id="wid" placeholder="Inches" class="edit-input"><span class="required">**required**</span>
                     </div>
                 </div>
             </div>
 
-            <label for="editSun">How much sun do you get?</label>
+            <label for="editSun">How much sun do you get?</label><span class="required">**required**</span>
             <select name="editSun" id="editSun" class="edit-input">
                 <option value="">--Choose One--</option>
                 <option value="full">Full sun (more than 6 hours of sun a day)</option>

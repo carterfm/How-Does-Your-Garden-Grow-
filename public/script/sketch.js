@@ -27,14 +27,24 @@ function draw() {
     })
     .then(function (data) {
         const garden = data;
+        console.log(data);
         //Getting dimension attributes that will be used for rendering
-        gardenL = garden.length;
-        gardenW = garden.width;
-        canvasL = gardenL*100;
-        canvasW = gardenW*100;
-
+        if(garden.shape==='rectangle'){
+            gardenL = garden.length;
+            gardenW = garden.width;
+            canvasL = gardenL*100;
+            canvasW = gardenW*100;
+        } else {
+            gardenL = garden.length;
+            gardenW = garden.length;
+            canvasL = gardenL*100;
+            canvasW = gardenW*100;
+        }
+        console.log(`measurements: ${gardenL}, ${gardenW}, ${canvasL}, ${canvasW}`)
+        
         //Generating array that will be used to render the actual garden visual
         for (plant of garden.Plants) {
+            console.log(plant.GardenPlant.numberOfPlants)
             for (let i = 0; i < plant.GardenPlant.numberOfPlants; i++) {
                 plantGardenData.push(plant.name);
             }
@@ -96,9 +106,9 @@ function draw() {
 //     saveImageBtn.position(gardenW/2, gardenL+35);
 //     saveImageBtn.mousePressed(saveAsCanvas);
 
-//     function saveAsCanvas() {
-//         save("output_canvas.png");
-//     };
+    function saveAsCanvas() {
+        save("output_canvas.png");
+    };
 // //     const gardenBed = function() {
 // //         for (var row=0; row < garden.length; row++) {
 // //             for (var column=0; column < garden.width; column++) {

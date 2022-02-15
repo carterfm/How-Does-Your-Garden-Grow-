@@ -41,14 +41,14 @@ const login = async (e) => {
 
 const goCreateUser = async (e) => {
     e.preventDefault();
-    const response = await fetch('api/user/signup', {
+    const response = await fetch('/signup', {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json',
         },
     })
       if (response.ok) {
-        document.location.replace('api/user/signup');
+        document.location.replace('/signup');
       } else {
         alert(response.statusText);
       }

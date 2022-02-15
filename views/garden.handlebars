@@ -1,5 +1,20 @@
 <main>
-    <div id="id-box" style="font-weight: bold; color: white">{{id}}</div>
+    <div  id="invisible" style="font-weight: bold; color: white; display: none;">
+        <div id="id-box">{{id}}</div>
+        <div id="garden-title">{{title}}</div>
+        <div id="garden-description">{{description}}</div>
+        <div id="garden-shape">{{shape}}</div>
+        <div id="garden-length">{{length}}</div>
+        <div id="garden-width">{{width}}</div>
+        <div id="garden-sun">{{sunLevel}}</div>
+        {{#each Plants}}
+        <div class="inv-plant plant-id"data-index-number="{{id}}">{{id}}</div>
+        <div class="inv-plant plant-name" data-index-number="{{id}}">{{name}}</div>
+        <div class="inv-plant plant-psf" data-index-number="{{id}}">{{plantsPerSF}}</div>
+        <div class="inv-plant num-plants" data-index-number="{{id}}">{{GardenPlant.numberOfPlants}}</div>
+
+        {{/each}}
+    </div>
     <header class="for-print print">
         <h1 id="print-title">
            Greenthumbs, INC
@@ -7,7 +22,7 @@
     </header>
     <div class="userBox print">
         <h1 class="print" id="titleBox">{{title}}</h1>
-        <div class="print" id="gardenImg" style="border:1px solid black">
+        <div class="print" id="gardenImg">
             <div id="canvas-holder"></div>
             {{!-- <img class="print" src="/images/potager.png" alt=""> --}}
         </div>
@@ -26,6 +41,7 @@
         <div class="garden-btn-box">
             <a href="mailto:?subject=Look at this cool garden plan I made with HDYGG!&"><button class="garden-btn" id="email">Email this plan</button></a>
             <button class="garden-btn" onclick="window.print();return false;">Print this plan</button>
+            <button class="garden-btn" onclick="saveAsCanvas()">Download this plan</button>
         </div>
     </div>
 </main>

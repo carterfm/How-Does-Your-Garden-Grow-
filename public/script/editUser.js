@@ -67,9 +67,10 @@ const editUser = async (e) => {
           body: JSON.stringify({updatedUser}),
           headers: { 'Content-Type': 'application/json' },
         });
-    
+        const newUser = await response.json();
+        console.log('newUser', newUser)
         if (response.ok) {
-          document.location.replace('/');
+          // document.location.replace('/');
         } else {
           alert(response.statusText);
         }

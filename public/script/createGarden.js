@@ -90,24 +90,14 @@ const calcSections = e => {
     const findGardenArea = () => {
         const length = len.value
         const width = wid.value
-        const convSqFt = inches => {
-            const sqFt = inches/144
-            return sqFt;
-        }
         if(shapeBox.value==='square'){
             console.log('it\'s a square')
-            const areaIn = length*length;
-            console.log(`The area of this garden in sq inches is ${areaIn}`)
-            const areaSqFt = convSqFt(areaIn);
-            console.log(`The area of this garden in sq feet is ${areaSqFt}`);
+            const areaSqFt = length*length;
             return areaSqFt
         }
         if(shapeBox.value==='rectangle'){
             console.log('it\'s a rectangle')
-            const areaIn = length*width;
-            console.log(`The area of this garden in sq inches is ${areaIn}`)
-            const areaSqFt = convSqFt(areaIn);
-            console.log(`The area of this garden in sq feet is ${areaSqFt}`);
+            const areaSqFt = length*width;
             return areaSqFt
         }  
     }
@@ -318,6 +308,12 @@ secNumInpt.forEach(inpt=> {
 });
 
 //initiates obj build after form submission
-document.querySelector('#getGarden').addEventListener('click', buildNewGarden);
+newFormSubmit.addEventListener('click', e=>{
+    if((title==='')||(shapeBox.value==='')||(len.value==='')||(sunLevel==='')){
+        
+        alert('Please make sure you\'ve filled out all the required fields correctly.')
+    }
+    buildNewGarden(e);
+});
 
 init();
