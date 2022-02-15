@@ -9,6 +9,9 @@
             <label for="newDesc" class="grayFont">Any special notes?</label>
             <textarea name="newDesc" id="newDesc" cols="30" rows="5" placeholder="This plan's for..."></textarea>
 
+              <h3 style="text-align:center; padding-top: 3px; color:olivedrab; font-family: 'Amita', cursive;">Let's talk about your bed...</h3>
+            <p class="grayFont">While the stereotypical square foot garden bed is four feet wide by four feet long, it's size can be changed to fit your situation. To make sure you can reach the plants in the middle, we limit the width of the bed to a maximum of four feet, but you can make it as long as eight! Once the plan is completed, it will be saved to your View Old Garden Plans page. Look for it in the drop down menu up top! <br>Consider your space, how it will be positioned, and how you will access all sides when you need to do maintenance to decide the length that is right for you. If you need another bed, make another garden plan after this one is done.</p>
+
             <label for="newShape" class="grayFont">What shape is your garden bed?<span class="required">**required**</span></label>
             <select name="newShape" id="newShape" required="required">
                 <option value="">--Choose a Shape--</option>
@@ -18,25 +21,36 @@
 
             <div id="measQues">
                <div class="editMeasBox">
+                   <div class="inputs">
+                        <label class="grayFont" id="rectShort">How long is the long side (in feet)?</label><span class="required">**required**</span>
+                         <select class="custom-select" name="wid" id="wid">
+                            <option value="">--Feet--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
                     <div class="labels">
-                         <label class="grayFont" id="rectShort">How long is the short side (in feet)?</label>
+                        <label class="grayFont" id="square">How long is one side (in feet)?</label>
+                        <label class="grayFont" id="rectLong">How long is the short side (in feet)?</label><span class="required">**required**</span>
+                        <select class="custom-select" name="len" id="len">
+                            <option value="">--Feet--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
                     </div>
-                    <div class="inputs">
-                        <input type="text" id="wid" placeholder="Feet"><span class="required">**required**</span>
-                    </div>
-                </div>
-                <div class="editMeasBox">
-                    <div class="labels">
-                          <label class="grayFont" id="square">How long is one side (in feet)?</label>
-                        <label class="grayFont" id="rectLong">How long is the long side (in feet)?</label><span class="required">**required**</span>
-                    </div>
-                    <div class="inputs">
-                        <input type="text" id="len" placeholder="Feet" required="required">
-                    </div>
+                    
                 </div>
             </div>
 
-            <label for="sun" class="grayFont">How much sun do you get?</label>
+            <label for="sun" class="grayFont">How much sun do you get?</label><span class="required">**required**</span>
             <select name="sun" id="newSun" required="required">
                 <option value="" class="grayFont">--Choose One--</option>
                 <option value="full" class="grayFont">Full sun (more than 6 hours of sun a day)</option>
@@ -45,7 +59,7 @@
             </select>
 
             <div id="num-sections" style="display:flex; align-items:center; justify-content: center; margin-top: 10px;">
-                <p id="vis-amount-message" style="display: none; padding: 5px; color: olivedrab" id="section-box">You have<span id="num-disp-box" style="margin: 5px; padding: 5px;"></span>square-foot sections in your garden left to fill!</p>
+                <p id="vis-amount-message" style="display: none; padding: 5px; color: olivedrab; font-weight: bold;" id="section-box">You have<span id="num-disp-box" style="margin: 5px; padding: 5px; font-weight: bold;"></span>square-foot sections in your garden left to fill!</p>
                 <p id="hidden-amount-message" style="display: none;">You are out of sections to fill!</p>
             </div>
 
@@ -57,8 +71,13 @@
                         <input style="display:none;"type="checkbox" class="plantChoice" name="{{id}}" value="{{id}}">
 
                         <li class="plantLI" data-index-number="{{id}}">
+{{!-- 
+                            <input type="range" name="plant-num-text" class="plant-num-input" data-index-number="{{id}}" min="1" max="10"> --}}
 
-                            <input type="number" name="plant-num-text" class="plant-num-input" data-index-number="{{id}}">
+                            <select class="custom-select plant-num-input" data-index-number="{{id}}">
+                                <option value="" class="placeholder">Amount</option>
+                            </select>
+                            {{!-- <div class="hidden-num" data-index-number="{{id}}" style="border: 1px solid black"></div> --}}
 
                             <div class="info-box" data-index-number="{{id}}">
                                 <img src="/images/{{name}}.png" alt="" data-index-number="{{id}}">
