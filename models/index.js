@@ -4,7 +4,7 @@ const Plant = require('./Plant.js');
 const GardenPlant = require('./GardenPlant.js');
 
 //Gardens belong to a single user, and a single user can have many gardens
-Garden.belongsTo(User);
+Garden.belongsTo(User, { onDelete: 'CASCADE'});
 User.hasMany(Garden);
 
 //
