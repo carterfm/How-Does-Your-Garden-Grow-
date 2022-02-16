@@ -24,6 +24,20 @@ main {
   align-items: center;
 }
 
+.required {
+  /* visibility: hidden; */
+  color: firebrick;
+  font-style: italic;
+  /* border: 1px solid black; */
+}
+
+.req-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
 #topnav {
   height: 8vh;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
@@ -134,9 +148,18 @@ form.login {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%
 }
 .form-element {
   width: 100%;
+}
+
+#form-inpt-box {
+  width: 48%;
+}
+
+#form-label-box {
+  width: 52%;
 }
 
 .form-element label {
