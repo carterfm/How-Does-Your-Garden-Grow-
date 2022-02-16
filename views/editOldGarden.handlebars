@@ -1,79 +1,124 @@
 <main>
-    <div id="hidden" style="color:whitesmoke;font-weight:bold;display:none;">
-        <div id="id">{{garden.id}}</div>
-        <div id="title">{{garden.title}}</div>
-        <div id="description">{{garden.description}}</div>
-        <div id="shape">{{garden.shape}}</div>
-        <div id="length">{{garden.length}}</div>
-        <div id="width">{{garden.width}}</div>
-        <div id="sunLevel">{{garden.sunLevel}}</div>
-    </div>
-    <div class="welcome-box">
-        <h2>Edit "{{garden.title}}"</h2>
-        <p>Let's update your plan! All the garden bed information from the saved garden has been put into the form. You just need to pick new plants! Change anything you need to below and save it.</p>
+        <div id="hidden" style="color:whitesmoke;font-weight:bold; display: none">
+            <div id="id">{{garden.id}}</div>
+            <div id="title">{{garden.title}}</div>
+            <div id="description">{{garden.description}}</div>
+            <div id="shape">{{garden.shape}}</div>
+            <div id="length">{{garden.length}}</div>
+            <div id="width">{{garden.width}}</div>
+            <div id="sunLevel">{{garden.sunLevel}}</div>
+         </div>
+         <div style="display: none">
+            {{#each garden.Plants}}
+                <div class="inv-plant plant-id"data-index-number="{{id}}">{{id}}</div>
+                <div class="inv-plant plant-name" data-index-number="{{id}}">{{name}}</div>
+                <div class="inv-plant plant-psf" data-index-number="{{id}}">{{plantsPerSF}}</div>
+                <div class="inv-plant num-plants" data-index-number="{{id}}">{{garden.Plants.GardenPlant.numberOfPlants}}</div>
+            {{/each}}
+        </div>
+    <div class="userBox">
+        <h2 style="color:olivedrab;  font-family: 'Amita', cursive;">Edit "{{garden.title}}"</h2>
+        <p class="grayFont">Let's update your plan! All the garden bed information from the saved garden has been put into the form. You just need to pick new plants! Change anything you need to below and save it.</p>
         <form id="editGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
-            <label for="editTitle">What would you like to call this plan?</label>
-            <input type="text" name="editTitle" id="editTitle" class="edit-input">
+            <label for="editTitle" class="grayFont">What would you like to call this plan?<span class="required">**required**</span></label>
+            <input type="text" name="editTitle" id="editTitle" required="required">
 
-            <label for="editDesc">Any special notes?</label>
+            <label for="editDesc" class="grayFont">Any special notes?</label>
             <textarea name="editDesc" id="editDesc" cols="30" rows="5" class="edit-input"></textarea>
 
-            <label for="editShape">What shape is your garden bed?</label>
-            <select name="editShape" id="editShape" class="edit-input">
+              <h3 style="text-align:center; padding-top: 3px; color:olivedrab; font-family: 'Amita', cursive;">Let's talk about your bed...</h3>
+            <p class="grayFont">As a reminder, we limit the width of the bed to a maximum of four feet, but you can make it as long as eight! Once the plan is completed, it will be saved to your View Old Garden Plans page. Look for it in the drop down menu up top! <br>Consider your space, how it will be positioned, and how you will access all sides when you need to do maintenance to decide the length that is right for you. If you need another bed, make another garden plan after this one is done.</p>
+
+            <div class="prev">
+                <p> The shape you chose previously was: {{garden.shape}}.</p>
+                <p id="wid-holder">The previous width was: {{garden.width}}</p>
+                <p id="len-holder">The previous length you entered was: {{garden.length}}</p>
+                <p id="square-holder">The previous measurement you entered was: {{garden.length}}</p>
+            </div>
+            <label for="editShape" class="grayFont">What shape is your garden bed?<span class="required">**required**</span></label>
+            <select name="editShape" id="editShape" required="required">
                 <option value="">--Choose a Shape--</option>
-                {{!-- <option value="circle">Circle</option> --}}
                 <option value="square">Square</option>
                 <option value="rectangle">Rectangle</option>
             </select>
 
-           <div id="editMeasQues">
+            <div id="editMeasQues">
                <div class="editMeasBox">
+                   <div class="inputs">
+                        <label class="grayFont" id="rectShort">How long is the long side (in feet)?</label><span class="required">**required**</span>
+                         <select class="custom-select" name="wid" id="wid">
+                            <option value="">--Feet--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
                     <div class="labels">
-                        <label id="square">How long is one side (in inches)?</label>
-                        {{!-- <label id="circle">How wide across is it (in inches)?</label> --}}
-                        <label id="rectLong">How long is the long side (in inches)?</label>
+                        <label class="grayFont" id="square">How long is one side (in feet)?</label>
+                        <label class="grayFont" id="rectLong">How long is the short side (in feet)?</label><span class="required">**required**</span>
+                        <select class="custom-select" name="len" id="len">
+                            <option value="">--Feet--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
                     </div>
-                    <div class="inputs">
-                        <input type="text" id="len" placeholder="Inches" class="edit-input">
-                    </div>
-                </div>
-                <div class="editMeasBox">
-                    <div class="labels">
-                        <label id="rectShort">How long is the short side (in inches)?</label>
-                    </div>
-                    <div class="inputs">
-                        <input type="text" id="wid" placeholder="Inches" class="edit-input">
-                    </div>
+                    
                 </div>
             </div>
 
-            <label for="editSun">How much sun do you get?</label>
-            <select name="editSun" id="editSun" class="edit-input">
-                <option value="">--Choose One--</option>
-                <option value="full">Full sun (more than 6 hours of sun a day)</option>
-                <option value="partial">Part sun (between 4-6 hours of sun a day)</option>
-                <option value="shade">Full shade (less than 4 hours of sun a day)</option>
+            <label for="editSun" class="grayFont">How much sun do you get?</label><span class="required">**required**</span>
+            <select name="editSun" id="editSun" required="required">
+                <option value="" class="grayFont">--Choose One--</option>
+                <option value="full" class="grayFont">Full sun (more than 6 hours of sun a day)</option>
+                <option value="partial" class="grayFont">Part sun (between 4-6 hours of sun a day)</option>
+                <option value="shade" class="grayFont">Full shade (less than 4 hours of sun a day)</option>
             </select>
 
-            <div class="prev">
+              <div class="prev">
                 The plants you chose previously were:
                 <ul id="prevPlantBox">
                     {{#each garden.Plants}}
-                        <li class="garden-plant">{{name}}</li>
+                        <li class="garden-plant">{{GardenPlant.numberOfPlants}} square foot sections of {{name}}</li>
                     {{/each}}
                 </ul>
             </div>
 
-            <div id="editPlantChoices" style="border: 1px solid black; margin:10px 0; padding: 0 10px;">
-                <h3 style="text-align:center;">Which plants would you like to include?</h3>
-                <ul id="editPlantBox" style="margin: 10px; padding: 10px; width: 100%; height: 150px; overflow-y: auto">
+            <div id="num-sections" style="display:flex; align-items:center; justify-content: center; margin-top: 10px;">
+                <p id="vis-amount-message" style="display: none; padding: 5px; color: olivedrab; font-weight: bold;" id="section-box">You have<span id="num-disp-box" style="margin: 5px; padding: 5px; font-weight: bold;"></span>square-foot sections in your garden left to fill!</p>
+                <p id="hidden-amount-message" style="display: none;">You are out of sections to fill!</p>
+            </div>
+
+            <div id="plantChoices" style="border: 1px solid black; padding: 0 10px;">
+                <h3 style="text-align:center; padding-top: 3px; color:olivedrab; font-family: 'Amita', cursive;">Which plants would you like to include?</h3>
+                <ul id="editPlantBox" style="margin: 10px; height:27.4vh; padding: 10px; width: 100%; overflow-y: auto">
+
                     {{#each plant}}
-                        <li class="plantLI">
-                            <input type="checkbox" class="editPlantChoice" name="{{id}}" value="{{id}}">
-                            <img src="/images/{{name}}.png" alt="">
-                            <div><label for="{{id}}">{{name}}</label><p>{{description}}</p></div>
+                        <input style="display:none;"type="checkbox" class="plantChoice" name="{{id}}" value="{{id}}">
+
+                        <li class="plantLI" data-index-number="{{id}}">
+                            <select class="custom-select plant-num-input" data-index-number="{{id}}">
+                                <option value="" class="placeholder">Amount</option>
+                            </select>
+
+                            <div class="info-box" data-index-number="{{id}}">
+                                <img src="/images/{{name}}.png" alt="" data-index-number="{{id}}">
+                                <div class="plantInfo" data-index-number="{{id}}" style="display:flex; flex-direction:column; justify-content:center">
+                                    <label for="{{id}}" data-index-number="{{id}}">
+                                        <h5 data-index-number="{{id}}">{{name}}</h5>
+                                    </label>
+                                    <p data-index-number="{{id}}">{{description}} <strong>{{plantsPerSF}} of these plants will fit in one square foot area.</strong></p>
+                                    <p data-index-number="{{id}}" class="how-many" style="visibility:hidden;" data-index-number="{{id}}">Please enter in the box how many sections of your garden you would like to fill with this plant</p>
+                                </div>
+                            </div>
                         </li>
-                    {{/each}}                             
+                    {{/each}}
                 </ul>
             </div>
 

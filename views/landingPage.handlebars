@@ -1,13 +1,13 @@
 <main>
     <div class="welcomeBox">
-        <h2 class="welcome">Welcome</h2>
+        <img src="/images/emerald_thumb_resized.png" alt="A hand with a green thumb giving you approval" height="235px" />
         <p class="grayFont">This is a square foot garden planning app for the Pacific Northwest</p>
         <form id="login">
             <h3 class="oliveFont">Login</h3>
             <label for="userName" class="grayFont">Username:</label>
-            <input type="text" name="userName" class="grayFont" required="required">
+            <input type="text" name="userName" class="grayFont" id="userName" required="required"><span class="required">**required**</span>
             <label for="password" class="grayFont">Password:</label>
-            <input type="password" autocomplete="current-password" name="password" id="password">
+            <input type="password" autocomplete="current-password" name="password" id="password"><span class="required">**required**</span>
             <p id="togglePassword" style="text-align:right; color:#6c757d; text-decoration: underline; cursor: pointer;">ShowPassword</p>
             <button type="submit" id="submitLogin" required="required" class="loginButton">Sign In</button>
         </form>

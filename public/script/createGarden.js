@@ -1,4 +1,3 @@
-
 //createGarden Form elements
 const titleBox = document.getElementById('newTitle');
 const descriptionBox = document.getElementById('newDesc');
@@ -23,6 +22,9 @@ const howMany = document.querySelectorAll('.how-many')
 const secNumInpt = document.querySelectorAll('.plant-num-input');
 const infoBox = document.querySelectorAll('.info-box');
 const numDispBox = document.getElementById('num-disp-box');
+const hiddenNum = document.querySelectorAll('.hidden-num');
+// const secOptions = [];
+const placeholderOption = document.querySelectorAll('.placeholder');
 
 //createGarden measurement value collection boxes
 const len = document.getElementById('len');
@@ -37,7 +39,7 @@ const resetColorAll = () => {
         p.setAttribute('style', 'visibility: hidden; width: 100%');
     })
     secNumInpt.forEach(sec=>{
-        sec.setAttribute('style', 'visibility: hidden; width: 2.25rem; height: 1.5rem')
+        sec.setAttribute('style', 'visibility: hidden;height: 1.5rem')
     })
     infoBox.forEach(box=>{
         box.setAttribute('style', 'display: flex; align-items: center; width: 100%')
@@ -90,25 +92,14 @@ const calcSections = e => {
     const findGardenArea = () => {
         const length = len.value
         const width = wid.value
-        const convSqFt = inches => {
-            const sqFt = inches/144
-            return sqFt;
-        }
         if(shapeBox.value==='square'){
             console.log('it\'s a square')
-            const areaIn = length*length;
-            console.log(`The area of this garden in sq inches is ${areaIn}`)
-            const areaSqFt = convSqFt(areaIn);
-            console.log(`The area of this garden in sq feet is ${areaSqFt}`);
+            const areaSqFt = length*length;
             return areaSqFt
         }
         if(shapeBox.value==='rectangle'){
             console.log('it\'s a rectangle')
-            //this is where we'll find area with npm package after we can get it linked
-            const areaIn = length*width;
-            console.log(`The area of this garden in sq inches is ${areaIn}`)
-            const areaSqFt = convSqFt(areaIn);
-            console.log(`The area of this garden in sq feet is ${areaSqFt}`);
+            const areaSqFt = length*width;
             return areaSqFt
         }  
     }
@@ -117,43 +108,72 @@ const calcSections = e => {
     numDispBox.textContent = gardSections;
 }
 
-const updateSections = e => {
-    console.log(parseInt(numDispBox.textContent))
-    const usedSections = e.target.value;
-    const currentSections = numDispBox.textContent;
-    const sectionsLeft = currentSections - usedSections
-    numDispBox.textContent = sectionsLeft;
-    if(parseInt(sectionsLeft)<=0){
-        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: none')
-        document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid red; color:red; font-weight: bold')
-    } else {
-        document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block')
-        document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid red; color:red; font-weight: bold')
+// const removeOptions = (sec, val) => {
+    // let ns;
+    // while(ns=opt.nextSibling){
+       
+    // }
+    // const options = document.querySelectorAll('.sec-options')
+    // for(let i=0;i<val; i++){
+    //     sec.lastChild.setAttribute('style', 'display:none')
+    // }
+    // for(let i=0; i<options.length; i++){
+    //     opt.nextSibling(options[i]).remove();
+    // }   
+// }
+
+// const addNewOptions = (el, val1, val2) => {
+    // const options = document.querySelectorAll('.sec-options')
+    // for(let i=1;i<=val1; i++){
+        // const newVal = val2 + i;
+        // const newOpt = document.createElement('option')
+        // newOpt.setAttribute('value', `${newVal}`);
+        // newOpt.setAttribute('class', 'sec-options');
+        // newOpt.textContent = newVal
+
+        // el.append(newOpt)
+//     }
+// }
+
+const updateSections = (e, val) => {
+    // e.preventDefault()
+    let currentSections = parseInt(numDispBox.textContent);
+    if((currentSections-val)<0){
+        alert('That\'s too many sections!\nTake a look at what you have \navailable and try again.')
+        e.target.value = '';
+        return
     }
+    console.log('numdispbox content is a ', numDispBox.textContent)
+    currentSections = currentSections - val
+    numDispBox.textContent = currentSections 
+    // const newSections = e.target.value;
+   
+    // secNumInpt.forEach(inpt=> {
+   
+    //     addOptions(inpt);
+    // })
+    console.log('numdispbox content is a ', numDispBox.textContent)
+    // secNumInpt.forEach(sec=>{
+    //     removeOptions(sec, val);
+    // })
+    // if(parseInt(currentSections)<=0){
+    //     document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: none')
+    //     document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid firebrick; color:firebrick; font-weight: bold')
+    // } else {
+    //     document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: block')
+    //     document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid firebrick; color:firebrick; font-weight: bold')
+    // }
 }
 
 const addSectionsBack = val => {
     const currentSections = parseInt(numDispBox.textContent);
     const sectionsLeft = currentSections + val
     numDispBox.textContent = sectionsLeft;
+    // secNumInpt.forEach(inpt=> {
+   
+    //     addNewOptions(inpt, val, currentSections);
+    // })
 }
-
-//Goes to view garden output page popped with new garden
-const seeGarden = async (title) => {
-    const response = await fetch(`/dashboard/gardens/new/${title}`, {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-    })
-        if (response.ok) {
-            console.log(response);
-            document.location.replace(`/dashboard/gardens/new/${title}`);
-        } else {
-        alert(response.statusText);
-        }
-}
-
 
 //Posts the garden obj and sqitches to the garden output page
 const saveGarden = async (obj) => {
@@ -164,13 +184,24 @@ const saveGarden = async (obj) => {
         },
         body: JSON.stringify(obj),
   });
-  if (response.ok) {
-    //   document.location.replace(`/dashboard/gardens/${obj.id}`);
-      seeGarden(obj.title);
-          } else {
-        
-            alert('Something went wrong!');
-          }
+    if (response.ok) {
+        console.log(`response OK!`)
+    const newData = await response.json();
+    console.log(newData)
+    const res = await fetch(`/dashboard/gardens/${newData.id}`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    })
+        if (res.ok) {
+        document.location.replace(`/dashboard/gardens/${newData.id}`);
+        } else {
+        alert(response.statusText);
+        }
+    } else {
+    alert('Something went wrong!');
+    }
 }
 
 //builds the garden obj
@@ -179,13 +210,12 @@ const buildNewGarden= (e) => {
     const plantArr = [];
     const buildPlantObjs = (plant) => {
         secNumInpt.forEach(sec=>{
+            console.log('sec.value',sec.value)
             if(sec.dataset.indexNumber===plant.value){
-                for(let i=0; i<sec.value; i++){
-                    plantArr.push(plant.value)
-                }
-                // const newPlantValues = [plant.value, sec.value];
-                // console.log(`Here is a plant array: ${newPlantValues}`)
-                // plantArr.push(newPlantValues);
+                console.log('sec.value',sec.value)
+                const newPlantValues = [plant.value, sec.value];
+                console.log(`Here is a plant array: ${newPlantValues}`)
+                plantArr.push(newPlantValues);
             }
         })
     }
@@ -208,7 +238,7 @@ const buildNewGarden= (e) => {
         plantsToAdd: plantArr
     }
     console.log(newGarden)
-    // saveGarden(newGarden);
+    saveGarden(newGarden);
 }
 
 
@@ -229,7 +259,7 @@ const resetColor = (e) => {
     })
     secNumInpt.forEach(inpt=> {
         if(inpt.dataset.indexNumber===e.target.dataset.indexNumber){
-            inpt.setAttribute('style', 'visibility: hidden; width: 2.25rem; height: 1.5rem')
+            inpt.setAttribute('style', 'visibility: hidden; height: 1.5rem')
             if(inpt.value>0){
                 addSectionsBack(parseInt(inpt.value))
                 inpt.value = '';}
@@ -248,7 +278,7 @@ const changeLIColor = (e) => {
     e.preventDefault();
     liBox.forEach(box=>{
         if(box.dataset.indexNumber===e.target.dataset.indexNumber){
-            box.setAttribute('style', 'display: flex; justify-content: start; background-color: lightgreen; border: 2px solid green');
+            box.setAttribute('style', 'display: flex; justify-content: start; background-color: #bccc48; border: 2px solid green');
         }
     })
     howMany.forEach(p=> {
@@ -259,7 +289,7 @@ const changeLIColor = (e) => {
     })
     secNumInpt.forEach(inpt=> {
         if(inpt.dataset.indexNumber===e.target.dataset.indexNumber){
-            inpt.setAttribute('style', 'border: 2px solid green; width: 2.25rem; height: 1.5rem')
+            inpt.setAttribute('style', 'border: 2px solid olivedrab; height: 1.5rem')
             console.log('change color inpt matches')
         }
     })
@@ -287,41 +317,111 @@ const clickBox = (e) => {
         }
     })
 }
-  
+ 
 
-infoBox.forEach(box=>{
-    box.addEventListener('click', clickBox)
-});
 
+// const filterInpt = (e) => {
+//     const inptArr = [];
+//     const inptIndex = e.target.dataset.indexNumber
+//     inptArr.push(e.target.value);
+//     const i = inptArr[inptArr.length-1]
+//     console.log('i =',i)
+//     updateSections(inptIndex, i)
+// }
+
+const addOptions = (inpt) => {
+    // let numOpt = 0;
+    const number = parseInt(numDispBox.textContent);
+    console.log('number', number)
+    for(let i=1; i<= number; i++){
+        const choice = document.createElement('option')
+        choice.setAttribute('value', `${i}`);
+        choice.setAttribute('class', 'sec-options')
+        
+        choice.textContent = i;
+        inpt.appendChild(choice);
+    }
+}
 
 //measurement collection boxes will appear once the user has chosen a shape
 shapeBox.addEventListener('change', getMeasurements)
 
-len.addEventListener('keyup', e => {
+
+
+len.addEventListener('change', e => {
+    e.preventDefault();
     document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: green; display: block');
     calcSections(e);
-});
 
-const checkIfNum = e => {
-    if(parseInt(e.target.value)===NaN){
-        e.target.removeEventListener('keyup', updateSections)
-        return
-    } else {updateSections(e)}
-}
+    infoBox.forEach(box=>{
+        box.addEventListener('click', clickBox)
+    });
+    secNumInpt.forEach(inpt=> {
+        addOptions(inpt);
+        let prevValue;
+        let newValue;
 
-secNumInpt.forEach(inpt=> {
-    inpt.addEventListener('keyup', updateSections);
-    inpt.addEventListener('keydown', e => {
-        // checkIfNum(e)
-        if(e.key==="Backspace"){
-            inpt.addEventListener('keyup', updateSections);
-            const sectionsToAdd = parseInt(e.target.value);
-            addSectionsBack(sectionsToAdd)
-        }
-    })
+        inpt.addEventListener('mousedown', e => {
+            // e.preventDefault();
+            prevValue = e.target.value
+            // hiddenNum.forEach(box=>{
+            //     if(box.dataset.indexNumber===e.target.dataset.indexNumber){
+            //         box.innerHTML = prevValue;
+            //     }
+            // })
+            console.log('old', prevValue)
+        })
+        inpt.addEventListener('change', e=> {
+            e.preventDefault()
+            newValue = e.target.value;
+            console.log('new', newValue)
+            if(newValue>prevValue){
+                console.log(newValue>prevValue)
+                const difference = newValue - prevValue
+                updateSections(e, difference)
+
+            }
+            if(prevValue>newValue){
+                console.log(newValue>prevValue)
+                const difference = prevValue - newValue
+                addSectionsBack(difference)
+            } else if(parseInt(numDispBox.textContent)===0){
+                document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: none')
+                document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid firebrick; color:firebrick; font-weight: bold')
+            } else {
+                document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: block')
+                document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid firebrick; color:firebrick; font-weight: bold')
+            }
+
+
+                // if(e.key==="Backspace"){return}
+                // console.log('inpt value', e.target.value)
+                
+    
+            //     setTimeout(()=>{filterInpt(e)}, 500);
+            // });
+            // inpt.addEventListener('keydown', e => {
+            //     if(e.key==="Backspace"){
+            //         if(e.target.value===''){return}
+            //         else{
+            //             const sectionsToAdd = parseInt(e.target.value);
+            //             addSectionsBack(sectionsToAdd)
+            //         }
+            //     }
+            })
+        
+        
+  
+    });
 });
 
 //initiates obj build after form submission
-document.querySelector('#newGarden').addEventListener('submit', buildNewGarden);
+newFormSubmit.addEventListener('click', e=>{
+    // if((title==='')||(shapeBox.value==='')||(len.value==='')||(sunLevel==='')){
+        
+    //     alert('Please make sure you\'ve filled out all the required fields correctly.')
+    // }
+    buildNewGarden(e);
+});
 
 init();

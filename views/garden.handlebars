@@ -1,13 +1,30 @@
 <main>
+    <div  id="invisible" style="font-weight: bold; color: white; display: none;">
+        <div id="id-box">{{id}}</div>
+        <div id="garden-title">{{title}}</div>
+        <div id="garden-description">{{description}}</div>
+        <div id="garden-shape">{{shape}}</div>
+        <div id="garden-length">{{length}}</div>
+        <div id="garden-width">{{width}}</div>
+        <div id="garden-sun">{{sunLevel}}</div>
+        {{#each Plants}}
+        <div class="inv-plant plant-id"data-index-number="{{id}}">{{id}}</div>
+        <div class="inv-plant plant-name" data-index-number="{{id}}">{{name}}</div>
+        <div class="inv-plant plant-psf" data-index-number="{{id}}">{{plantsPerSF}}</div>
+        <div class="inv-plant num-plants" data-index-number="{{id}}">{{GardenPlant.numberOfPlants}}</div>
+
+        {{/each}}
+    </div>
     <header class="for-print print">
         <h1 id="print-title">
            Greenthumbs, INC
         </h1>
     </header>
-    <div class="welcome-box print">
+    <div class="userBox print">
         <h1 class="print" id="titleBox">{{title}}</h1>
-        <div class="print" id="gardenImg" style="border:1px solid black">
-            <img class="print" src="/images/potager.png" alt="">
+        <div class="print" id="gardenImg">
+            <div id="canvas-holder"></div>
+            {{!-- <img class="print" src="/images/potager.png" alt=""> --}}
         </div>
         <h2 class="print">Here are the plants you'll need:</h2>
         <ul class="print" id="plantBox">
@@ -22,9 +39,12 @@
             {{/each}}       
         </ul>
         <div class="garden-btn-box">
-            <a href="mailto:?subject=Look at this cool garden plan I made with HDYGG!&"><button class="garden-btn" id="email">Email this plan</button></a>
+            <a href="mailto:?subject=Look at this cool garden plan I made with Greenthumb!&"><button class="garden-btn" id="email">Email this plan</button></a>
             <button class="garden-btn" onclick="window.print();return false;">Print this plan</button>
+            <button class="garden-btn" onclick="saveAsCanvas()">Download this plan</button>
         </div>
     </div>
 </main>
 <script src="/script/garden.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+<script src="/script/sketch.js"></script>
