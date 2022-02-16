@@ -12,10 +12,7 @@
                     <div class="btnBox">
                         <button class="gardenBtn use garden-btn" value="{{id}}">Use</button>
                         <button class="gardenBtn edit garden-btn" value="{{id}}">Edit</button>
-                        <button class="gardenBtn delete garden-btn" onclick="deleteAlert()" value="{{id}}">Delete</button>
-                        <script>
-                            function deleteAlert() {confirm("This action cannot be undone");}
-                        </script>
+                        <button class="gardenBtn delete garden-btn" value="{{id}}">Delete</button>
                     </div>
                 </li>
             {{/each}}
