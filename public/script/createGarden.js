@@ -23,7 +23,6 @@ const secNumInpt = document.querySelectorAll('.plant-num-input');
 const infoBox = document.querySelectorAll('.info-box');
 const numDispBox = document.getElementById('num-disp-box');
 const hiddenNum = document.querySelectorAll('.hidden-num');
-// const secOptions = [];
 const placeholderOption = document.querySelectorAll('.placeholder');
 
 //createGarden measurement value collection boxes
@@ -108,35 +107,7 @@ const calcSections = e => {
     numDispBox.textContent = gardSections;
 }
 
-// const removeOptions = (sec, val) => {
-    // let ns;
-    // while(ns=opt.nextSibling){
-       
-    // }
-    // const options = document.querySelectorAll('.sec-options')
-    // for(let i=0;i<val; i++){
-    //     sec.lastChild.setAttribute('style', 'display:none')
-    // }
-    // for(let i=0; i<options.length; i++){
-    //     opt.nextSibling(options[i]).remove();
-    // }   
-// }
-
-// const addNewOptions = (el, val1, val2) => {
-    // const options = document.querySelectorAll('.sec-options')
-    // for(let i=1;i<=val1; i++){
-        // const newVal = val2 + i;
-        // const newOpt = document.createElement('option')
-        // newOpt.setAttribute('value', `${newVal}`);
-        // newOpt.setAttribute('class', 'sec-options');
-        // newOpt.textContent = newVal
-
-        // el.append(newOpt)
-//     }
-// }
-
 const updateSections = (e, val) => {
-    // e.preventDefault()
     let currentSections = parseInt(numDispBox.textContent);
     if((currentSections-val)<0){
         alert('That\'s too many sections!\nTake a look at what you have \navailable and try again.')
@@ -146,33 +117,13 @@ const updateSections = (e, val) => {
     console.log('numdispbox content is a ', numDispBox.textContent)
     currentSections = currentSections - val
     numDispBox.textContent = currentSections 
-    // const newSections = e.target.value;
-   
-    // secNumInpt.forEach(inpt=> {
-   
-    //     addOptions(inpt);
-    // })
     console.log('numdispbox content is a ', numDispBox.textContent)
-    // secNumInpt.forEach(sec=>{
-    //     removeOptions(sec, val);
-    // })
-    // if(parseInt(currentSections)<=0){
-    //     document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: none')
-    //     document.getElementById('hidden-amount-message').setAttribute('style', 'display: block; border: 2px solid firebrick; color:firebrick; font-weight: bold')
-    // } else {
-    //     document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: block')
-    //     document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid firebrick; color:firebrick; font-weight: bold')
-    // }
 }
 
 const addSectionsBack = val => {
     const currentSections = parseInt(numDispBox.textContent);
     const sectionsLeft = currentSections + val
     numDispBox.textContent = sectionsLeft;
-    // secNumInpt.forEach(inpt=> {
-   
-    //     addNewOptions(inpt, val, currentSections);
-    // })
 }
 
 //Posts the garden obj and sqitches to the garden output page
@@ -318,17 +269,6 @@ const clickBox = (e) => {
     })
 }
  
-
-
-// const filterInpt = (e) => {
-//     const inptArr = [];
-//     const inptIndex = e.target.dataset.indexNumber
-//     inptArr.push(e.target.value);
-//     const i = inptArr[inptArr.length-1]
-//     console.log('i =',i)
-//     updateSections(inptIndex, i)
-// }
-
 const addOptions = (inpt) => {
     // let numOpt = 0;
     const number = parseInt(numDispBox.textContent);
@@ -362,13 +302,7 @@ len.addEventListener('change', e => {
         let newValue;
 
         inpt.addEventListener('mousedown', e => {
-            // e.preventDefault();
             prevValue = e.target.value
-            // hiddenNum.forEach(box=>{
-            //     if(box.dataset.indexNumber===e.target.dataset.indexNumber){
-            //         box.innerHTML = prevValue;
-            //     }
-            // })
             console.log('old', prevValue)
         })
         inpt.addEventListener('change', e=> {
@@ -392,26 +326,7 @@ len.addEventListener('change', e => {
                 document.getElementById('vis-amount-message').setAttribute('style', 'padding: 5px; color: olivedrab; display: block')
                 document.getElementById('hidden-amount-message').setAttribute('style', 'display: none; border: 2px solid firebrick; color:firebrick; font-weight: bold')
             }
-
-
-                // if(e.key==="Backspace"){return}
-                // console.log('inpt value', e.target.value)
-                
-    
-            //     setTimeout(()=>{filterInpt(e)}, 500);
-            // });
-            // inpt.addEventListener('keydown', e => {
-            //     if(e.key==="Backspace"){
-            //         if(e.target.value===''){return}
-            //         else{
-            //             const sectionsToAdd = parseInt(e.target.value);
-            //             addSectionsBack(sectionsToAdd)
-            //         }
-            //     }
-            })
-        
-        
-  
+        })
     });
 });
 
