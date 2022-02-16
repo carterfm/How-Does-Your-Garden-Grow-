@@ -27,15 +27,6 @@
         "plantsPerSF": "4"
     },
     {
-        "name": "Asparagus",
-        "description": "Asparagus is a perennial vegetable: choose the right location, prepare the soil well, and you’ll enjoy delicious spears for twenty years or more! Asparagus is a member of the lily family which includes onions, leeks and garlic and is one of the first vegetables harvested in the spring.",
-        "height": "60",
-        "yield": "0.1",
-        "sunLevel": "full",
-        "timeToHarvest": "1095",
-        "plantsPerSF": "1"
-    },
-    {
         "name": "Cabbage",
         "description": "The versatile cabbage (Brassica oleracea) offers a high nutritional yield per square foot of garden space.  It is one of the most widely cultivated vegetables in the world. The edible cabbage head is actually the plant’s unopened flower bud and will bloom and seed if left until the following year.",
         "height": "18",
