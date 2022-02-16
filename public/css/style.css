@@ -36,7 +36,7 @@ main {
   align-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 4rem;
+  padding: 2rem;
   border-radius: 100px;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
 }
