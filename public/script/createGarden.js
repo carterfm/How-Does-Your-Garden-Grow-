@@ -39,10 +39,14 @@ const resetColorAll = () => {
     })
     secNumInpt.forEach(sec=>{
         sec.setAttribute('style', 'visibility: hidden;height: 1.5rem')
+        sec.value = '';
     })
     infoBox.forEach(box=>{
         box.setAttribute('style', 'display: flex; align-items: center; width: 100%')
     })
+    numDispBox.textContent = 0;
+    wid.value = '';
+    len.value = '';
 }
 
 const show = (el) => {
@@ -284,7 +288,12 @@ const addOptions = (inpt) => {
 }
 
 //measurement collection boxes will appear once the user has chosen a shape
-shapeBox.addEventListener('change', getMeasurements)
+shapeBox.addEventListener('change', e=> {
+    e.preventDefault()
+    resetColorAll()
+    getMeasurements()
+
+})
 
 
 
