@@ -1,0 +1,87 @@
+<main>
+    <div id="hidden" style="color:whitesmoke;font-weight:bold;display:none;">
+        <div id="id">{{garden.id}}</div>
+        <div id="title">{{garden.title}}</div>
+        <div id="description">{{garden.description}}</div>
+        <div id="shape">{{garden.shape}}</div>
+        <div id="length">{{garden.length}}</div>
+        <div id="width">{{garden.width}}</div>
+        <div id="sunLevel">{{garden.sunLevel}}</div>
+    </div>
+    <div class="welcome-box">
+        <h2>Edit "{{garden.title}}"</h2>
+        <p>Let's update your plan! All the garden bed information from the saved garden has been put into the form. You just need to pick new plants! Change anything you need to below and save it.</p>
+        <form id="editGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
+            <label for="editTitle">What would you like to call this plan?</label><span class="required">**required**</span>
+            <input type="text" name="editTitle" id="editTitle" class="edit-input">
+
+            <label for="editDesc">Any special notes?</label>
+            <textarea name="editDesc" id="editDesc" cols="30" rows="5" class="edit-input"></textarea>
+
+            <label for="editShape">What shape is your garden bed?</label><span class="required">**required**</span>
+            <select name="editShape" id="editShape" class="edit-input">
+                <option value="">--Choose a Shape--</option>
+                {{!-- <option value="circle">Circle</option> --}}
+                <option value="square">Square</option>
+                <option value="rectangle">Rectangle</option>
+            </select>
+
+           <div id="editMeasQues">
+               <div class="editMeasBox">
+                    <div class="labels">
+                        <label id="square">How long is one side (in inches)?</label>
+                        {{!-- <label id="circle">How wide across is it (in inches)?</label> --}}
+                        <label id="rectLong">How long is the long side (in inches)?</label>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" id="len" placeholder="Inches" class="edit-input"><span class="required">**required**</span>
+                    </div>
+                </div>
+                <div class="editMeasBox">
+                    <div class="labels">
+                        <label id="rectShort">How long is the short side (in inches)?</label>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" id="wid" placeholder="Inches" class="edit-input"><span class="required">**required**</span>
+                    </div>
+                </div>
+            </div>
+
+            <label for="editSun">How much sun do you get?</label><span class="required">**required**</span>
+            <select name="editSun" id="editSun" class="edit-input">
+                <option value="">--Choose One--</option>
+                <option value="full">Full sun (more than 6 hours of sun a day)</option>
+                <option value="partial">Part sun (between 4-6 hours of sun a day)</option>
+                <option value="shade">Full shade (less than 4 hours of sun a day)</option>
+            </select>
+
+            <div class="prev">
+                The plants you chose previously were:
+                <ul id="prevPlantBox">
+                    {{#each garden.Plants}}
+                        <li class="garden-plant">{{GardenPlant.numberOfPlants}} square foot sections of {{name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            
+
+            <div id="editPlantChoices" style="border: 1px solid black; margin:10px 0; padding: 0 10px;">
+                <h3 style="text-align:center;">Which plants would you like to include?</h3>
+                <ul id="editPlantBox" style="margin: 10px; padding: 10px; width: 100%; height: 150px; overflow-y: auto">
+                    {{#each plant}}
+                        <li class="plantLI">
+                            <input type="checkbox" class="editPlantChoice" name="{{id}}" value="{{id}}">
+                            <img src="/images/{{name}}.png" alt="">
+                            <div><label for="{{id}}">{{name}}</label><p>{{description}}</p></div>
+                        </li>
+                    {{/each}}                             
+                </ul>
+            </div>
+
+            <button id="editGarden" class="garden-btn form-btn">Update It!</button>
+
+        </form>
+    </div>
+</main>
+<script src="/script/editGarden.js"></script>

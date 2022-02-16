@@ -1,5 +1,3 @@
-
-
 //createGarden Form elements
 const titleBox = document.getElementById('newTitle');
 const descriptionBox = document.getElementById('newDesc');
@@ -419,10 +417,10 @@ len.addEventListener('change', e => {
 
 //initiates obj build after form submission
 newFormSubmit.addEventListener('click', e=>{
-    if((title==='')||(shapeBox.value==='')||(len.value==='')||(sunLevel==='')){
+    // if((title==='')||(shapeBox.value==='')||(len.value==='')||(sunLevel==='')){
         
-        alert('Please make sure you\'ve filled out all the required fields correctly.')
-    }
+    //     alert('Please make sure you\'ve filled out all the required fields correctly.')
+    // }
     buildNewGarden(e);
 });
 
