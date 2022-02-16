@@ -4,18 +4,17 @@ const { User, Garden } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //Get route for getting all users
-//TODO: remove, potentially?
-router.get('/', async (req, res) => {
-    try {
-        const allUsers = await User.findAll({
-            include: [Garden]
-        })
-        res.status(200).json(allUsers);
-    } catch (err) {
-        console.log('======\n' + err + '\n======');
-        res.status(500).json(err);
-    }
-})
+// router.get('/', async (req, res) => {
+//     try {
+//         const allUsers = await User.findAll({
+//             include: [Garden]
+//         })
+//         res.status(200).json(allUsers);
+//     } catch (err) {
+//         console.log('======\n' + err + '\n======');
+//         res.status(500).json(err);
+//     }
+// })
 
 //managing creation of new user
 router.post('/', async (req, res) => {
@@ -31,8 +30,6 @@ router.post('/', async (req, res) => {
         };
 
         res.json(newUser);
-        //TODO: frontend code should then take us to the userHome page by setting location.href
-        //to '/'
     } catch (err) {
         console.log('======\n' + err + '\n======');
         res.status(500).json(err);
@@ -41,7 +38,6 @@ router.post('/', async (req, res) => {
 
 //editing an existing user
 router.put('/:id', withAuth, async (req, res)=>{
-    // TODO: ask if it wouldn't be better to convert req.params.id to a number
     if(req.session.user && req.session.user.id == req.params.id) {
         try {
             const updateUser = await User.update(req.body, { individualHooks: true, where: { id: req.session.user.id }});
@@ -78,9 +74,7 @@ router.post('/login', async (req, res) => {
                     username: req.body.username
                 }
             });
-    
-            //If no such user exists in our database, return an error code
-            //TODO: frontend handling for displaying appropriate message
+
             if (!user){
                 res.status(400).json({ message: 'Incorrect email or password.' });
                 return;
@@ -98,8 +92,6 @@ router.post('/login', async (req, res) => {
             };
     
             res.status(200).json({user: user, message: 'Logged in successfully.'});
-            //TODO: frontend code should then take us to the userHome page by setting location.href
-            //to '/dashboard'
         } catch (err) {
             console.log('======\n' + err + '\n======');
             res.status(500).json(err);

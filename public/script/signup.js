@@ -8,12 +8,11 @@ const createUser = async (e) => {
     const username = document.getElementById('usernameInput').value.trim();
     const email = document.getElementById('emailInput').value.trim();
     const password = document.getElementById('passwordInput').value.trim();
-    console.log('into the fxn')
-    // if (password!==passwordVal){
-    //   alert('Your passwords don\'t match!\nTry again!')
-    //   return
-    // }
-    // else {
+    const confirmPassword = document.getElementById('passwordCheck').value.trim();
+    if (password!==confirmPassword){
+      alert('Hmm... something\'s wrong...\n Please make sure all fields are filled and your passwords match.');
+      return
+    } else {
       if (username && email && password) {
         const response = await fetch('/api/user', {
           method: 'POST',
@@ -27,6 +26,12 @@ const createUser = async (e) => {
           alert(response.statusText);
         }
       }
+    }
+    // if (password!==passwordVal){
+    //   alert('Your passwords don\'t match!\nTry again!')
+    //   return
+    // }
+    // else {
     // }
 };
 
