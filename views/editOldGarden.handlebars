@@ -20,7 +20,7 @@
         <h2 style="color:olivedrab;  font-family: 'Amita', cursive;">Edit "{{garden.title}}"</h2>
         <p class="grayFont">Let's update your plan! All the garden bed information from the saved garden has been put into the form. You just need to pick new plants! Change anything you need to below and save it.</p>
         <form id="editGarden" style="display:flex;flex-direction:column; padding: 0 20px 20px 20px;">
-            <label for="editTitle" class="grayFont">What would you like to call this plan?<span class="required">**required**</span></label>
+            <label for="editTitle" class="grayFont">What would you like to call this plan?</label>
             <input type="text" name="editTitle" id="editTitle" required="required">
 
             <label for="editDesc" class="grayFont">Any special notes?</label>
@@ -35,7 +35,7 @@
                 <p id="len-holder">The previous length you entered was: {{garden.length}}</p>
                 <p id="square-holder">The previous measurement you entered was: {{garden.length}}</p>
             </div>
-            <label for="editShape" class="grayFont">What shape is your garden bed?<span class="required">**required**</span></label>
+            <label for="editShape" class="grayFont">What shape is your garden bed?</label>
             <select name="editShape" id="editShape" required="required">
                 <option value="">--Choose a Shape--</option>
                 <option value="square">Square</option>
@@ -45,7 +45,7 @@
             <div id="editMeasQues">
                <div class="editMeasBox">
                    <div class="inputs">
-                        <label class="grayFont" id="rectShort">How long is the long side (in feet)?</label><span class="required">**required**</span>
+                        <label class="grayFont" id="rectShort">How long is the long side (in feet)?</label>
                          <select class="custom-select" name="wid" id="wid">
                             <option value="">--Feet--</option>
                             <option value="1">1</option>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="labels">
                         <label class="grayFont" id="square">How long is one side (in feet)?</label>
-                        <label class="grayFont" id="rectLong">How long is the short side (in feet)?</label><span class="required">**required**</span>
+                        <label class="grayFont" id="rectLong">How long is the short side (in feet)?</label>
                         <select class="custom-select" name="len" id="len">
                             <option value="">--Feet--</option>
                             <option value="1">1</option>
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <label for="editSun" class="grayFont">How much sun do you get?</label><span class="required">**required**</span>
+            <label for="editSun" class="grayFont">How much sun do you get?</label>
             <select name="editSun" id="editSun" required="required">
                 <option value="" class="grayFont">--Choose One--</option>
                 <option value="full" class="grayFont">Full sun (more than 6 hours of sun a day)</option>

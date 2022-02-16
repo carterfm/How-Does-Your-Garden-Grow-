@@ -37,16 +37,17 @@ confirmPassword.addEventListener('blur', e=>{
 
 const deleteProfile = (e) => {
     e.preventDefault();
-    console.log(`/api/user/${userID}`)
-    fetch(`/api/user/${userID}`,{
+    if (window.confirm("This action cannot be undone")) {
+      fetch(`/api/user/${userID}`,{
         method:"DELETE"
-    }).then(res=>{
+      }).then(res=>{
         if(res.ok){
             document.location.replace('/');
         } else {
             alert("trumpet sound")
         }
-    })
+      });
+    }
 }
 
 const editUser = async (e) => {

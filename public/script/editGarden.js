@@ -89,9 +89,12 @@ const init = () => {
     if(shape==='square'){
         document.getElementById('wid-holder').setAttribute('style', 'display: none');
         document.getElementById('len-holder').setAttribute('style', 'display: none');
+        document.getElementById('square-holder').setAttribute('style', 'display: inline');
     }
     if(shapeBox.value==='rectangle'){
         document.getElementById('square-holder').setAttribute('style', 'display: none');
+        document.getElementById('wid-holder').setAttribute('style', 'display: inline');
+        document.getElementById('len-holder').setAttribute('style', 'display: inline');
     }
     resetColorAll();
 }

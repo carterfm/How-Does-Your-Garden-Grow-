@@ -16,28 +16,35 @@
             {{!-- TODO: pre-populate these fields with info from the user--}}
             <div id="label-inpt-box">
                 <div id="form-label-box" class="form-element">
-                    <label for="emailEdit" style="color:#6c757d;">Email:</label>
-                    <label for="usernameEdit" style="color:#6c757d;">Username:</label>
-                    <label for="passwordEdit" style="color:#6c757d;">Password:</label>
-                    <label for="passwordEditCheck" style="color:#6c757d;">Check Password:</label>
+                    <div class="req-box">
+                        <label for="emailEdit" style="color:#6c757d;">Email:</label>
+                    </div>
+                    <div class="req-box">
+                        <label for="usernameEdit" style="color:#6c757d;">Username:</label>
+                    </div>
+                    <div class="req-box">
+                        <label for="passwordEdit" style="color:#6c757d;">Password:</label>
+                    </div>
+                    <div class="req-box">
+                        <label for="passwordEditCheck" style="color:#6c757d;">Check Password:</label>
+                    </div>
                 </div>
                 <div id="form-inpt-box" class="form-element">
-                    <input type="text" name="emailEdit" id="emailEdit" required="required"><span class="required">**required**</span>
-                    <input type="text" name="usernameEdit" id="usernameEdit" required="required"><span class="required">**required**</span>
-                    <input type="password" autocomplete="current-password" name="passwordEdit" id="passwordEdit" required="required"><span class="required">**required**</span>
-                    <input type="password" autocomplete="current-password" name="passwordEditCheck" id="passwordEditCheck" required="required"><span class="required">**required**</span>
-                     <small id="passwordHelpBlock" class="form-text text-muted">Your password must be at least 8 characters long.</small>
+                    <input type="text" name="emailEdit" id="emailEdit" required="required">
+                    <input type="text" name="usernameEdit" id="usernameEdit" required="required">
+                    <input type="password" autocomplete="current-password" name="passwordEdit" id="passwordEdit" required="required">
+                    <input type="password" autocomplete="current-password" name="passwordEditCheck" id="passwordEditCheck" required="required">
+                    <small id="passwordHelpBlock" class="form-text text-muted" style="align-text: right; width: 100%;">Your password must be at least 8 characters long.</small>
                 </div>
             </div>
+
+             <p id="togglePassword" style="text-align:right; color:#6c757d; text-decoration: underline; cursor: pointer;">ShowPassword</p>
             <p id="password-match">Your passwords don't match!!</p>
-              <p id="togglePassword" style="text-align:right; color:#6c757d; text-decoration: underline; cursor: pointer;">ShowPassword</p>
+             
             <div id="button-box" class="form-element">
+                 
                 <button type="submit" id="submitEdit" class="garden-btn">UPDATE PROFILE</button>
-                <button type="submit" id="submitDelete" class="garden-btn" onclick="deleteAlert()">DELETE PROFILE</button>
-                <script>
-                    function deleteAlert() {
-                    confirm("This action cannot be undone");}
-                </script>
+                <button type="submit" id="submitDelete" class="garden-btn">DELETE PROFILE</button>
             </div>
         </form>
     </div>
