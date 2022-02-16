@@ -1,6 +1,8 @@
 # How-Does-Your-Garden-Grow
 Second project for UW full stack code bootcamp
 
+https://serene-dusk-36944.herokuapp.com/
+
 ## Description
 
 We've created a website that allows users to generate a plan for their backyard vegetable garden. Using p5.js we generate a visual plan for a vegetable garden based on the area given by the user and with best gardening practices in mind. The user can then pick from a list which veggies they would like to plant, after this step is completed the user can click the build button to have the garden plan generated.
